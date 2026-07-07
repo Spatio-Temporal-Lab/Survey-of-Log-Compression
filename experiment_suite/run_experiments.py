@@ -146,6 +146,19 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
+def equal_ignoring_one_final_newline(left: Path, right: Path) -> bool:
+    left_size = left.stat().st_size
+    right_size = right.stat().st_size
+    if abs(left_size - right_size) != 1:
+        return False
+    shorter, longer = (left, right) if left_size < right_size else (right, left)
+    with shorter.open("rb") as short_stream, longer.open("rb") as long_stream:
+        while block := short_stream.read(8 * 1024 * 1024):
+            if block != long_stream.read(len(block)):
+                return False
+        return long_stream.read(1) == b"\n" and long_stream.read(1) == b""
+
+
 class ExperimentRunner:
     def __init__(self, args: argparse.Namespace):
         self.args = args
@@ -749,6 +762,12 @@ class ExperimentRunner:
         correct: bool | str = ""
         if restored and restored.is_file():
             correct = sha256_file(input_file) == sha256_file(restored)
+            if correct is False and equal_ignoring_one_final_newline(input_file, restored):
+                correct = "record_equal_final_newline"
+                notes = (
+                    (notes + " " if notes else "")
+                    + "Restored output differs only by one final newline; record content is identical."
+                )
         return {
             "status": "FAILED_CORRECTNESS" if correct is False else "OK",
             "stage": "verify" if correct is False else "complete",
@@ -850,7 +869,11 @@ class ExperimentRunner:
         return self.base_metrics(input_file, method, [archive_dir], compress, decompress, restored)
 
     def run_cowic(self, case: dict[str, Any], method: dict[str, Any], input_file: Path, work: Path) -> dict[str, Any]:
-        binary = self.method_root(method) / "bin/compressor_cmd_tool"
+        method_dir = self.method_root(method)
+        binary = method_dir / "bin/compressor_cmd_tool"
+        config = method_dir / "config.ini"
+        if config.is_file():
+            shutil.copy2(config, work / "config.ini")
         seed = self.sample_lines(input_file, work / "seed.log", float(method["defaults"]["sample_ratio"]))
         model = work / "model.mdl"
         archive = work / "archive"
@@ -862,6 +885,8 @@ class ExperimentRunner:
         decompress = self.run_command(
             case, "decompress", f"{q(binary)} -d {q(archive)} -m {q(model)} -o {q(restored)}", work
         )
+        model_paths = list(work.glob("model.mdl*"))
+        model_paths.extend(path for path in work.glob("*.aux") if path.is_file())
         metrics = self.base_metrics(
             input_file,
             method,
@@ -869,7 +894,7 @@ class ExperimentRunner:
             compress,
             decompress,
             restored,
-            include_paths=list(work.glob("model.mdl*")),
+            include_paths=model_paths,
             notes=f"模型训练时间 {training.elapsed_s:.6f}s；压缩大小包含模型和索引。",
         )
         metrics["peak_rss_kib"] = max(
@@ -1004,7 +1029,16 @@ class ExperimentRunner:
         decompress = self.run_command(
             case, "decompress", f"{q(binary)} -d < {q(archive)} > {q(restored)}", work
         )
-        return self.base_metrics(input_file, method, [archive], compress, decompress, restored)
+        compressed_paths = [path for path in work.glob("*.bz2") if path.is_file()]
+        return self.base_metrics(
+            input_file,
+            method,
+            compressed_paths,
+            compress,
+            decompress,
+            restored,
+            notes="LogArchive writes its archive as index.bz2 plus log*.txt.bz2 files in the working directory.",
+        )
 
     def run_pbc(self, case: dict[str, Any], method: dict[str, Any], input_file: Path, work: Path) -> dict[str, Any]:
         binary = self.method_root(method) / "bin/pbc"

@@ -79,7 +79,7 @@
       "mode": "batch",
       "query_capable": false,
       "runtime_dir": "/home/abebts130613/elise_2021_run_20260629",
-      "python": "/home/abebts130613/elise_2021_run_20260629/.venv/bin/python",
+      "python": "python3",
       "defaults": {
         "training_bytes": 100000,
         "timesteps": 24,
@@ -258,3 +258,4 @@
     {"id": "Q8", "kind": "multi_predicate"}
   ]
 }
+
