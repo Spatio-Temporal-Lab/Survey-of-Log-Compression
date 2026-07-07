@@ -1,0 +1,15 @@
+[0]
+"bootstrap prepare <*>
+[1]
+"[bootstrap <*> cluster bootstrap <*>
+[2]
+"[server_start <*> observer <*> <*>
+[3]
+"[bootstrap <*> bootstrap <*> sys <*> success."
+[4]
+"observer process wait begin."
+[5]
+"[server_start <*> observer syslog service init <*>
+[6]
+"[oops]: alloc failed reason is that tenant memory has reached the upper limit(tenant_id: <*>, tenant_hold: <*>, tenant_limit: <*>, alloc_size: 2097152)"
+[7]

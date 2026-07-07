@@ -1,0 +1,13 @@
+[0]
+<*>	ListTask:<*>	App:file_meta	Op:Scan	Status:<*>	Limits:<*>	RespCount:<*>	NextMarker:<*>	by momo 2019/ Prefix:	Delimiter:	PartDone:<*>	Route:{pid:<*>, token:1576674487926564#3680689931,	min:2C7AE147,	max:<*>	by momo 2019/, rid:39506817361572867_48,	<*>
+[1]
+<*>	ListTask:<*>	App:file_meta	Op:Scan	Status:<*>	Limits:<*>	RespCount:<*>	NextMarker:2CCCCCCC	Prefix:	Delimiter:	PartDone:<*>	Route:{pid:<*>, token:1577201063076052#3680689931,	min:<*>	by momo 2019/, max:2CCCCCCC,	rid:5141861769436838542_10,	<*>
+[2]
+<*>	log:fcgi	request already finish, receive type:IN
+[5]
+<*>	ListTask:<*>	App:<*>	Op:Scan	Status:<*>	Limits:<*>	RespCount:<*>	NextMarker:<*>	Prefix:	Delimiter:	PartDone:<*>	Route:{pid:<*>, token:<*>,	min:<*>,	max:<*>,	rid:<*>,	<*>
+[6]
+<*>	log:fcgi	request break, state:REQ_ST_CLOSED,	reqId:<*>
+[7]
+<*>	log:<*>	has data
+[8]

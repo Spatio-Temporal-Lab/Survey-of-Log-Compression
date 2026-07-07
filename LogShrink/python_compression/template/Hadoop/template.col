@@ -1,0 +1,137 @@
+[0]
+handler <*> on <*> org.apache.hadoop.mapred.TaskAttemptListenerImpl: MapCompletionEvents request from attempt_<*>_<*>_r_<*>_<*> startIndex <*> maxEvents <*>
+[1]
+handler <*> on <*> org.apache.hadoop.mapred.TaskAttemptListenerImpl: Progress of TaskAttempt attempt_<*>_<*>_<*>_<*>_<*> is : <*>
+[2]
+org.apache.hadoop.mapreduce.v2.app.rm.RMContainerAllocator: After Scheduling: PendingReds:<*> ScheduledMaps:<*> ScheduledReds:<*> AssignedMaps:<*> AssignedReds:<*> CompletedMaps:<*> CompletedReds:<*> ContAlloc:<*> ContRel:<*> HostLocal:<*> RackLocal:<*>
+[6]
+(RESET) equator <*> kv <*> kvi <*>
+[10]
+Spilling map output
+[11]
+bufstart = <*> bufend = <*> bufvoid = <*>
+[12]
+kvstart = <*> kvend = <*> length = <*>
+[13]
+(EQUATOR) <*> kvi <*>
+[14]
+Finished spill <*>
+[15]
+Starting flush of map output
+[16]
+Merging <*> sorted segments
+[17]
+Down to the last merge-pass, with <*> segments left of total size: <*> bytes
+[18]
+Task:attempt_<*>_<*>_m_<*>_<*> is done. And is in the process of committing
+[19]
+Task 'attempt_<*>_<*>_m_<*>_0' done.
+[20]
+loaded properties from hadoop-metrics2.properties
+[21]
+Scheduled snapshot period at <*> second(s).
+[22]
+MapTask metrics system <*>
+[23]
+Executing with tokens:
+[24]
+handler] org.apache.hadoop.yarn.util.RackResolver: Resolved <*> to /default-rack
+[25]
+handler] org.apache.hadoop.mapreduce.v2.app.job.impl.TaskAttemptImpl: attempt_<*>_<*>_m_<*>_<*> TaskAttempt Transitioned from <*> to <*>
+[26]
+org.apache.hadoop.mapreduce.v2.app.launcher.ContainerLauncherImpl: Processing the event EventType: CONTAINER_REMOTE_<*> for container container_<*>_<*>_<*>_<*> taskAttempt attempt_<*>_<*>_m_<*>_<*>
+[27]
+org.apache.hadoop.yarn.client.api.impl.ContainerManagementProtocolProxy: Opening proxy : <*>:<*>
+[29]
+handler] org.apache.hadoop.mapreduce.v2.app.job.impl.TaskAttemptImpl: TaskAttempt: [attempt_<*>_<*>_m_<*>_<*> using containerId: [container_<*>_<*>_<*>_<*> on NM: <*>:<*>
+[31]
+Kind: mapreduce.job, Service: job_<*>_<*>, Ident: <*>
+[34]
+Sleeping for 0ms before retrying again. Got null now.
+[35]
+mapreduce.cluster.local.dir for child: /tmp/hadoop-msrabi/nm-local-dir/usercache/msrabi/appcache/application_<*>_<*>
+[36]
+session.id is deprecated. Instead, use dfs.metrics.session-id
+[37]
+ProcfsBasedProcessTree currently is supported only on Linux.
+[38]
+Using ResourceCalculatorProcessTree : <*>
+[39]
+Processing split: hdfs://msra-sa-41:<*>:<*>
+[40]
+mapreduce.task.io.sort.mb: <*>
+[41]
+soft limit at <*>
+[42]
+at org.apache.hadoop.ipc.Client.call(Client.java:<*>
+[43]
+... <*> more
+[44]
+Address change detected. Old: msra-sa-41/10.190.173.170:<*> New: msra-sa-41:<*>
+[45]
+Failed to renew lease for [DFSClient_NONMAPREDUCE_<*>_1] for <*> seconds.  Will retry shortly ...
+[46]
+from  MININT-FNANLI5/127.0.0.1 to msra-sa-41:<*> failed on socket timeout exception: java.net.NoRouteToHostException: No route to host: no further information; For more details see:  http://wiki.apache.org/hadoop/NoRouteToHost
+[47]
+at <*> <*>
+[48]
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+[50]
+at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
+[51]
+at org.apache.hadoop.net.NetUtils.wrapWithMessage(NetUtils.java:791)
+[52]
+at org.apache.hadoop.net.NetUtils.wrapException(NetUtils.java:<*>
+[53]
+at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:232)
+[54]
+at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolTranslatorPB.renewLease(ClientNamenodeProtocolTranslatorPB.java:571)
+[55]
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[56]
+at java.lang.reflect.Method.invoke(Method.java:606)
+[57]
+at org.apache.hadoop.io.retry.RetryInvocationHandler.invokeMethod(RetryInvocationHandler.java:187)
+[58]
+at org.apache.hadoop.net.SocketIOWithTimeout.connect(SocketIOWithTimeout.java:<*>
+[60]
+at org.apache.hadoop.net.NetUtils.connect(NetUtils.java:<*>
+[61]
+at org.apache.hadoop.ipc.Client$Connection.setupConnection(Client.java:607)
+[62]
+at org.apache.hadoop.ipc.Client$Connection.setupIOstreams(Client.java:705)
+[63]
+handler] org.apache.hadoop.mapreduce.v2.app.job.impl.TaskImpl: Recovering task task_<*>_<*>_m_<*> from prior app attempt, status was SUCCEEDED
+[64]
+handler] org.apache.hadoop.mapreduce.v2.app.job.impl.TaskImpl: Task succeeded with attempt attempt_<*>_<*>_m_<*>_<*>
+[65]
+org.apache.hadoop.ipc.Client: Retrying connect to server: <*>:<*> Already tried <*> time(s); maxRetries=<*>
+[67]
+org.apache.hadoop.mapreduce.v2.app.rm.RMContainerAllocator: Reduce slow start threshold not met. completedMapsForReduceSlowstart <*>
+[68]
+org.apache.hadoop.mapreduce.v2.app.rm.RMContainerAllocator: Recalculating schedule, headroom=<memory:<*>, vCores:-27>
+[69]
+bufstart = 0; bufvoid = <*>
+[70]
+kvstart = 26214396; length = <*>
+[71]
+Map output collector class = org.apache.hadoop.mapred.MapTask$MapOutputBuffer
+[72]
+Assigning <*>:<*> with <*> to <*>
+[76]
+assigned <*> of <*> to <*>:<*> to <*>
+[77]
+fetching Map Completion Events] org.apache.hadoop.mapreduce.task.reduce.ShuffleSchedulerImpl: Ignoring obsolete output of <*> map-task: 'attempt_<*>_<*>_m_<*>_<*>
+[78]
+org.apache.hadoop.ipc.Client: Retrying connect to server: <*>:<*> Already tried <*> time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=<*>, sleepTime=<*> MILLISECONDS)
+[82]
+at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:102)
+[86]
+at <*>:<*>
+[87]
+to host: no further information
+[88]
+Stopping MapTask metrics system...
+[89]
+MapTask metrics system shutdown complete.
+[90]

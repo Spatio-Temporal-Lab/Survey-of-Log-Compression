@@ -1,0 +1,121 @@
+(.venv) jupiter@jupiter-Z790M:~/PycharmProjects/LogShrink-main/python_compression$ python3 run.py -I ../test_logs/ -ds Linux -E E -C -K lzma -V -P -wh 50 -th 10 -NC 16 -S -outdir ./out/out
+Step 1: segmenting...
+python3 ./parser/sampler.py ../test_logs/Linux/Linux.log ../test_logs/Linux/Linux.log.sample 0.001
+Sample for ../test_logs/Linux/Linux.log, tot size: 25568, sample size: 1000
+Loading log messages to dataframe...
+Total lines 1000
+Success load logs#: 1000, Failed load lines#: 0
+Time taken 0.01s
+/home/jupiter/PycharmProjects/LogShrink-main/python_compression/parser/header.py:27: FutureWarning: pandas.value_counts is deprecated and will be removed in a future version. Use pd.Series(obj).value_counts() instead.
+  if (pd.value_counts(Hpart_len)[Hcount] < len(Hpart_len) * self.threshold): #Different lenght -> Regular string
+/home/jupiter/PycharmProjects/LogShrink-main/python_compression/parser/header.py:27: FutureWarning: value_counts with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.
+  if (pd.value_counts(Hpart_len)[Hcount] < len(Hpart_len) * self.threshold): #Different lenght -> Regular string
+/home/jupiter/PycharmProjects/LogShrink-main/python_compression/parser/header.py:27: FutureWarning: pandas.value_counts is deprecated and will be removed in a future version. Use pd.Series(obj).value_counts() instead.
+  if (pd.value_counts(Hpart_len)[Hcount] < len(Hpart_len) * self.threshold): #Different lenght -> Regular string
+/home/jupiter/PycharmProjects/LogShrink-main/python_compression/parser/header.py:27: FutureWarning: value_counts with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.
+  if (pd.value_counts(Hpart_len)[Hcount] < len(Hpart_len) * self.threshold): #Different lenght -> Regular string
+/home/jupiter/PycharmProjects/LogShrink-main/python_compression/parser/header.py:59: FutureWarning: pandas.value_counts is deprecated and will be removed in a future version. Use pd.Series(obj).value_counts() instead.
+  if (pd.value_counts(n_len)[len_pivot] < len(HDic[t]) * self.threshold): # Variable length
+/home/jupiter/PycharmProjects/LogShrink-main/python_compression/parser/header.py:59: FutureWarning: value_counts with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.
+  if (pd.value_counts(n_len)[len_pivot] < len(HDic[t]) * self.threshold): # Variable length
+/home/jupiter/PycharmProjects/LogShrink-main/python_compression/parser/header.py:27: FutureWarning: pandas.value_counts is deprecated and will be removed in a future version. Use pd.Series(obj).value_counts() instead.
+  if (pd.value_counts(Hpart_len)[Hcount] < len(Hpart_len) * self.threshold): #Different lenght -> Regular string
+/home/jupiter/PycharmProjects/LogShrink-main/python_compression/parser/header.py:27: FutureWarning: value_counts with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.
+  if (pd.value_counts(Hpart_len)[Hcount] < len(Hpart_len) * self.threshold): #Different lenght -> Regular string
+/home/jupiter/PycharmProjects/LogShrink-main/python_compression/parser/header.py:59: FutureWarning: pandas.value_counts is deprecated and will be removed in a future version. Use pd.Series(obj).value_counts() instead.
+  if (pd.value_counts(n_len)[len_pivot] < len(HDic[t]) * self.threshold): # Variable length
+/home/jupiter/PycharmProjects/LogShrink-main/python_compression/parser/header.py:59: FutureWarning: value_counts with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.
+  if (pd.value_counts(n_len)[len_pivot] < len(HDic[t]) * self.threshold): # Variable length
+/home/jupiter/PycharmProjects/LogShrink-main/python_compression/parser/header.py:50: FutureWarning: pandas.value_counts is deprecated and will be removed in a future version. Use pd.Series(obj).value_counts() instead.
+  if (pd.value_counts(HDic[t])[pivot] < len(HDic[t]) * self.threshold): #Dynamic string -> Regular string
+/home/jupiter/PycharmProjects/LogShrink-main/python_compression/parser/header.py:50: FutureWarning: value_counts with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.
+  if (pd.value_counts(HDic[t])[pivot] < len(HDic[t]) * self.threshold): #Dynamic string -> Regular string
+/home/jupiter/PycharmProjects/LogShrink-main/python_compression/parser/header.py:59: FutureWarning: pandas.value_counts is deprecated and will be removed in a future version. Use pd.Series(obj).value_counts() instead.
+  if (pd.value_counts(n_len)[len_pivot] < len(HDic[t]) * self.threshold): # Variable length
+/home/jupiter/PycharmProjects/LogShrink-main/python_compression/parser/header.py:59: FutureWarning: value_counts with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.
+  if (pd.value_counts(n_len)[len_pivot] < len(HDic[t]) * self.threshold): # Variable length
+/home/jupiter/PycharmProjects/LogShrink-main/python_compression/parser/header.py:50: FutureWarning: pandas.value_counts is deprecated and will be removed in a future version. Use pd.Series(obj).value_counts() instead.
+  if (pd.value_counts(HDic[t])[pivot] < len(HDic[t]) * self.threshold): #Dynamic string -> Regular string
+/home/jupiter/PycharmProjects/LogShrink-main/python_compression/parser/header.py:50: FutureWarning: value_counts with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.
+  if (pd.value_counts(HDic[t])[pivot] < len(HDic[t]) * self.threshold): #Dynamic string -> Regular string
+/home/jupiter/PycharmProjects/LogShrink-main/python_compression/parser/header.py:59: FutureWarning: pandas.value_counts is deprecated and will be removed in a future version. Use pd.Series(obj).value_counts() instead.
+  if (pd.value_counts(n_len)[len_pivot] < len(HDic[t]) * self.threshold): # Variable length
+/home/jupiter/PycharmProjects/LogShrink-main/python_compression/parser/header.py:59: FutureWarning: value_counts with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.
+  if (pd.value_counts(n_len)[len_pivot] < len(HDic[t]) * self.threshold): # Variable length
+/home/jupiter/PycharmProjects/LogShrink-main/python_compression/parser/header.py:27: FutureWarning: pandas.value_counts is deprecated and will be removed in a future version. Use pd.Series(obj).value_counts() instead.
+  if (pd.value_counts(Hpart_len)[Hcount] < len(Hpart_len) * self.threshold): #Different lenght -> Regular string
+/home/jupiter/PycharmProjects/LogShrink-main/python_compression/parser/header.py:27: FutureWarning: value_counts with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.
+  if (pd.value_counts(Hpart_len)[Hcount] < len(Hpart_len) * self.threshold): #Different lenght -> Regular string
+/home/jupiter/PycharmProjects/LogShrink-main/python_compression/parser/header.py:27: FutureWarning: pandas.value_counts is deprecated and will be removed in a future version. Use pd.Series(obj).value_counts() instead.
+  if (pd.value_counts(Hpart_len)[Hcount] < len(Hpart_len) * self.threshold): #Different lenght -> Regular string
+/home/jupiter/PycharmProjects/LogShrink-main/python_compression/parser/header.py:27: FutureWarning: value_counts with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.
+  if (pd.value_counts(Hpart_len)[Hcount] < len(Hpart_len) * self.threshold): #Different lenght -> Regular string
+Total time cost: 0.10769486427307129
+Outputing ../test_logs/Linux/Linux_Segment/0.col
+Segmenting finished.
+添加目录：./out/out/Linux/tmp/
+Step2: Segmenting finished.
+Processing file: ./out/out/Linux/tmp/LS__0/ 0
+step 2: preprocessing...
+目录验证存在！
+step 2.1: log parsing... ../test_logs/Linux/Linux_Segment/0.col
+./out/out/Linux/tmp/LS__0/0/temp/
+./parser/THULR -I ../test_logs/Linux/Linux_Segment/ -X 0 -O ./out/out/Linux/tmp/LS__0/0/temp/ -T ./template/Linux/ -E  Z  -F ./template/Linux/head.format
+目录outdir验证存在！
+input file path: ../test_logs/Linux/Linux_Segment/
+input file start no: 0
+output path : ./out/out/Linux/tmp/LS__0/0/temp/
+templates file :./template/Linux/
+Encode Mode is: Z
+Head format path is:./template/Linux/head.format
+--------Head format open seccussed--------
+--------start loadTemplate--------
+add new node of E11
+finish add
+...(repeat 33 times)
+read 34 templates, failed 0
+--------finish loadTemplate--------
+load data start... of ../test_logs/Linux/Linux_Segment/0.col
+read logs: 25567
+load failed: 93
+Fail Reason-> Total too long: 0, Wrong format: 0, No content: 93, Too many tockens: 0, Bad char: 0, Empty line: 0, Too many variables: 0, No head: 0
+match failed: 4155
+Load failed rate: 0.0036375
+match failed rate: 0
+It takes 0.078928s to load template and data
+res: 0
+THULR后，目录outdir验证存在！
+开始read_parsing_result
+Step 2.2, log matching, parsing file: ./out/out/Linux/tmp/LS__0/0/temp
+完成read_parsing_result
+Step 2.3, get log sequence list
+Step 3: Sequence sampling
+sequence based sampling
+Iterative clustering took 0.013 s, generating 3 clusters and 22 mismatched data
+clustering_sampling takes 0.013 s
+Step 4: Commonality and Variability Analyzer...
+H H mining
+E V mining
+step 5: compressing...
+Compressing all files, including base, diff, id, and var list
+
+7-Zip (z) 25.00 (x64) : Copyright (c) 1999-2025 Igor Pavlov : 2025-07-05
+ 64-bit locale=zh_CN.UTF-8 Threads:24 OPEN_MAX:1048576, ASM
+
+Scanning the drive:
+75 files, 898315 bytes (878 KiB)
+
+Creating archive: ./out/out/Linux/tmp/LS__0/0.7z
+
+Add new data to archive: 75 files, 898315 bytes (878 KiB)
+
+
+Files read from disk: 75
+Archive size: 81924 bytes (81 KiB)
+Everything is Ok
+thread:LS__0, type:Linux, fileNo: 0 to 0 , cost time: 3.2451531887054443
+mv ./out/out/Linux/tmp/*/*.7z ./out/out/Linux
+./out/out/Linux finished, total time cost: 3.246868848800659 , thread accum time: 3.2451531887054443
+./out/out/Linux Main finished, total time cost: 3.246875524520874 , error num: 0
+./out/out/Linux
+Linux Compression ratio 28.681, compression speed 723676.033

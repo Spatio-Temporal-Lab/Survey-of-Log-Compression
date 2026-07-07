@@ -1,0 +1,157 @@
+[0]
+Successfully registered with driver
+[1]
+Starting executor ID <*> on host <*>
+[2]
+Successfully started service <*> on port <*>
+[3]
+Server created on <*>
+[4]
+Trying to register BlockManager
+[5]
+Registered BlockManager
+[6]
+Got assigned task <*>
+[7]
+Running task <*> in stage <*> (TID <*>
+[8]
+Started reading broadcast variable <*>
+[9]
+Block <*> stored as <*> in memory (estimated size <*> <*>, free <*> <*>
+[10]
+Reading broadcast variable <*> took <*> ms
+[11]
+Input split: hdfs://10.10.34.11:<*>:<*>
+[12]
+Finished task <*> in stage <*> (TID <*> <*> bytes result sent to driver
+[16]
+Times: total = <*>, boot = <*>, init = <*>, finish = <*>
+[17]
+SecurityManager: authentication disabled; ui acls disabled; users with view permissions: Set(yarn, curi); users with modify permissions: Set(yarn, curi)
+[18]
+Changing view acls to: yarn,curi
+[19]
+Changing modify acls to: yarn,curi
+[20]
+Slf4jLogger started
+[21]
+Starting remoting
+[22]
+Remoting started; listening on addresses :[akka.tcp:<*>:<*>
+[23]
+Created local directory at <*>
+[24]
+MemoryStore started with capacity <*> GB
+[25]
+Connecting to driver: spark:<*>:<*>
+[26]
+Removing RDD <*>
+[27]
+SPARK_USER -> curi
+[28]
+SPARK_YARN_CACHE_FILES_VISIBILITIES -> PRIVATE,PRIVATE,PRIVATE
+[29]
+SPARK_YARN_MODE -> true
+[30]
+SPARK_YARN_CACHE_FILES_TIME_STAMPS -> <*>,<*>,<*>
+[31]
+PYTHONPATH -> {{PWD}}/pyspark.zip<CPS>{{PWD}}/py4j-0.9-src.zip
+[32]
+SPARK_LOG_URL_STDOUT -> http:<*>:<*>=-4096
+[33]
+SPARK_YARN_CACHE_FILES -> hdfs://10.10.34.11:<*>,hdfs://10.10.34.11:<*>,hdfs://10.10.34.11:<*>
+[34]
+command:
+[35]
+Launching ExecutorRunnable. driverUrl: spark:<*>:<*>,  executorHostname: <*>
+[38]
+YARN executor launch context:
+[41]
+env:
+[42]
+CLASSPATH -> {{PWD}}<CPS>{{PWD}}/__spark__.jar<CPS>$HADOOP_CONF_DIR<CPS>$HADOOP_COMMON_HOME/share/hadoop/common/*<CPS>$HADOOP_COMMON_HOME/share/hadoop/common/lib/*<CPS>$HADOOP_HDFS_HOME/share/hadoop/hdfs/*<CPS>$HADOOP_HDFS_HOME/share/hadoop/hdfs/lib/*<CPS>$HADOOP_YARN_HOME/share/hadoop/yarn/*<CPS>$HADOOP_YARN_HOME/share/hadoop/yarn/lib/*<CPS>$HADOOP_MAPRED_HOME/share/hadoop/mapreduce/*<CPS>$HADOOP_MAPRED_HOME/share/hadoop/mapreduce/lib/*<CPS>/usr/local/hadoop/etc/hadoop:/usr/local/hadoop/share/hadoop/common/lib/*:/usr/local/hadoop/share/hadoop/common/*:/usr/local/hadoop/share/hadoop/hdfs:/usr/local/hadoop/share/hadoop/hdfs/lib/*:/usr/local/hadoop/share/hadoop/hdfs/*:/usr/local/hadoop/share/hadoop/yarn/lib/*:/usr/local/hadoop/share/hadoop/yarn/*:/usr/local/hadoop/share/hadoop/mapreduce/lib/*:/usr/local/hadoop/share/hadoop/mapreduce/*:/contrib/capacity-scheduler/*.jar
+[43]
+SPARK_LOG_URL_STDERR -> http:<*>:<*>=-4096
+[44]
+SPARK_DIST_CLASSPATH -> /usr/local/hadoop/etc/hadoop:/usr/local/hadoop/share/hadoop/common/lib/*:/usr/local/hadoop/share/hadoop/common/*:/usr/local/hadoop/share/hadoop/hdfs:/usr/local/hadoop/share/hadoop/hdfs/lib/*:/usr/local/hadoop/share/hadoop/hdfs/*:/usr/local/hadoop/share/hadoop/yarn/lib/*:/usr/local/hadoop/share/hadoop/yarn/*:/usr/local/hadoop/share/hadoop/mapreduce/lib/*:/usr/local/hadoop/share/hadoop/mapreduce/*:/contrib/capacity-scheduler/*.jar
+[45]
+SPARK_YARN_STAGING_DIR -> <*>
+[46]
+SPARK_YARN_CACHE_FILES_FILE_SIZES -> <*>,<*>,<*>
+[47]
+Added <*> in memory on <*>:<*> (size: <*> <*>, free: <*> <*>
+[50]
+Created broadcast <*> from broadcast at <*>:<*>
+[51]
+File Output Committer Algorithm version is <*>
+[61]
+Saved output of task <*> to hdfs://10.10.34.11:<*>
+[62]
+<*>: Committed
+[63]
+Updating epoch to <*> and clearing cache
+[64]
+Partition <*> not found, computing it
+[65]
+Removed <*> on <*>:<*> in memory (size: 4.0 MB, free: 2.6 GB)
+[66]
+at <*>:<*>
+[67]
+... <*> more
+[68]
+in <*>
+[71]
+Started <*> remote fetches in <*> ms
+[76]
+Getting <*> non-empty blocks out of <*> blocks
+[77]
+Driver commanded a shutdown
+[78]
+MemoryStore cleared
+[79]
+Don't have map outputs for shuffle <*>, fetching them
+[80]
+Got the output locations
+[82]
+refused: <*>:<*>
+[83]
+at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+[84]
+Retrying fetch <*> for <*> outstanding blocks after <*> ms
+[85]
+Found inactive connection to <*>:<*>, creating a new one.
+[86]
+Exception while beginning fetch of <*> outstanding blocks (after <*> retries)
+[87]
+Shutdown hook called
+[92]
+Starting task <*> in stage 17.0 (TID <*>, <*>, partition <*>,PROCESS_LOCAL, <*> bytes)
+[95]
+Update row: <*>
+[96]
+Found block <*> locally
+[97]
+BlockManager stopped
+[98]
+An unknown (mesos-master-1:<*> driver disconnected.
+[99]
+Driver <*>:<*> disassociated! Shutting down.
+[100]
+Registered signal handlers for [TERM, HUP, INT]
+[101]
+<*> <*>:<*>:<*> INFO ExecutorRunnable:
+[108]
+Container request (host: Any, capability: <memory:<*>, vCores:5>)
+[112]
+Launching container <*> for on host <*>
+[113]
+Starting Executor Container
+[114]
+yarn.client.max-cached-nodemanagers-proxies : <*>
+[115]
+Setting up ContainerLaunchContext
+[116]
+Preparing Local resources
+[117]
+Prepared Local resources Map(__spark__.jar -> resource { scheme: "hdfs" host: "10.10.34.11" port: <*> file: "/user/curi/.sparkStaging/application_1485248649253_0171/spark-assembly-1.6.0-hadoop2.2.0.jar" } size: <*> timestamp: <*> type: FILE visibility: PRIVATE, pyspark.zip -> resource { scheme: "hdfs" host: "10.10.34.11" port: <*> file: "/user/curi/.sparkStaging/application_1485248649253_0171/pyspark.zip" } size: <*> timestamp: <*> type: FILE visibility: PRIVATE, py4j-0.9-src.zip -> resource { scheme: "hdfs" host: "10.10.34.11" port: <*> file: "/user/curi/.sparkStaging/application_1485248649253_0171/py4j-0.9-src.zip" } size: <*> timestamp: <*> type: FILE visibility: PRIVATE)
+[119]

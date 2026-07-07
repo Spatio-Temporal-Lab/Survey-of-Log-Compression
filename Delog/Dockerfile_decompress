@@ -1,0 +1,57 @@
+# ===================================================================
+# STAGE 1: Compilation Stage (Builder)
+# ===================================================================
+FROM ubuntu:22.04 AS builder
+
+# Set the working directory
+WORKDIR /app
+
+# Install build dependencies
+# g++, make: Build tools
+# libarchive-dev: Development headers and libraries for libarchive, required for compilation
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    g++ \
+    make \
+    libarchive-dev && \
+    rm -rf /var/lib/apt/lists/*
+
+# Copy the source code
+COPY decompressor.cpp .
+
+# Run the compilation command to generate the 'decompress' executable
+# Note the linking of -larchive
+RUN g++ -std=c++17 -O2 -o decompress decompressor.cpp -lstdc++fs -pthread -larchive
+
+# ===================================================================
+# STAGE 2: Final Runtime Stage (Final Image)
+# ===================================================================
+FROM ubuntu:22.04
+
+# Set the working directory
+WORKDIR /app
+
+# Install runtime dependencies
+# libarchive13: Runtime library for libarchive
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    libarchive13 && \
+    rm -rf /var/lib/apt/lists/*
+
+# Copy the compiled executable from the 'builder' stage
+COPY --from=builder /app/decompress .
+
+# Copy the entrypoint script and make it executable
+COPY entrypoint_decompress.sh .
+RUN chmod +x entrypoint_decompress.sh
+
+# Create directories for user-mounted volumes
+# /input: For the directory containing compressed chunks
+# /output: For the decompressed log file
+RUN mkdir -p /input /output
+
+# Set the container's entrypoint
+ENTRYPOINT ["/app/entrypoint_decompress.sh"]
+
+# Show help information by default
+CMD ["--help"]

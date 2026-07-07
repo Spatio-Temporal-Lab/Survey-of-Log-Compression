@@ -1,0 +1,90 @@
+# === IDE & Tool configs ===
+.claude/
+.reasonix/
+
+# === Python ===
+__pycache__/
+*.pyc
+*.pyo
+*.py[cod]
+
+# === Compiled binaries ===
+denum_compress
+denum_compress_baseline
+
+# === User test logs ===
+Logs/
+
+# === User-generated decompress outputs ===
+decompress_output/Apache_Apache/
+decompress_output/Apache_base/
+decompress_output/Apache_imp/
+decompress_output/Apache_new/
+decompress_output/Apache_verify/
+decompress_output/HPC/
+decompress_output/HPC_HPC/
+decompress_output/HPC_base/
+decompress_output/HPC_imp/
+decompress_output/HPC_new/
+decompress_output/Linux/
+decompress_output/Linux_5120/
+decompress_output/Mac/
+decompress_output/Mac_Mac/
+decompress_output/Mac_base/
+decompress_output/Mac_imp/
+decompress_output/Mac_new/
+decompress_output/SSH_SSH/
+decompress_output/SSH_imp/
+decompress_output/SSH_new/
+decompress_output/SSH_verify/
+
+# === User-generated output configs & results ===
+output/Android100k_auto.*
+output/Android_v1_Android_100k_auto.*
+output/Apache_Apache/
+output/Apache_Apache_auto.*
+output/Apache_auto.*
+output/Apache_base/
+output/Apache_imp/
+output/Apache_new/
+output/Apache_new_auto.*
+output/Apache_verify/
+output/HPC/
+output/HPC_HPC/
+output/HPC_HPC_auto.*
+output/HPC_base/
+output/HPC_imp/
+output/HPC_new/
+output/HPC_new_auto.*
+output/Hadoop_*
+output/Linux/
+output/Linux_5120/
+output/Linux_5120_auto.*
+output/Linux_auto.*
+output/Mac/
+output/Mac_Mac/
+output/Mac_Mac_auto.*
+output/Mac_base/
+output/Mac_imp/
+output/Mac_new/
+output/Mac_new_auto.*
+output/SSH_SSH/
+output/SSH_SSH_auto.*
+output/SSH_imp/
+output/SSH_new/
+output/SSH_new_auto.*
+output/SSH_verify.*
+output/SSH_verify/
+output/sample_auto.*
+
+# === Scripts with hardcoded external paths (Gulp/Gulp/dataset/...) ===
+batch_test.py
+bench_baseline_vs_improved.py
+verify_pipeline.py
+sampling_detector.py
+format_catalog.json
+
+# === Misc generated ===
+复现检查/
+文件/
+denum_compress_baseline.cpp

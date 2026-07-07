@@ -1,0 +1,123 @@
+[0]
+generating <*>
+[1]
+data TLB error interrupt
+[2]
+CE sym <*>, at <*>, mask <*>
+[3]
+total of <*> ddr error(s) detected and corrected
+[4]
+instruction address: <*>
+[5]
+data storage interrupt
+[6]
+data address: 0x00000002
+[7]
+exception syndrome register: 0x00800000
+[8]
+machine check: i-fetch......................0
+[9]
+program interrupt: <*> <*>
+[10]
+floating point operation....................0
+[11]
+program interrupt: fp cr update.............0
+[12]
+machine state register: <*>
+[13]
+store operation.............................1
+[14]
+data store interrupt caused by icbi.........0
+[15]
+floating point instr. enabled.....1
+[16]
+byte ordering exception.....................0
+[17]
+floating pt ex mode <*> enable......0
+[18]
+core configuration register: 0x00002000
+[19]
+icache prefetch threshold................0
+[20]
+debug wait enable.................0
+[21]
+instruction cache parity error corrected
+[22]
+<*> double-hummer alignment exceptions
+[23]
+instruction plb error.............0
+[24]
+data read plb error...............0
+[25]
+data write plb error..............1
+[26]
+tlb error.........................0
+[27]
+i-cache parity error..............0
+[28]
+<*> floating point alignment exceptions
+[39]
+Node card VPD check: <*> node in processor card slot <*> do not match. VPD ecid <*>, found <*>
+[40]
+Found invalid node ecid in processor card slot <*>, ecid <*>
+[41]
+idoproxydb hit ASSERT condition: ASSERT expression=<*> Source file=idotransportmgr.cpp Source line=<*> Function=int IdoTransportMgr::SendPacket(IdoUdpMgr*, BglCtlPavTrace*)
+[42]
+<*> ddr errors(s) detected and corrected on rank <*>, symbol <*>, bit <*>
+[43]
+<*> tree receiver <*> in re-synch state event(s) (dcr <*> detected
+[45]
+critical input interrupt (unit=0x0b bit=<*>: warning for <*> <*> wire
+[46]
+suppressing further interrupts of same type
+[47]
+Node card status: no ALERTs are active. Clock Mode is Low. Clock Select is Midplane. Phy JTAG Reset is asserted. ASIC JTAG Reset is asserted. Temperature Mask is not active. No temperature error. Temperature Limit Error Latch is clear. PGOOD IS NOT ASSERTED. PGOOD ERROR LATCH IS ACTIVE. MPGOOD IS NOT OK. MPGOOD ERROR LATCH IS ACTIVE. The 2.5 volt rail is OK. The 1.5 volt rail is OK.
+[49]
+Node card is not fully functional
+[50]
+Can not get assembly information for node card
+[51]
+ciod: Error loading /bgl/apps/scaletest/performance/MINIBEN/mb_<*>_0810/allreduce.rts: invalid or missing program image, Exec format error
+[52]
+rts: kernel terminated for reason <*>
+[53]
+ciod: generated <*> core files for program /home/germann2/BGL-demo/SPaSM_mpi
+[54]
+iar <*> dear <*>
+[55]
+ciod: LOGIN <*> failed: No such file or directory
+[56]
+Lustre mount FAILED : <*> : point /p/gb1
+[57]
+ciod: Error loading <*>_<*>: invalid or missing program image, No such file or directory
+[58]
+ciod: Error loading <*>: invalid or missing program image, No such file or directory
+[59]
+ciod: Error loading <*>_<*>: invalid or missing program image, Permission denied
+[60]
+- <*> <*> <*>:<*> <*> <*>:<*> RAS KERNEL INFO
+[64]
+<*> torus receiver <*> input pipe error(s) (dcr <*> detected and corrected
+[65]
+ciod: Received signal <*>, code=<*>, errno=<*>, address=<*>
+[66]
+ciod: Error reading message prefix on CioStream socket to <*>:<*>, Connection timed out
+[67]
+ciod: Error reading message prefix on CioStream socket to <*>:<*>, Link has been severed
+[68]
+round toward <*>
+[71]
+<*>=0x10055620 <*> <*> <*>
+[73]
+<*>=0x00000000 <*> <*> <*>
+[74]
+critical input interrupt (unit=0x0b bit=<*>: warning for <*> <*> wire, suppressing further interrupts of same type
+[79]
+<*> total interrupts. <*> critical input interrupts. <*> microseconds total spent on critical input interrupts, <*> microseconds max time in a critical input interrupt.
+[81]
+<*> microseconds spent in the rbs signal handler during <*> calls. <*> microseconds was the maximum time for a single instance of a correctable ddr.
+[82]
+Kernel detected <*> integer alignment exceptions <*> iar <*>, dear <*> <*> iar <*>, dear <*> <*> iar <*>, dear <*> <*> iar <*>, dear <*> <*> iar <*>, dear <*> <*> iar <*>, dear <*> <*> iar <*>, dear <*> <*> iar <*>, dear <*>
+[84]
+ciod: Error loading <*>: invalid or missing program image, Permission denied
+[85]

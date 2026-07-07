@@ -1,0 +1,93 @@
+[0]
+mapped 4G/4G trampoline to ffff3000.
+[5]
+Initializing CPU#0
+[6]
+portmap startup succeeded
+[7]
+CPU <*> irqstacks, hard=<*> soft=<*>
+[8]
+PID hash table entries: <*> (order <*>: <*> bytes)
+[9]
+Detected <*> MHz processor.
+[10]
+Using tsc for high-res timesource
+[11]
+Console: colour VGA+ 80x25
+[12]
+Memory: 125312k/129720k available (1540k kernel code, 3860k reserved, 599k data, 144k init, 0k highmem)
+[13]
+Calibrating delay loop... 1441.79 BogoMIPS
+[14]
+Security Scaffold v1.0.0 initialized
+[15]
+SELinux:  Initializing.
+[16]
+SELinux:  Starting in permissive mode
+[17]
+There is already a security framework initialized, register_security failed.
+[18]
+Failure registering capabilities with the kernel
+[19]
+selinux_register_security:  Registering secondary module capability
+[20]
+PCI: Found IRQ <*> for device <*>:<*>:<*>
+[35]
+hub 1-0:1.0: <*> <*> <*>
+[39]
+listening on IPv4 interface eth0:<*>, <*>
+[41]
+creating device node <*>
+[50]
+check pass; user unknown
+[51]
+authentication failure; logname= uid=<*> euid=<*> tty=NODEVssh ruser= rhost=<*>
+[52]
+authentication failure; logname= uid=<*> euid=<*> tty=NODEVssh ruser= rhost=<*>  user=<*>
+[53]
+session closed for user <*>
+[54]
+session opened for user <*> by (uid=<*>
+[55]
+ALERT exited abnormally with [1]
+[56]
+connection from <*> <*> at <*> <*> <*> <*>:<*>:<*> <*>
+[57]
+removing device node <*>
+[60]
+1+0 records <*>
+[66]
+1.4.1: restart.
+[75]
+BIOS-e820: <*> - <*> <*>
+[81]
+<*> at I/O <*> (irq = <*> is a 16550A
+[95]
+Out of Memory: Killed process <*> <*>
+[101]
+<*> do_page_<*>
+[102]
+Nov <*> <*>:<*>:<*> combo kernel:
+[103]
+sendmail: page allocation failure. order:<*>, mode:0x1d2
+[104]
+Call Trace:
+[105]
+[<0212ebf3>] __alloc_pages+0x274/0x281
+[106]
+<*> handle_mm_<*>
+[110]
+[<02135342>] follow_page+0xda/0xe5
+[112]
+[<0212c5b2>] page_cache_read+0x2a/0x7a
+[114]
+<*> d_<*>
+[123]
+connection from <*> () at <*> Dec  <*> <*>:<*>:<*> <*>
+[139]
+ttloop:  peer died: Invalid or incomplete multibyte or wide character
+[140]
+ip_tables: (C) 2000-2002 Netfilter core team
+[141]
+<*>:<*>: syscall=<*> exit=<*> a0=<*> a1=<*> a2=<*> a3=<*> items=<*> pid=<*> loginuid=-1 uid=<*> gid=<*> euid=<*> suid=<*> fsuid=<*> egid=<*> sgid=<*> fsgid=<*>
+[145]

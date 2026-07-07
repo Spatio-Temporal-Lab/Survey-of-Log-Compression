@@ -1,0 +1,281 @@
+[0]
+<*>:<*>:<*> INFO  [RPC.FRAME] batch_rpc_easy_timer_cb (ob_net_easy.cpp:639) <*> [lt=<*> [BATCH_RPC EASY STAT](log_str=conn count=0/0, request done=0/0, request doing=0/0)
+[1]
+<*>:<*>:<*> INFO  [RPC.FRAME] <*>_easy_timer_cb (ob_net_easy.cpp:<*> <*> [lt=<*> <*> EASY STAT](log_str=conn count=0/0, request done=0/0, request doing=0/0)
+[2]
+<*>:<*>:<*> INFO  [SHARE] run_loop_ (ob_bg_thread_monitor.cpp:326) [12785][BGThreadMonitor][T0][Y0-0000000000000000-0-0] [lt=<*> current monitor number(seq_=-1)
+[3]
+<*>:<*>:<*> WDIAG [SERVER.OMT] check_cgroup_root_dir (ob_cgroup_ctrl.cpp:212) [12554][MultiTenant][T0][Y0-0000000000000000-0-0] [lt=<*>=-4027] dir not exist(OBSERVER_ROOT_CGROUP_DIR="cgroup", ret=-4027)
+[4]
+<*>:<*>:<*> INFO  [COMMON] print_sender_status (ob_io_manager.cpp:1432) [12498][IO_TUNING0][T0][Y0-0000000000000000-0-0] [lt=<*> [IO STATUS SENDER](io_status=req_in_sender, total=<*>, total_local_read=<*>, total_local_write=<*>, total_remote_read=<*>, total_remote_write=<*>, cnt=<*> <*> , local_read=<*> <*> , local_write=<*> <*> , remote_read=<*> <*> , remote_write=<*> <*> )
+[5]
+<*>:<*>:<*> INFO  [SHARE] update_decay_factor_ (ob_throttle_unit.ipp:297) [12641][T1_<*> [lt=<*> [Throttle] Update Throttle Unit Config(is_adaptive_update=true, N=<*>, this=0x70a3d0f862a0, enable_adaptive_limit_=true, Unit Name=TxShare, Config Specify Resource Limit(MB)=<*>, Resource Limit(MB)=<*>, Throttle Trigger(MB)=<*>, Throttle Percentage=<*>, Max Duration(us)=<*>, Decay Factor=<*>
+[6]
+<*>:<*>:<*> INFO  [SHARE] print_throttle_info_ (ob_throttle_unit.ipp:212) [12641][T1_<*> [lt=<*> [Throttling] (report write throttle info) Size Info(tenant_id=<*>, Throttle Unit Name=TxShare, Allocating Resource Size=<*>, Holding Resource Size=<*>, Queueing Sequence=<*>, Released Sequence=<*>, Release Speed=<*>, Total Resource Limit=<*>, Config Specify Limit=<*>, Throttle Trigger Threshold=<*>, Decay Factor=<*>
+[8]
+<*>:<*>:<*> INFO  try_report (ob_tc_stat.cpp:35) [12501][][T0][Y0-0000000000000000-0-0] [lt=<*> QSched: |cfg: root:<*>,x,<*> net_in:<*>,1249M,<*> net_out:<*>,1249M,<*> disk:<*>,x,<*> t500m0:<*>,x,<*> t500m0gd:<*>,x,<*> t500m1:<*>,x,<*> t500m1gd:<*>,x,<*> t500m2:<*>,x,<*> t500m2gd:<*>,x,<*> t1m0:<*>,x,<*> t1m0gd:<*>,x,<*> t1m1:<*>,x,<*> t1m1gd:<*>,x,<*> t1m2:<*>,x,x t1m2gd:<*>,x,<*> t1m0g0:<*>,x,<*> ips:x ibw:x t1m1g0:<*>,x,<*> t1m2g0:<*>,x,x|stat: root:<*>:<*> |q0: |q1:
+[9]
+<*>:<*>:<*> INFO  [STORAGE.TRANS] check_all_readonly_tx_clean_up (ob_ls_tx_service.cpp:356) [12649][T1_TxLoopWorker][T1][Y0-0000000000000000-0-0] [lt=<*> wait_all_readonly_tx_cleaned_up cleaned up success(ls_id={id:1})
+[10]
+<*>:<*>:<*> INFO  [COMMON] replace_map (ob_kv_storecache.cpp:694) <*>_KVCacheRep][T0][Y0-0000000000000000-0-0] [lt=<*> replace map num details(ret=<*>, replace_node_count=<*>, map_once_replace_num_=<*>, map_replace_skip_count_=<*>
+[11]
+<*>:<*>:<*> INFO  [SERVER] get_srs_cnt (ob_srs_importer.cpp:70) <*>_<*>_TntSharedTimer][T1][Y0-0000000000000000-0-0] [lt=<*> old srs rows(srs_cnt=1)
+[12]
+<*>:<*>:<*> INFO  do_work (ob_rl_mgr.cpp:708) [12414][rl_mgr0][T0][Y0-0000000000000000-0-0] [lt=<*> swc wakeup.(stat_period_=<*>, ready=false)
+[13]
+<*>:<*>:<*> INFO  [SHARE] refresh_primary_cluster_id (ob_alive_server_tracer.cpp:395) [12340][TimerWK1_<*> [lt=<*> refresh primary cluster finish(ret=<*>, primary_cluster_id_=-1)
+[14]
+<*>:<*>:<*> INFO  [LIB] stat (utility.h:1219) <*>_<*> [lt=<*> [PALF STAT PUSH LOG TO FOLLOWERS RPC POST COST TIME](cur_stat_count=<*>, stat_interval=<*>, avg (count/cost)=<*>, this=0x70a3bd99d470, extra_info="")
+[15]
+<*>:<*>:<*> INFO  [LIB] stat (utility.h:1219) <*>_<*> [lt=<*> [PALF STAT APPEND COST TIME](cur_stat_count=<*>, stat_interval=<*>, avg (count/cost)=<*>, this=0x70a3bd930050, extra_info="id:1")
+[16]
+<*>:<*>:<*> INFO  [LIB] stat (utility.h:1219) <*>_<*> [lt=<*> [PALF STAT <*> <*> COST TIME](cur_stat_count=<*>, stat_interval=<*>, avg (count/cost)=<*>, this=<*>, extra_info="palf_id:1")
+[17]
+<*>:<*>:<*> INFO  [LIB] stat (utility.h:1236) [12612][T1_IOWorker][T1][Y0-0000000000000000-0-0] [lt=<*> [PALF STAT IO TASK IN QUEUE TIME](cur_stat_count=<*>, stat_interval=<*>, avg (count/cost)=<*>, this=0x70a3cf7f6be0, extra_info="")
+[18]
+<*>:<*>:<*> INFO  [STORAGE] runTimerTask (ob_tablet_gc_service.cpp:147) <*>_<*>_][T1][Y0-0000000000000000-0-0] [lt=<*> ====== [tabletchange] timer task ======(GC_CHECK_INTERVAL=5000000)
+[19]
+<*>:<*>:<*> INFO  [STORAGE] runTimerTask (ob_empty_shell_task.cpp:37) <*>_<*>_TabletShell][T1][Y0-0000000000000000-0-0] [lt=<*> ====== [emptytablet] empty shell timer task ======(GC_EMPTY_TABLET_SHELL_INTERVAL=5000000)
+[20]
+<*>:<*>:<*> INFO  [STORAGE] runTimerTask (ob_tablet_gc_service.cpp:181) <*>_<*>_][T1][Y0-0000000000000000-0-0] [lt=<*> [tabletchange] task check ls(ls->get_ls_id()={id:1}, tablet_persist_trigger=0)
+[21]
+<*>:<*>:<*> INFO  [STORAGE] runTimerTask (ob_empty_shell_task.cpp:103) <*>_<*>_TabletShell][T1][Y0-0000000000000000-0-0] [lt=<*> [emptytablet] succeed to change tablet to empty shell(ret=<*>, ret="OB_SUCCESS", ls_cnt=<*>, times=<*>
+[22]
+<*>:<*>:<*> INFO  [STORAGE] runTimerTask (ob_tablet_gc_service.cpp:276) <*>_<*>_][T1][Y0-0000000000000000-0-0] [lt=<*> [tabletchange] succeed to gc_tablet(ret=<*>, ret="OB_SUCCESS", ls_cnt=<*>, times=<*>
+[23]
+<*>:<*>:<*> INFO  [COMMON] compute_tenant_wash_size (ob_kvcache_store.cpp:1464) <*>_KVCacheWash][T0][Y0-0000000000000000-0-0] [lt=<*> Wash compute wash size(is_wash_valid=<*>, sys_total_wash_size=<*>, global_cache_size=<*>, tenant_max_wash_size=<*>, tenant_min_wash_size=<*>, tenant_ids_=[500, <*>, <*>, 1])
+[24]
+<*>:<*>:<*> INFO  [STORAGE] runTimerTask (ob_checkpoint_service.cpp:289) <*>_<*>_CKClogDisk][T1][Y0-0000000000000000-0-0] [lt=<*> ====== check clog disk timer task ======
+[27]
+<*>:<*>:<*> INFO  [PALF] get_disk_usage (palf_env_impl.cpp:902) <*>_<*>_CKClogDisk][T1][Y0-0000000000000000-0-0] [lt=<*> get_disk_usage(ret=<*>, capacity(MB):=<*>, used(MB):=<*>
+[28]
+<*>:<*>:<*> INFO  [STORAGE.TRANS] get_number (ob_id_service.cpp:384) <*>_<*>_<*> [lt=<*> get number(ret=<*>, service_type_=<*>, range=<*>, base_id=<*>, start_id=<*>, end_id=<*>
+[30]
+<*>:<*>:<*> INFO  [LIB] stat (utility.h:1219) [12617][T1_<*> [lt=<*> [APPLY STAT CB <*> <*> TIME](cur_stat_count=<*>, stat_interval=<*>, avg (count/cost)=<*>, this=<*>, extra_info="")
+[31]
+<*>:<*>:<*> INFO  [LIB] stat (utility.h:1219) [12617][T1_<*> [lt=<*> [APPLY STAT CB <*> TIME](cur_stat_count=<*>, stat_interval=<*>, avg (count/cost)=<*>, this=<*>, extra_info="")
+[32]
+<*>:<*>:<*> INFO  [COMMON] wash (ob_kvcache_store.cpp:529) <*>_KVCacheWash][T0][Y0-0000000000000000-0-0] [lt=<*> Wash time detail, (compute_wash_size_time=<*>, refresh_score_time=<*>, wash_time=<*>, reclaim_time=<*>, reclaimed_size=0)
+[33]
+<*>:<*>:<*> INFO  [COMMON] clean_garbage_node (ob_kvcache_map.cpp:706) <*>_KVCacheWash][T0][Y0-0000000000000000-0-0] [lt=<*> Cache wash clean map node details(ret=<*>, clean_node_count=<*>, clean_time=<*>, clean_start_pos=<*>, clean_num=31457)
+[34]
+<*>:<*>:<*> INFO  [COMMON] wash (ob_kvcache_hazard_domain.h:326) <*>_KVCacheWash][T0][Y0-0000000000000000-0-0] [lt=<*> allocator wash time (wash_time_us=<*>, freed_blocks_num=<*>, memory_efficiency=<*>
+[35]
+<*>:<*>:<*> INFO  [ARCHIVE] gc_stale_ls_task_ (ob_ls_mgr.cpp:573) [12642][T1_LSArchiveMgr][T1][YB427F000001-00063C68B76B0684-0-0] [lt=<*> gc stale ls task succ
+[36]
+<*>:<*>:<*> INFO  [SERVER] runTimerTask (ob_eliminate_task.cpp:225) <*>_<*>_ReqMemEvict][T1][Y0-0000000000000000-0-0] [lt=<*> sql audit evict task end(request_manager_->get_tenant_id()=<*>, evict_high_mem_level=<*>, evict_high_size_level=<*>, evict_batch_count=<*>, elapse_time=<*>, size_used=<*>, mem_used=<*>
+[37]
+<*>:<*>:<*> INFO  [SERVER] prepare_alloc_queue (ob_dl_queue.cpp:92) <*>_<*>_ReqMemEvict][T1][Y0-0000000000000000-0-0] [lt=<*> Construct Queue Num(construct_num=<*>, get_push_idx()=<*>, get_cur_idx()=<*>, get_pop_idx()=<*>
+[38]
+<*>:<*>:<*> INFO  [SERVER] check_tenant_memory (ob_plugin_vector_index_scheduler.cpp:503) [12601][T1_TimerWK0_<*> [lt=<*> get vector mem limit size(ret=<*>, ret="OB_SUCCESS", tenant_id=<*>, current_memory_config=429496729)
+[39]
+<*>:<*>:<*> INFO  eloop_run (eloop.c:145) <*> [lt=<*> PNIO [ratelimit] time: <*>, bytes: <*>, bw: <*> MB/s, add_ts: <*>, add_bytes: <*>
+[40]
+<*>:<*>:<*> INFO  [PALF] get_disk_usage (palf_env_impl.cpp:902) <*>_ServerGTimer][T1][Y0-0000000000000000-0-0] [lt=<*> get_disk_usage(ret=<*>, capacity(MB):=<*>, used(MB):=<*>
+[41]
+<*>:<*>:<*> INFO  [RPC.OBMYSQL] handle_pending_destroy_list (ob_sql_nio.cpp:985) <*>_<*> [lt=<*> can close safely, do destroy(*s={this:<*>, session_id:<*>, trace_id:Y0-0000000000000000-0-0, sql_handling_stage:<*>, sql_initiative_shutdown:true, reader:{fd:<*>, err:<*>, last_decode_time:<*>, pending_write_task:{buf:null, sz:0}, need_epoll_trigger_write:false, consume_size:<*>, pending_flag:<*>, may_handling_flag:false, handler_close_flag:false})
+[42]
+<*>:<*>:<*> INFO  [RPC.OBMYSQL] sm_conn_unlock_tenant (obsm_conn_callback.cpp:155) <*>_<*> [lt=<*> unlock session of tenant(conn.sessid_=<*>, proxy_sessid=<*>, conn.tenant_id_=1)
+[43]
+<*>:<*>:<*> INFO  [RPC.OBMYSQL] destroy (obsm_conn_callback.cpp:244) <*>_<*> [lt=<*> connection close(sessid=<*>, proxy_sessid=<*>, tenant_id=<*>, from_proxy=false, from_java_client=false, c/s protocol="OB_MYSQL_CS_TYPE", is_need_clear_sessid_=true, is_sess_alloc_=true, ret=<*>, trace_id=<*>, conn.pkt_rec_wrapper_=[start_pkt_pos_:<*>, cur_pkt_pos_:<*>, pkt_rec[0]:{send:obp_mysql_header_{len_:<*>, seq_:3}, pkt_name:"PKT_OKP", obp_mysql_header_.is_send_:1}, pkt_rec[1]:{receive:obp_mysql_header_{len_:<*>, rec_:<*>, seq_:0}, pkt_name:"COM_QUERY", obp_mysql_header_.type_:<*>, obp_mysql_header_.is_send_:0}, pkt_rec[2]:{send:obp_mysql_header_{len_:<*>, seq_:2}, pkt_name:"PKT_RESHEAD", obp_mysql_header_.is_send_:1}, pkt_rec[3]:{send:obp_mysql_header_{pkt_num_:<*>, seq_:<*>, pkt_name:"PKT_FIELD", obp_mysql_header_.is_send_:1}, pkt_rec[4]:{send:obp_mysql_header_{len_:<*>, seq_:<*>, pkt_name:"PKT_EOF", obp_mysql_header_.is_send_:1}, pkt_rec[5]:{send:obp_mysql_header_{pkt_num_:<*>, seq_:<*>, pkt_name:"PKT_ROW", obp_mysql_header_.is_send_:1}, pkt_rec[6]:{send:obp_mysql_header_{len_:<*>, seq_:<*>, pkt_name:"PKT_EOF", obp_mysql_header_.is_send_:1}, pkt_rec[7]:{receive:obp_mysql_header_{len_:<*>, rec_:<*>, seq_:0}, pkt_name:"COM_QUIT", obp_mysql_header_.type_:<*>, obp_mysql_header_.is_send_:0}], disconnect_state=3)
+[44]
+<*>:<*>:<*> WDIAG load_file_to_string (utility.h:681) <*>_ServerGTimer][T0][Y0-0000000000000000-0-0] [lt=<*>=0] read /sys/class/net/lo/speed failed, errno <*>
+[45]
+<*>:<*>:<*> INFO  [SERVER] run (obmp_disconnect.cpp:79) <*>_L0_G0][T1][Y0-0000000000000000-0-0] [lt=<*> free session successfully(sessid=<*>
+[46]
+<*>:<*>:<*> WDIAG get_ethernet_speed (utility.cpp:575) <*>_ServerGTimer][T0][Y0-0000000000000000-0-0] [lt=<*>=-4000] load file /sys/class/net/lo/speed failed, ret -4000
+[47]
+<*>:<*>:<*> INFO  [SERVER] run (obmp_disconnect.cpp:86) <*>_L0_G0][T1][Y0-0000000000000000-0-0] [lt=<*> mark session id unused(sessid=<*>
+[48]
+<*>:<*>:<*> WDIAG [SERVER] get_network_speed_from_sysfs (ob_server.cpp:3192) <*>_ServerGTimer][T0][Y0-0000000000000000-0-0] [lt=<*>=-4000] cannot get Ethernet speed, use default(tmp_ret=<*>, devname="lo")
+[49]
+<*>:<*>:<*> WDIAG [SERVER] runTimerTask (ob_server.cpp:3735) <*>_ServerGTimer][T0][Y0-0000000000000000-0-0] [lt=<*>=-4000] ObRefreshNetworkSpeedTask reload bandwidth throttle limit failed(ret=-4000, ret="OB_ERROR")
+[50]
+DECIMAL(20, 10)    DEFAULT NULL,
+[51]
+VARCHAR(65535) DEFAULT NULL,
+[52]
+BOOLEAN    DEFAULT FALSE,
+[53]
+<*> DEFAULT <*>
+[54]
+);
+[55]
+VARCHAR(65535),
+[57]
+<*>:<*>:<*> INFO  [STORAGE.TRANS] self_check (ob_tenant_weak_read_cluster_service.cpp:826) [12641][T1_TenantWeakRe][T1][Y0-0000000000000000-0-0] [lt=<*> [WRS] [TENANT_WEAK_READ_SERVICE] [CLUSTER_SERVICE] [SELF_CHECK] done(ret=<*>, ret="OB_SUCCESS", tenant_id=<*>, need_start_service=false, need_stop_service=false, need_change_leader=false, is_in_service()=true, can_update_version=true, cur_leader_epoch=<*>, start_service_tstamp_=<*>, error_count_for_change_leader_=<*>, last_error_tstamp_for_change_leader_=0)
+[58]
+<*>:<*>:<*> WDIAG [SQL.PC] common_free (ob_lib_cache_object_manager.cpp:139) <*>_L0_<*> [lt=<*>=0] set logical del time(cache_obj->get_logical_del_time()=<*>, cache_obj->added_lc()=false, cache_obj->get_object_id()=<*>, cache_obj->get_tenant_id()=<*>, lbt()="0xa92f088 0x19c99aee 0xa308ae6 0xa2f4477 0xa2e6803 0xa2dfd58 0xa2cdbec 0x133fa4a9 0x25b11cf2 0x70a3dd69caa4 0x70a3dd729c3c")
+[59]
+<*>:<*>:<*> INFO  [STORAGE.BLKMGR] runTimerTask (ob_block_manager.cpp:1649) <*>_BlkMgr][T0][Y0-0000000000000000-0-0] [lt=<*> skip inspect bad block(last_check_time=<*>, last_macro_idx=-1)
+[60]
+<*>:<*>:<*> INFO  [COMMON] replace_fragment_node (ob_kvcache_map.cpp:763) <*>_KVCacheRep][T0][Y0-0000000000000000-0-0] [lt=<*> Cache replace map node details(ret=<*>, replace_node_count=<*>, replace_time=<*>, replace_start_pos=<*>, replace_num=15728)
+[61]
+<*>:<*>:<*> INFO  [STORAGE.TRANS] get_number (ob_id_service.cpp:384) [12641][T1_TenantWeakRe][T1][Y0-0000000000000000-0-0] [lt=<*> get number(ret=<*>, service_type_=<*>, range=<*>, base_id=<*>, start_id=<*>, end_id=<*>
+[64]
+<*>:<*>:<*> INFO  [PALF] sliding_cb (log_sliding_window.cpp:2278) [12611][T1_LogIOCb0][T1][Y0-0000000000000000-0-0] [lt=<*> [PALF STAT LOG TASK TIME](palf_id=<*>, self="127.0.0.1:2882", total_slide_log_cnt=<*>, avg_log_gen_to_freeze_time=<*>, avg_log_gen_to_submit_time=<*>, avg_log_submit_to_flush_time=<*>, avg_log_submit_to_slide_time=<*>
+[65]
+<*>:<*>:<*> INFO  [COMMON] print_io_status (ob_io_manager.cpp:2734) [12498][IO_TUNING0][T0][Y0-0000000000000000-0-0] [lt=<*> [IO STATUS GROUP SYS](tenant_id=<*>, io_status=sys_group_name:CLOG_WRITE_IO, mode:LOCAL WRITE, cur_req:<*>, hold_mem:<*> [FAILED]: fail_size:<*>, fail_iops:<*>, fail_bw:<*>, [delay/us]:prepare:<*>, schedule:<*>, submit:<*>, rt:<*>, total:<*>, [SUCC]: size:<*>, iops:<*>, norm_iops:<*>, bw:<*>, [delay/us]:prepare:<*>, schedule:<*>, submit:<*>, rt:<*>, total:<*>
+[66]
+<*>:<*>:<*> INFO  [COMMON] print_io_status (ob_io_manager.cpp:2757) [12498][IO_TUNING0][T0][Y0-0000000000000000-0-0] [lt=<*> [IO STATUS TENANT](tenant_id=<*>, ref_cnt=<*>, io_config={group_configs_cnt:<*>, unit_config_:{min_iops:<*>, max_iops:<*>, weight:<*>, max_net_bandwidth:<*>, net_bandwidth_weight:<*>, param_config_:{memory_limit:<*>, callback_thread_count:<*>, enable_io_tracer:false, object_storage_io_timeout_ms:20000}, group_configs:[group_id = <*>:{mode:<*>, deleted:false, cleared:false, min_percent:<*>, max_percent:<*>, weight_percent:100}, group_id = <*>:{mode:<*>, deleted:false, cleared:false, min_percent:<*>, max_percent:<*>, weight_percent:100}, group_id = <*>:{mode:<*>, deleted:false, cleared:false, min_percent:<*>, max_percent:<*>, weight_percent:100}]}, hold_mem=<*>, [FAILED]: fail_ips=<*>, fail_ops=<*>, fail_iops=<*>, fail_ibw=<*>, fail_obw=<*>, [SUCC]: ips=<*>, ops=<*>, iops=<*>, ibw=<*>, obw=<*>, iops_limit=<*>, ibw_limit=<*>, obw_limit=9223372036854775807)
+[67]
+<*>:<*>:<*> INFO  [COMMON] print_io_function_status (ob_io_manager.cpp:2827) [12498][IO_TUNING0][T0][Y0-0000000000000000-0-0] [lt=<*> [IO STATUS FUNCTION](tenant_id=<*>, io_status=function_name:<*>_<*>, mode:LOCAL <*>, avg_size:<*>, avg_iops:<*>, avg_bw:<*>, [delay/us]: prepare:<*>, schedule:<*>, submit:<*>, device:<*>, total:<*>
+[68]
+<*>:<*>:<*> INFO  [COMMON] print_io_status (ob_io_manager.cpp:2769) [12498][IO_TUNING0][T0][Y0-0000000000000000-0-0] [lt=<*> [IO STATUS CALLBACK](tenant_id=<*>, io_status=runner[0]: tid=<*>, queue_count=0)
+[69]
+<*>:<*>:<*> INFO  [COMMON] print_io_status (ob_io_manager.cpp:2640) [12498][IO_TUNING0][T0][Y0-0000000000000000-0-0] [lt=<*> [IO STATUS GROUP](tenant_id=<*>, io_status=group_id:<*>, group_name:OTHER_GROUPS, mode:LOCAL READ, cur_req:<*>, hold_mem:<*> [FAILED]:fail_size:<*>, fail_iops:<*>, fail_bw:<*>, [delay/us]:prepare:<*>, schedule:<*>, submit:<*>, rt:<*>, total:<*>, [SUCC]:size:<*>, iops:<*>, norm_iops:<*>, bw:<*>, limit:<*>, [delay/us]:prepare:<*>, schedule:<*>, submit:<*>, rt:<*>, total:<*>
+[70]
+<*>:<*>:<*> INFO  [PALF] read (log_cache.cpp:101) [12614][T1_LogSharedQue][T1][Y0-0000000000000000-0-0] [lt=<*> [PALF STAT HOT CACHE HIT RATE](palf_id=<*>, read_size=<*>, hit_cnt=<*>, read_cnt=<*>, hit rate=1.000000000000000000e+00)
+[71]
+<*>:<*>:<*> INFO  [STORAGE] update_clog_checkpoint (ob_checkpoint_executor.cpp:185) <*>_<*>_TxCkpt][T1][Y0-0000000000000000-0-0] [lt=<*> [CHECKPOINT] clog checkpoint no change(checkpoint_scn={val:<*>, v:0}, checkpoint_scn_in_ls_meta={val:<*>, v:0}, ls_id={id:1}, service_type="TRANS_SERVICE")
+[72]
+<*>:<*>:<*> WDIAG [PALF] set_base_lsn (palf_handle_impl.cpp:1672) <*>_<*>_TxCkpt][T1][Y0-0000000000000000-0-0] [lt=<*>=0] no need to set new base lsn, curr base lsn is greater than or equal to new base lsn(this={palf_id:<*>, self:"127.0.0.1:2882", has_set_deleted:false}, log_snapshot_meta={version:<*>, base_lsn:{lsn:335523840}, prev_log_info:{log_id:<*>, lsn:{lsn:0}, scn:{val:<*>, v:0}, log_proposal_id:<*>, accum_checksum:-1}, prev_log_tail_lsn:{lsn:0}}, new_base_lsn={lsn:335523840}, lsn={lsn:335523840})
+[73]
+<*>:<*>:<*> INFO  [STORAGE] runTimerTask (ob_checkpoint_service.cpp:179) <*>_<*>_TxCkpt][T1][Y0-0000000000000000-0-0] [lt=<*> [CHECKPOINT] advance palf base lsn successfully(checkpoint_lsn={lsn:335523840}, ls->get_ls_id()={id:1})
+[74]
+<*>:<*>:<*> INFO  [STORAGE] runTimerTask (ob_checkpoint_service.cpp:186) <*>_<*>_TxCkpt][T1][Y0-0000000000000000-0-0] [lt=<*> succeed to update_clog_checkpoint(ret=<*>, ls_cnt=1)
+[75]
+<*>:<*>:<*> INFO  [PALF] try_recycle_blocks (palf_env_impl.cpp:799) <*>_<*>_PalfGC][T1][Y0-0000000000000000-0-0] [lt=<*> LOG_DISK_OPTION(disk_options_wrapper_={disk_opts_for_stopping_writing:{log_disk_size(MB):<*>, log_disk_utilization_threshold(%):<*>, log_disk_utilization_limit_threshold(%):<*>, log_disk_throttling_percentage(%):<*>, log_disk_throttling_maximum_duration(s):<*>, log_writer_parallelism:3}, disk_opts_for_recycling_blocks:{log_disk_size(MB):<*>, log_disk_utilization_threshold(%):<*>, log_disk_utilization_limit_threshold(%):<*>, log_disk_throttling_percentage(%):<*>, log_disk_throttling_maximum_duration(s):<*>, log_writer_parallelism:3}, status:<*>, cur_unrecyclable_log_disk_size(MB):<*>, sequence:2})
+[76]
+<*>:<*>:<*> INFO  [STORAGE] print_statistics (ob_tmp_file_thread_job.cpp:178) [12626][T1_TFSwap][T1][Y0-0000000000000000-0-0] [lt=<*> tmp file swap statistics(swap_task_cnt=<*>, avg_swap_response_time=<*>, max_swap_response_time=-1, min_swap_response_time=-1)
+[77]
+<*>:<*>:<*> INFO  [STORAGE] print_block_usage (ob_tmp_file_block_manager.cpp:831) [12626][T1_TFSwap][T1][Y0-0000000000000000-0-0] [lt=<*> temporary file module use no blocks
+[78]
+<*>:<*>:<*> INFO  [STORAGE.TRANS] persist_version_if_need_ (ob_tenant_weak_read_cluster_service.cpp:331) [12641][T1_TenantWeakRe][T1][Y0-0000000000000000-0-0] [lt=<*> [WRS] [TENANT_WEAK_READ_SERVICE] [CLUSTER_SERVICE] persist CLUSTER version range succ(tenant_id=<*>, new_min_version={val:<*>, v:0}, new_max_version={val:<*>, v:0}, last_min_version={val:<*>, v:0}, last_max_version={val:<*>, v:0}, total_time_us=<*>, delta_us=<*>
+[79]
+<*>:<*>:<*> INFO  [STORAGE.TRANS] update_cluster_version (ob_tenant_weak_read_cluster_service.cpp:690) [12641][T1_TenantWeakRe][T1][Y0-0000000000000000-0-0] [lt=<*> [WRS] [TENANT_WEAK_READ_SERVICE] [CLUSTER_SERVICE] update version(tenant_id=<*>, current_version={val:<*>, v:0}, min_version={val:<*>, v:0}, max_version={val:<*>, v:0}, in_service=true, leader_epoch=<*>
+[80]
+<*>:<*>:<*> INFO  [PALF] is_allowed_broadcast_ (palf_handle_impl.h:1421) [12565][T1_Occam][T1][Y0-0000000000000000-0-0] [lt=<*> keep in silent because of disconnected with RS, do not solicit votes.(is_in_silent=false, palf_id=<*>, is_allowed_broadcast=true)
+[82]
+<*>:<*>:<*> INFO  [PALF] handle_next_submit_log_ (log_sliding_window.cpp:1080) <*>_<*> [lt=<*> [PALF STAT GROUP LOG INFO](palf_id=<*>, self="127.0.0.1:2882", role="LEADER", total_group_log_cnt=<*>, avg_log_batch_cnt=<*>, total_group_log_size=<*>, avg_group_log_size=<*>
+[83]
+<*>:<*>:<*> INFO  [PALF] submit_log (palf_handle_impl.cpp:446) <*>_<*> [lt=<*> [PALF STAT APPEND DATA SIZE](this={palf_id:<*>, self:"127.0.0.1:2882", has_set_deleted:false}, append size=<*>
+[84]
+<*>:<*>:<*> INFO  [SERVER] process_refresh_task (ob_server_schema_updater.cpp:314) <*> [lt=<*> [REFRESH_SCHEMA] start to process schema refresh task(ret=<*>, ret="OB_SUCCESS", schema_info={schema_version:-1, tenant_id:<*>, new_sequence_id:{seq_id:<*>, sys_leader_epoch:<*>, enable_new_seq_id:true}})
+[85]
+<*>:<*>:<*> INFO  [SERVER] construct_tenants_to_refresh_schema_ (ob_server_schema_updater.cpp:281) <*> [lt=<*> [REFRESH_SCHEMA] local schema is newer, do not refresh any tenant schema(new_sequence_id={seq_id:<*>, sys_leader_epoch:<*>, enable_new_seq_id:true}, local_sequence_id={seq_id:<*>, sys_leader_epoch:<*>, enable_new_seq_id:true})
+[86]
+<*>:<*>:<*> INFO  [SERVER] process_refresh_task (ob_server_schema_updater.cpp:335) <*> [lt=<*> [REFRESH_SCHEMA] local schema info is newer, no need to refresh schema(ret=<*>, ret="OB_SUCCESS", local_schema_info={schema_version:-1, tenant_id:<*>, new_sequence_id:{seq_id:<*>, sys_leader_epoch:<*>, enable_new_seq_id:true}}, schema_info={schema_version:-1, tenant_id:<*>, new_sequence_id:{seq_id:<*>, sys_leader_epoch:<*>, enable_new_seq_id:true}})
+[87]
+<*>:<*>:<*> INFO  [SHARE] get_zone_list_ (ob_zone_table_operation.cpp:553) <*>_<*> [lt=<*> get inactive zone_list(ret=<*>, ret="OB_SUCCESS", zone_list=[])
+[88]
+<*>:<*>:<*> INFO  [STORAGE] gc_tables_in_queue (ob_tenant_meta_mem_mgr.cpp:613) <*>_<*>_TenantMetaMemMg][T1][Y0-0000000000000000-0-0] [lt=<*> gc tables in queue: recycle <*> table(ret=<*>, tablet_buffer_pool_={typeid(T).name():"N9oceanbase7storage15ObMetaObjBufferINS0_8ObTabletELl3784EEE", sizeof(T):<*>, used_obj_cnt:<*>, free_obj_hold_cnt:<*>, allocator used:<*>, allocator total:6593280}, large_tablet_buffer_pool_={typeid(T).name():"N9oceanbase7storage15ObMetaObjBufferINS0_8ObTabletELl65448EEE", sizeof(T):<*>, used_obj_cnt:<*>, free_obj_hold_cnt:<*>, allocator used:<*>, allocator total:26236400}, full_tablet_creator_={tiny_allocator_.used():<*>, tiny_allocator_.total():<*>, full allocator used:<*>, full allocator total:275840}, tablets_mem=<*>, tablets_mem_limit=<*>, ddl_kv_pool_={typeid(T).name():"N9oceanbase7storage7ObDDLKVE", sizeof(T):<*>, used_obj_cnt:<*>, free_obj_hold_cnt:<*>, allocator used:<*>, allocator total:65280}, memtable_pool_={typeid(T).name():"N9oceanbase8memtable10ObMemtableE", sizeof(T):<*>, used_obj_cnt:<*>, free_obj_hold_cnt:<*>, allocator used:<*>, allocator total:391680}, pending_cnt=<*>, wait_gc_count=<*>, tablet count=1787)
+[89]
+<*>:<*>:<*> INFO  [SHARE] run1 (ob_dynamic_thread_pool.cpp:618) [12344][qth_mgr][T0][Y0-0000000000000000-0-0] [lt=<*> [thread pool stat](pool_stat={pool:<*>, last_check_time:<*>, last_idle_time:<*>, last_thread_count:1}, *pool={name:IO_SYNC_CH, this:<*>, min_thread_cnt:<*>, max_thread_cnt:<*>, running_thread_cnt:<*>, threads_idle_time:<*>, tenant_id:500}, qsize=-1, current_idle_time=<*>
+[92]
+<*>:<*>:<*> INFO  [COMMON] print_status (ob_io_struct.cpp:2837) [12498][IO_TUNING0][T0][Y0-0000000000000000-0-0] [lt=<*> [IO STATUS CHANNEL] device_id=<*>, req_in_channel, async_total=<*>, sync_total=<*>, async_cnt=, sync_cnt= <*>
+[94]
+<*>:<*>:<*> INFO  [COMMON] print_server_status (ob_io_manager.cpp:424) [12498][IO_TUNING0][T0][Y0-0000000000000000-0-0] [lt=<*> [IO STATUS SERVER] net_in=<*>, net_out=<*>, bucket_in=0kB/s, bucket_out=0kB/s, failed_bucket_in=0kB/s, failed_bucket_out=0kB/s, limit=1280000kB/s
+[95]
+<*>:<*>:<*> INFO  [SERVER] try_reload_schema (ob_server_schema_updater.cpp:482) <*>_LeaseHB][T0][Y0-0000000000000000-0-0] [lt=<*> schedule fetch new schema task(ret=<*>, ret="OB_SUCCESS", schema_info={schema_version:-1, tenant_id:<*>, new_sequence_id:{seq_id:<*>, sys_leader_epoch:<*>, enable_new_seq_id:true}})
+[96]
+<*>:<*>:<*> INFO  [SERVER] do_heartbeat_event (ob_heartbeat.cpp:258) <*>_LeaseHB][T0][Y0-0000000000000000-0-0] [lt=<*> try reload schema success(schema_version=<*>, refresh_schema_info={schema_version:-1, tenant_id:<*>, new_sequence_id:{seq_id:<*>, sys_leader_epoch:<*>, enable_new_seq_id:true}}, schema_ret=0)
+[97]
+<*>:<*>:<*> INFO  [CLOG] execute_gc_ (ob_garbage_collector.cpp:1854) [12624][T1_GCCollector][T1][Y0-0000000000000000-0-0] [lt=<*> execute_gc cost time(ret=<*>, time_us=<*>
+[101]
+<*>:<*>:<*> INFO  [SHARE] get_all_snapshots (ob_snapshot_table_proxy.cpp:418) <*>_<*>_FreInfoReload][T1][Y0-0000000000000000-0-0] [lt=<*> get all snapshots(ret=<*>, snapshots.count()=<*>, snapshots=[])
+[107]
+<*>:<*>:<*> INFO  [SHARE] update_freeze_info (ob_freeze_info_manager.cpp:215) <*>_<*>_FreInfoReload][T1][Y0-0000000000000000-0-0] [lt=<*> inner load succ(latest_freeze_info={frozen_version:{val:<*>, v:0}, schema_version:<*>, data_version:17180067075}, freeze_info_={latest_snapshot_gc_scn:{val:<*>, v:0}, frozen_statuses_.count():<*>, frozen_statuses:[{frozen_version:{val:<*>, v:0}, schema_version:<*>, data_version:17180067075}, {frozen_version:{val:<*>, v:0}, schema_version:<*>, data_version:17180067075}]})
+[108]
+<*>:<*>:<*> INFO  [LIB] stat (utility.h:1219) [12611][T1_LogIOCb0][T1][Y0-0000000000000000-0-0] [lt=<*> [PALF STAT FS CB EXCUTE COST TIME](cur_stat_count=<*>, stat_interval=<*>, avg (count/cost)=<*>, this=0x70a3bd99d6a0, extra_info="palf_id:1")
+[109]
+<*>:<*>:<*> INFO  [LIB] stat (utility.h:1219) [12611][T1_LogIOCb0][T1][Y0-0000000000000000-0-0] [lt=<*> [PALF STAT LOG LIFE TIME](cur_stat_count=<*>, stat_interval=<*>, avg (count/cost)=<*>, this=0x70a3bd99d8d0, extra_info="palf_id:1")
+[110]
+<*>:<*>:<*> INFO  [PALF] try_advance_committed_lsn_ (log_sliding_window.cpp:1758) [12611][T1_LogIOCb0][T1][Y0-0000000000000000-0-0] [lt=<*> [PALF STAT COMMITTED LOG SIZE](palf_id=<*>, self="127.0.0.1:2882", committed size=<*>
+[111]
+<*>:<*>:<*> INFO  dump_info (ob_timer_service.cpp:731) [12605][T1_TimerSvr][T1][Y0-0000000000000000-0-0] [lt=<*> dump queue token(this=0x70a3d17fe030, token={this:<*>, timer:0x70a3b2dfbee0, task:<*>, task_type:<*>, scheduled_time:<*>, pushed_time:<*>, delay:<*>
+[119]
+<*>:<*>:<*> INFO  [COMMON] print_status (ob_io_struct.cpp:2837) [12498][IO_TUNING0][T0][Y0-0000000000000000-0-0] [lt=<*> [IO STATUS CHANNEL] device_id=<*>, req_in_channel, async_total=<*>, sync_total=<*>, async_cnt= <*> <*> <*> <*> <*> <*> <*> <*>, sync_cnt= <*>
+[123]
+<*>:<*>:<*> WDIAG [SERVER] response (obmp_base.cpp:61) <*>_L0_<*> [lt=<*>=-4009] failed to flush_buffer(ret=-4009)
+[124]
+<*>:<*>:<*> WDIAG [RPC.FRAME] run (ob_sql_processor.cpp:46) <*>_L0_<*> [lt=<*>=-4009] response rpc result fail(ret=-4009, tmp_ret=-4009)
+[125]
+<*>:<*>:<*> INFO  load_privilege_info (obmp_connect.cpp:575) <*>_<*> [lt=<*> no tenant name set, use default tenant name(tenant_name=sys)
+[126]
+<*>:<*>:<*> WDIAG <*> <*>_<*> <*>_<*>_<*>:<*> <*>_L0_<*> [lt=<*>=-4009] <*> <*> fail(ret=-4009)
+[127]
+<*>:<*>:<*> WDIAG [SERVER.OMT] process (ob_worker_processor.cpp:163) <*>_L0_<*> [lt=<*>=-4009] process request fail(ret=-4009)
+[128]
+<*>:<*>:<*> INFO  [SERVER] process (obmp_connect.cpp:515) <*>_<*> [lt=<*> MySQL LOGIN(direct_client_ip="127.0.0.1", client_ip=<*>, tenant_name=sys, tenant_id=<*>, user_name=ocp_monitor, host_name=%, sessid=<*>, proxy_sessid=<*>, client_sessid=<*>, from_proxy=false, from_java_client=false, from_oci_client=false, from_jdbc_client=false, capability=<*>, proxy_capability=<*>, use_ssl=false, c/s protocol="OB_MYSQL_CS_TYPE", autocommit=true, proc_ret=<*>, ret=<*>, conn->client_type_=<*>, conn->client_version_=0)
+[129]
+<*>:<*>:<*> WDIAG [RPC.OBMYSQL] handle_sock_event (ob_sql_nio.cpp:1008) <*>_<*> [lt=<*>=0] socket closed, it maybe disconnected by the client or by observer actively(mask=<*>, *s={this:<*>, session_id:<*>, trace_id:<*>, sql_handling_stage:<*>, sql_initiative_shutdown:false, reader:{fd:<*>, err:<*>, last_decode_time:<*>, pending_write_task:{buf:null, sz:0}, need_epoll_trigger_write:false, consume_size:<*>, pending_flag:<*>, may_handling_flag:true, handler_close_flag:false})
+[130]
+<*>:<*>:<*> INFO  [RPC.OBMYSQL] on_disconnect (obsm_conn_callback.cpp:268) <*>_<*> [lt=<*> kill and revert session(conn.sessid_=<*>, proxy_sessid=<*>, ret=0)
+[131]
+<*>:<*>:<*> WDIAG [SERVER] disconnect (obmp_packet_sender.cpp:865) <*>_L0_<*> [lt=<*>=0] server close connection(sessid=<*>, proxy_sessid=<*>, stack="0xa92f088 0x1321e8d2 0x131ead3b 0x12c7b491 0xa2e1575 0xa2cdbec 0x133fa4a9 0x25b11cf2 0x70a3dd69caa4 0x70a3dd729c3c")
+[132]
+<*>:<*>:<*> INFO  [SERVER] process (obmp_quit.h:60) <*>_L0_<*> [lt=<*> quit
+[133]
+<*>:<*>:<*> WDIAG [RPC.OBMYSQL] async_write_data (ob_sql_sock_session.cpp:162) <*>_L0_<*> [lt=<*>=-4009] sock has error(ret=-4009)
+[134]
+<*>:<*>:<*> INFO  [STORAGE] scheduler_ls_ha_handler_ (ob_storage_ha_service.cpp:195) [12648][T1_HAService][T1][Y0-0000000000000000-0-0] [lt=<*> start do ls ha handler(ls_id_array_=[{id:1}])
+[135]
+<*>:<*>:<*> INFO  [PALF] inner_append_log (palf_handle_impl.cpp:2239) [12612][T1_IOWorker][T1][Y0-0000000000000000-0-0] [lt=<*> [PALF STAT INNER APPEND LOG SIZE](this={palf_id:<*>, self:"127.0.0.1:2882", has_set_deleted:false}, accum_size=<*>
+[136]
+<*>:<*>:<*> INFO  [COMMON] dump_dag_status (ob_tenant_dag_scheduler.cpp:2903) [12592][T1_DagScheduler][T1][Y0-0000000000000000-0-0] [lt=<*> dump_dag_status(priority="PRIO_<*>_HIGH", limits=<*>, running_task=<*>, adaptive_task_limit=<*>, ready_dag_count=<*>, waiting_dag_count=<*>, rank_dag_count=0)
+[142]
+<*>:<*>:<*> INFO  [STORAGE] print_statistics (ob_tmp_file_thread_job.cpp:124) [12626][T1_TFSwap][T1][Y0-0000000000000000-0-0] [lt=<*> tmp file flush statistics(flush_task_cnt=<*>, avg_flush_data_len=<*>, max_flush_data_len=-1, min_flush_data_len=-1, f1_cnt=<*>, f2_cnt=<*>, f3_cnt=<*>, f4_cnt=<*>, f5_cnt=0)
+[143]
+<*>:<*>:<*> INFO  [STORAGE] print_statistics (ob_tmp_file_write_buffer_pool.cpp:1595) [12626][T1_TFSwap][T1][Y0-0000000000000000-0-0] [lt=<*> tmp file write buffer pool statistics(dirty_page_percentage=<*>, max_page_num=<*>, fat_actual_size=<*>, dirty_page_num=<*>, total_write_back_num=<*>, meta_page_num=<*>, dirty_meta_page_num=<*>, write_back_meta_num=<*>, data_page_num=<*>, dirty_data_page_num=<*>, write_back_data_num=<*>, data_page_watermark=<*>, meta_page_watermark=0)
+[144]
+<*>:<*>:<*> INFO  [STORAGE] do_work_ (ob_tmp_file_thread_wrapper.cpp:305) [12626][T1_TFSwap][T1][Y0-0000000000000000-0-0] [lt=<*> ObTmpFileFlushTG information(this={is_inited_:true, mode_:<*>, last_flush_timestamp_:<*>, flush_io_finished_ret_:<*>, flush_io_finished_round_:<*>, flushing_block_num_:<*>, is_fast_flush_meta_:false, fast_flush_meta_task_cnt_:<*>, wait_list_size_:<*>, retry_list_size_:<*>, finished_list_size_:<*>, normal_loop_cnt_:<*>, normal_idle_loop_cnt_:<*>, fast_loop_cnt_:<*>, fast_idle_loop_cnt_:<*>, flush_mgr_:{is_inited_:true, flush_ctx_:{is_inited_:true, fail_too_many_:false, expect_flush_size_:<*>, actual_flush_size_:<*>, flush_seq_ctx_:{create_flush_task_cnt_:<*>, prepare_finished_cnt_:<*>, flush_sequence_:0}, state_:<*>, iter_:{is_inited_:false, cur_caching_list_idx_:<*>, cur_caching_list_is_meta_:false, cur_iter_dir_idx_:-1, cur_iter_file_idx_:-1, cached_file_num_:<*>, cached_dir_num_:0}, file_ctx_hash_.size():<*>, flush_failed_array_.size():0}}})
+[145]
+<*>:<*>:<*> WDIAG [SHARE] inner_get_ls_status_ (ob_ls_status_operator.cpp:990) [12610][T1_DupTbLease][T1][Y0-0000000000000000-0-0] [lt=<*>=-4018] ls not exist in __all_ls_status table(ret=-4018, ret="OB_ENTRY_NOT_EXIST")
+[146]
+<*>:<*>:<*> INFO  [SHARE] get_duplicate_ls_status_info (ob_ls_status_operator.cpp:660) [12610][T1_DupTbLease][T1][Y0-0000000000000000-0-0] [lt=<*> tenant does not have duplicate ls(ret=-4018, ret="OB_ENTRY_NOT_EXIST", tenant_id=1)
+[147]
+<*>:<*>:<*> WDIAG [RPC.OBRPC] rpc_call (ob_rpc_proxy.ipp:462) <*>_IngressService][T0][Y0-0000000000000000-0-0] [lt=<*>=-4006] Rpc proxy not inited(ret=-4006)
+[148]
+<*>:<*>:<*> INFO  pn_ratelimit (group.c:653) <*>_IngressService][T0][Y0-0000000000000000-0-0] [lt=<*> PNIO set ratelimit as <*> bytes/s, grp_id=<*>
+[149]
+<*>:<*>:<*> INFO  [STORAGE.TRANS] alloc (ob_ts_response_handler.cpp:108) [12463][TsMgr][T1][Y0-0000000000000000-0-0] [lt=<*> ts response task statistics(alloc_count=<*>, free_count=<*>
+[151]
+<*>:<*>:<*> INFO  [SERVER] dispatch_req (ob_srv_deliver.cpp:276) <*>_<*> [lt=<*> succeed to dispatch to tenant mysql queue(tenant_id=1)
+[153]
+<*>:<*>:<*> INFO  [SERVER] extract_user_tenant (obmp_connect.cpp:62) <*>_<*> [lt=<*> username and tenantname(user_name=ocp_monitor, tenant_name=)
+[154]
+<*>:<*>:<*> INFO  [SQL.PC] runTimerTask (ob_plan_cache.cpp:<*> [12604][T1_TimerWK3_PlanCacheEvict][T1][Y0-0000000000000000-0-0] [lt=<*> schedule next cache evict task(evict_interval=5000000)
+[158]
+<*>:<*>:<*> INFO  [SHARE] force_set_master_rs (ob_rs_mgr.cpp:269) [12804][T1_L0_<*> [lt=<*> [RS_MGR] force set rs list(master_rs="127.0.0.1:2882")
+[160]
+<*>:<*>:<*> INFO  [SERVER] handle_heartbeat (ob_service.cpp:3885) [12804][T1_L0_<*> [lt=<*> handle_heartbeat(ret=<*>, ret="OB_SUCCESS", hb_request={server:"127.0.0.1:2882", server_id:<*>, rs_addr:"127.0.0.1:2882", rs_server_status:<*>, epoch_id:5}, hb_response={zone:"zone1", server:"127.0.0.1:2882", sql_port:<*>, build_version:"4.3.5.3_103000092025080818-e8da5f0afb288ed0add0613740c6ccf2a3c6830b(Aug  <*> <*> <*>:<*>:31)", start_service_time:<*>, server_health_status:{data_disk_status_:<*>, data_disk_status:"NORMAL"}}, time_cost=<*>
+[161]
+<*>:<*>:<*> WDIAG [SQL] move_to_sqlstat_cache (ob_sql_stat_record.cpp:366) <*>_L0_<*> [lt=<*>=0] the key is not valid which at plan cache mgr(ret=<*>, ret="OB_SUCCESS")
+[162]
+<*>:<*>:<*> WDIAG get_refactored (ob_hashtable.h:1120) <*>_L0_<*> [lt=<*>=-4201] hashtable not init
+[163]
+<*>:<*>:<*> INFO  [STORAGE] operator() (ob_tenant_freezer.cpp:122) [12583][T1_Occam][T1][YB427F000001-00063C68BBAB0684-0-0] [lt=<*> ====== tenant freeze timer task ======
+[171]
+<*>:<*>:<*> INFO  [STORAGE] log_frozen_memstore_info_if_need_ (ob_tenant_freezer.cpp:1786) [12583][T1_Occam][T1][YB427F000001-00063C68BBAB0684-0-0] [lt=<*> [TenantFreezer] tenant have inactive memstores(ctx.freezable_active_memstore_used_=<*>, ctx.total_memstore_used_=<*>, ctx.total_memstore_hold_=<*>, memstore_freeze_trigger_limit_=<*>, tenant_id=1)
+[172]
+<*>:<*>:<*> INFO  [STORAGE] log_frozen_memstore_info_if_need_ (ob_tenant_freezer.cpp:1790) [12583][T1_Occam][T1][YB427F000001-00063C68BBAB0684-0-0] [lt=<*> [TenantFreezer] oldest frozen memtable(list="")
+[173]
+<*>:<*>:<*> INFO  [STORAGE.TRANS] get_rec_scn (ob_id_service.cpp:299) [12604][T1_TimerWK3_TxCkpt][T1][Y0-0000000000000000-0-0] [lt=<*> get rec log scn(service_type_=<*>, rec_log_ts={val:<*>, v:0})
+[175]
+<*>:<*>:<*> WDIAG [COMMON] inc_ref (ob_diagnostic_info_container.cpp:122) <*>_L0_<*> [lt=<*>=-4018] failed to inc di ref(ret=-4018)
+[178]
+hold=         <*>,<*> used=         <*>,<*> count=       <*> avg_used=         <*>,<*> block_cnt=       <*> chunk_cnt=       <*> mod=<*>
+[186]
+hold=         <*>,<*> used=         <*>,<*> count=       <*> avg_used=         <*>,<*> block_cnt=       <*> chunk_cnt=       <*> mod=TLD_<*>
+[187]
+hold=         <*>,<*> used=         <*>,<*> count=       <*> avg_used=          <*>,<*> block_cnt=       <*> chunk_cnt=       <*> mod=<*>
+[189]
+hold=         <*>,<*> used=          <*>,<*> count=       <*> avg_used=          <*>,<*> block_cnt=       <*> chunk_cnt=       <*> mod=<*>
+[190]
+BOOLEAN DEFAULT FALSE,
+[191]
+<*>:<*>:<*> INFO  [LIB] print_usage (ob_tenant_ctx_allocator.cpp:247) [12385][MemoryDump][T0][Y0-0000000000000000-0-0] [lt=<*>
+[198]
+idle_size=         <*> free_size=         <*>
+[200]
+wash_related_chunks=         <*> washed_blocks=         <*> washed_size=         <*>
+[201]
+request_cached_chunk_cnt=    <*>
+[202]
+<*>:<*>:<*> [12388][DDLQueueTh0][T1][YB427F000001-00063C68B9BB0694-0-0] {"trace_id":"00063c68-b77c-269e-1eeb-e69e19b3da67","name":<*>_<*>_<*>,"id":<*>,"start_ts":<*>,"end_ts":<*>,"parent_id":<*>,"is_follow":false}
+[218]
+<*>:<*>:<*> [12388][DDLQueueTh0][T1][YB427F000001-00063C68B9BB0694-0-0] {"trace_id":"00063c68-b77c-269e-1eeb-e69e19b3da67","name":<*>,"id":<*>,"start_ts":<*>,"end_ts":<*>,"parent_id":<*>,"is_follow":false}
+[219]
+<*>:<*>:<*> [12388][DDLQueueTh0][T1][YB427F000001-00063C68B9BB0694-0-0] {"trace_id":"00063c68-b77c-269e-1eeb-e69e19b3da67","name":"do_local_das_task","id":<*>,"start_ts":<*>,"end_ts":<*>,"parent_id":<*>,"is_follow":false}
+[220]

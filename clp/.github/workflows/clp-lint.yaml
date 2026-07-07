@@ -1,0 +1,74 @@
+name: "clp-lint"
+
+on:
+  pull_request:
+  push:
+  schedule:
+    # Run daily at 00:15 UTC (the 15 is to avoid periods of high load)
+    - cron: "15 0 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: "${{github.workflow}}-${{github.ref}}"
+  # Cancel in-progress jobs for efficiency
+  cancel-in-progress: true
+
+jobs:
+  lint-check:
+    name: "lint-check"
+    strategy:
+      matrix:
+        os:
+          - "macos-15"
+          - "ubuntu-24.04"
+    runs-on: "${{matrix.os}}"
+    steps:
+      - uses: "actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd"  # v6.0.2
+        with:
+          submodules: "recursive"
+
+      - uses: "./tools/yscope-dev-utils/exports/github/actions/install-python"
+
+      - uses: "./tools/yscope-dev-utils/exports/github/actions/install-go-task"
+        with:
+          version: "3.48.0"
+
+      - uses: "./tools/yscope-dev-utils/exports/github/actions/install-uv"
+        with:
+          version: "0.8"
+
+      # This is a necessary dependency for the Python mariadb package which is a transitive
+      # dependency of `lint:py-check`.
+      - name: "Install MariaDB Connector/C"
+        shell: "bash"
+        run: |-
+          case "${{ matrix.os }}" in
+            ubuntu-24.04)
+              sudo apt-get update
+              sudo apt-get install -y libmariadb-dev
+              MARIADB_CONFIG_PATH="$(command -v mariadb_config)"
+              ;;
+            macos-15)
+              brew update
+              brew install mariadb-connector-c
+              PREFIX="$(brew --prefix mariadb-connector-c)"
+              MARIADB_CONFIG_PATH="$PREFIX/bin/mariadb_config"
+              ;;
+            *)
+              # Control flow should not reach here
+              exit 1
+              ;;
+          esac
+          echo "MARIADB_CONFIG=$MARIADB_CONFIG_PATH" >> "$GITHUB_ENV"
+
+      - name: "Lint .js files"
+        shell: "bash"
+        run: "task lint:check-js"
+
+      - name: "Lint .py files"
+        shell: "bash"
+        run: "task lint:check-py"
+
+      - name: "Lint .yaml files"
+        shell: "bash"
+        run: "task lint:check-yaml"

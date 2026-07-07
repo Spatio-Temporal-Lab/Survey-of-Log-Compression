@@ -1,0 +1,205 @@
+[0]
+Finished task <*> in stage <*> (TID <*> <*> <*> <*> <*> <*> <*>
+[1]
+Starting job: <*> at <*>:<*>
+[5]
+Got job <*> <*> at <*>:<*> with <*> output partitions
+[6]
+Final stage: ResultStage <*> <*> at <*>:<*>
+[7]
+Missing parents: List()
+[9]
+Submitting ResultStage <*> <*> at <*> at <*>:<*>, which has no missing parents
+[10]
+Block broadcast_<*> stored as values in memory (estimated size <*> <*>, free <*> <*>
+[11]
+Found block rdd_<*>_<*> locally
+[12]
+File Output Committer Algorithm version is <*>
+[13]
+Times: total = <*>, boot = <*>, init = <*>, finish = <*>
+[14]
+Saved output of task 'attempt_<*>_<*>_m_<*>_<*> to hdfs://10.10.34.11:<*>_temporary/0/task_<*>_<*>_m_<*>
+[15]
+attempt_<*>_<*>_m_<*>_<*>: Committed
+[16]
+Got assigned task <*>
+[17]
+Running task <*> in stage <*> (TID <*>
+[18]
+Started reading broadcast variable <*>
+[19]
+Block broadcast_<*>_<*> stored as bytes in memory (estimated size <*> <*>, free <*> <*>
+[20]
+Reading broadcast variable <*> took <*> ms
+[21]
+Removing RDD <*>
+[22]
+Doing the fetch; tracker endpoint = NettyRpcEndpointRef(spark:<*>:<*>
+[23]
+Got the output locations
+[24]
+Getting <*> non-empty blocks out of <*> blocks
+[25]
+Started <*> remote fetches in <*> ms
+[26]
+Driver commanded a shutdown
+[27]
+MemoryStore cleared
+[28]
+BlockManager stopped
+[29]
+An unknown <*>:<*> driver disconnected.
+[30]
+Driver <*>:<*> disassociated! Shutting down.
+[31]
+Shutdown hook called
+[32]
+Registered signal handlers for [TERM, HUP, INT]
+[33]
+Changing view acls to: yarn,curi
+[34]
+Changing modify acls to: yarn,curi
+[35]
+SecurityManager: authentication disabled; ui acls disabled; users with view permissions: Set(yarn, curi); users with modify permissions: Set(yarn, curi)
+[36]
+Partition rdd_<*>_<*> not found, computing it
+[37]
+Block rdd_<*>_<*> stored as bytes in memory (estimated size <*> <*>, free <*> <*>
+[39]
+Updating epoch to <*> and clearing cache
+[40]
+Added broadcast_<*>_<*> in memory on <*>:<*> (size: <*> <*>, free: <*> GB)
+[41]
+Removed broadcast_<*>_<*> on <*>:<*> in memory (size: 4.0 MB, free: 2.6 GB)
+[42]
+Parents of final stage: List()
+[43]
+Created broadcast <*> from <*> at <*>:<*>
+[44]
+Submitting <*> missing tasks from ResultStage <*> <*> at collect at pnmf.py:279)
+[45]
+Adding task set <*> with <*> tasks
+[46]
+Stage <*> contains a task of very large size (1807 KB). The maximum recommended task size is <*> KB.
+[47]
+Starting task <*> in stage <*> (TID <*>, <*>, partition <*>,PROCESS_LOCAL, <*> bytes)
+[48]
+PYTHONPATH -> {{PWD}}/pyspark.zip<CPS>{{PWD}}/py4j-0.9-src.zip
+[49]
+SPARK_LOG_URL_<*> -> http:<*>:8042/node/containerlogs/container_<*>_<*>_<*>_<*>=-4096
+[50]
+SPARK_YARN_CACHE_FILES -> hdfs://10.10.34.11:9000/user/curi/.sparkStaging/application_<*>_<*>__spark__.jar,hdfs://10.10.34.11:9000/user/curi/.sparkStaging/application_<*>_<*>,hdfs://10.10.34.11:9000/user/curi/.sparkStaging/application_<*>_<*>
+[51]
+command:
+[52]
+-Xms25600m -Xmx25600m -Djava.io.tmpdir={{PWD}}/tmp '-Dspark.driver.port=<*> -Dspark.yarn.app.container.log.dir=<LOG_DIR> -XX:MaxPermSize=256m org.apache.spark.executor.CoarseGrainedExecutorBackend --driver-url spark://CoarseGrainedScheduler@10.10.34.11:<*> --executor-id <*> --hostname <*> --cores <*> --app-id application_<*>_<*> --user-class-path file:$PWD/__app__.jar 1> <LOG_DIR>/stdout 2> <LOG_DIR>/stderr
+[53]
+Opening proxy : <*>:<*>
+[55]
+Setting up ContainerLaunchContext
+[56]
+Preparing Local resources
+[57]
+Prepared Local resources Map(__spark__.jar -> resource { scheme: "hdfs" host: "10.10.34.11" port: <*> file: "/user/curi/.sparkStaging/application_<*>_<*> } size: <*> timestamp: <*> type: FILE visibility: PRIVATE, pyspark.zip -> resource { scheme: "hdfs" host: "10.10.34.11" port: <*> file: "/user/curi/.sparkStaging/application_<*>_<*> } size: <*> timestamp: <*> type: FILE visibility: PRIVATE, py4j-0.9-src.zip -> resource { scheme: "hdfs" host: "10.10.34.11" port: <*> file: "/user/curi/.sparkStaging/application_<*>_<*> } size: <*> timestamp: <*> type: FILE visibility: PRIVATE)
+[58]
+yarn.client.max-cached-nodemanagers-proxies : <*>
+[59]
+YARN executor launch context:
+[62]
+Don't have map outputs for shuffle <*>, fetching them
+[63]
+Exception while beginning fetch of <*> outstanding blocks (after <*> retries)
+[64]
+to <*>:<*>
+[65]
+at org.apache.spark.network.client.TransportClientFactory.createClient(TransportClientFactory.java:<*>
+[66]
+at <*>:<*>
+[67]
+refused: <*>:<*>
+[68]
+at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+[69]
+env:
+[70]
+CLASSPATH -> {{PWD}}<CPS>{{PWD}}/__spark__.jar<CPS>$HADOOP_CONF_DIR<CPS>$HADOOP_COMMON_HOME/share/hadoop/common/*<CPS>$HADOOP_COMMON_HOME/share/hadoop/common/lib/*<CPS>$HADOOP_HDFS_HOME/share/hadoop/hdfs/*<CPS>$HADOOP_HDFS_HOME/share/hadoop/hdfs/lib/*<CPS>$HADOOP_YARN_HOME/share/hadoop/yarn/*<CPS>$HADOOP_YARN_HOME/share/hadoop/yarn/lib/*<CPS>$HADOOP_MAPRED_HOME/share/hadoop/mapreduce/*<CPS>$HADOOP_MAPRED_HOME/share/hadoop/mapreduce/lib/*<CPS>/usr/local/hadoop/etc/hadoop:/usr/local/hadoop/share/hadoop/common/lib/*:/usr/local/hadoop/share/hadoop/common/*:/usr/local/hadoop/share/hadoop/hdfs:/usr/local/hadoop/share/hadoop/hdfs/lib/*:/usr/local/hadoop/share/hadoop/hdfs/*:/usr/local/hadoop/share/hadoop/yarn/lib/*:/usr/local/hadoop/share/hadoop/yarn/*:/usr/local/hadoop/share/hadoop/mapreduce/lib/*:/usr/local/hadoop/share/hadoop/mapreduce/*:/contrib/capacity-scheduler/*.jar
+[71]
+SPARK_DIST_CLASSPATH -> /usr/local/hadoop/etc/hadoop:/usr/local/hadoop/share/hadoop/common/lib/*:/usr/local/hadoop/share/hadoop/common/*:/usr/local/hadoop/share/hadoop/hdfs:/usr/local/hadoop/share/hadoop/hdfs/lib/*:/usr/local/hadoop/share/hadoop/hdfs/*:/usr/local/hadoop/share/hadoop/yarn/lib/*:/usr/local/hadoop/share/hadoop/yarn/*:/usr/local/hadoop/share/hadoop/mapreduce/lib/*:/usr/local/hadoop/share/hadoop/mapreduce/*:/contrib/capacity-scheduler/*.jar
+[72]
+SPARK_YARN_STAGING_DIR -> .sparkStaging/application_<*>_<*>
+[73]
+SPARK_YARN_CACHE_FILES_<*>_<*> -> <*>,<*>,<*>
+[74]
+SPARK_USER -> curi
+[75]
+SPARK_YARN_CACHE_FILES_VISIBILITIES -> PRIVATE,PRIVATE,PRIVATE
+[76]
+SPARK_YARN_MODE -> true
+[77]
+-Xms20480m -Xmx20480m -Djava.io.tmpdir={{PWD}}/tmp <*>=<*> <*>=<*> '-Dspark.akka.frameSize=2000' -Dspark.yarn.app.container.log.dir=<LOG_DIR> -XX:MaxPermSize=256m org.apache.spark.executor.CoarseGrainedExecutorBackend --driver-url spark:<*>:<*> --executor-id <*> --hostname <*> --cores <*> --app-id application_<*>_<*> --user-class-path file:$PWD/__app__.jar 1> <LOG_DIR>/stdout 2> <LOG_DIR>/stderr
+[78]
+<*> <*>:<*>:<*> INFO ExecutorRunnable:
+[80]
+Launching container container_<*>_<*>_<*>_<*> for on host <*>
+[82]
+Launching ExecutorRunnable. driverUrl: spark:<*>:<*>,  executorHostname: <*>
+[83]
+Starting Executor Container
+[84]
+iterator:
+[85]
+in <*>
+[86]
+in pipeline_func
+[92]
+... <*> more
+[96]
+at <*> Method)
+[100]
+Deleting directory /opt/hdfs/nodemanager/usercache/curi/appcache/application_<*>_<*>
+[102]
+Retrying fetch (1/3) for <*> outstanding blocks after <*> ms
+[103]
+Found inactive connection to <*>:<*>, creating a new one.
+[104]
+Received <*> containers from YARN, launching executors on <*> of them.
+[110]
+Connecting to driver: spark:<*>:<*>
+[112]
+Successfully registered with driver
+[113]
+Starting executor ID <*> on host <*>
+[114]
+Successfully started service <*> on port <*>
+[115]
+Server created on <*>
+[116]
+Trying to register BlockManager
+[117]
+Registered BlockManager
+[118]
+Update row: <*>
+[119]
+Slf4jLogger started
+[121]
+Starting remoting
+[122]
+Remoting started; listening on addresses :[akka.tcp:<*>:<*>
+[123]
+Created local directory at /opt/hdfs/nodemanager/usercache/curi/appcache/application_<*>_<*>
+[124]
+MemoryStore started with capacity 17.7 GB
+[125]
+Input split: hdfs://10.10.34.11:<*>:<*>
+[126]
+mapred.task.partition is deprecated. Instead, use mapreduce.task.partition
+[130]
+mapred.job.id is deprecated. Instead, use mapreduce.job.id
+[131]
+ApplicationAttemptId: appattempt_<*>_<*>_<*>
+[135]
+timed out after [120 seconds]
+[138]
+Container request (host: Any, capability: <memory:<*>, vCores:5>)
+[150]

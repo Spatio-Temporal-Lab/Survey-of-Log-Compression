@@ -1,0 +1,53 @@
+name: "clp-docs"
+
+on:
+  pull_request:
+  push:
+  schedule:
+    # Run daily at 00:15 UTC (the 15 is to avoid periods of high load)
+    - cron: "15 0 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: "${{github.workflow}}-${{github.ref}}"
+  # Cancel in-progress jobs for efficiency
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: "build"
+    strategy:
+      matrix:
+        os:
+          - "macos-15"
+          - "ubuntu-24.04"
+    runs-on: "${{matrix.os}}"
+    steps:
+      - uses: "actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd"  # v6.0.2
+        with:
+          lfs: "true"
+          submodules: "recursive"
+
+      - uses: "./tools/yscope-dev-utils/exports/github/actions/install-python"
+
+      - uses: "./tools/yscope-dev-utils/exports/github/actions/install-go-task"
+        with:
+          version: "3.48.0"
+
+      - name: "Build docs"
+        shell: "bash"
+        run: "task docs:site"
+
+      # Upload the built docs so we can download and deploy them from y-scope/yscope-docs
+      - if: >-
+          contains(fromJSON('["push", "workflow_dispatch"]'), github.event_name)
+          && ('refs/heads/main' == github.ref || startsWith(github.ref, 'refs/tags/v'))
+          && 'ubuntu-24.04' == matrix.os
+        uses: "actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02"
+        with:
+          name: "docs-html"
+          path: "build/docs/html"
+          if-no-files-found: "error"
+
+          # Retain the artifact for a week in case there was a deployment issue
+          retention-days: 7

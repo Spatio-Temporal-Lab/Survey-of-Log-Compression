@@ -1,0 +1,19 @@
+[0]
+PacketResponder <*> for block blk_<*> terminating
+[1]
+Received block blk_<*> of size <*> from <*>
+[2]
+BLOCK* NameSystem.addStoredBlock: blockMap updated: <*>:<*> is added to blk_<*> size <*>
+[3]
+BLOCK* NameSystem.allocateBlock: /user/root/rand/_temporary/_task_<*>_<*>_m_<*>_<*> blk_<*>
+[4]
+Verification succeeded for blk_<*>
+[5]
+Receiving block blk_<*> src: <*>:<*> dest: <*>:<*>
+[6]
+Deleting block blk_<*> file <*>_<*>
+[7]
+<*>:<*> Served block blk_<*> to <*>
+[11]
+<*>:<*>:Got exception while serving blk_<*> to <*>:
+[12]

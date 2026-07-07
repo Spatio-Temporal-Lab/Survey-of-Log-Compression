@@ -1,0 +1,10 @@
+*.swap
+*nohup.out
+*.npy
+*.csv
+*.pyc
+*.params.json
+*.params
+*.compressed*
+*decompress
+*.file

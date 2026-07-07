@@ -1,0 +1,115 @@
+[0]
+<*>: Executing with tokens:
+[2]
+org.apache.hadoop.yarn.event.AsyncDispatcher: Registering class <*> for class <*>
+[7]
+org.apache.hadoop.mapreduce.v2.jobhistory.JobHistoryUtils: Default file system [hdfs://msra-sa-41:9000]
+[8]
+org.apache.hadoop.metrics2.impl.MetricsConfig: loaded properties from hadoop-metrics2.properties
+[10]
+Allocator] org.apache.hadoop.mapreduce.v2.app.rm.RMContainerAllocator: Reduce slow start threshold not met. completedMapsForReduceSlowstart <*>
+[11]
+Allocator] org.apache.hadoop.mapreduce.v2.app.rm.RMContainerAllocator: Recalculating schedule, headroom=<memory:<*>, vCores:<*>
+[12]
+Server handler <*> on <*> org.apache.hadoop.mapred.TaskAttemptListenerImpl: Progress of TaskAttempt <*> is : <*>
+[13]
+Server handler <*> on <*> org.apache.hadoop.mapred.TaskAttemptListenerImpl: MapCompletionEvents request from <*> startIndex <*> maxEvents <*>
+[14]
+for fetching Map Completion Events] org.apache.hadoop.mapreduce.task.reduce.EventFetcher: attempt_1445062781478_0016_r_000000_0: Got <*> new map-outputs
+[15]
+org.apache.hadoop.mapreduce.task.reduce.ShuffleSchedulerImpl: Assigning <*>:<*> with <*> to <*>
+[16]
+org.apache.hadoop.mapreduce.task.reduce.ShuffleSchedulerImpl: assigned <*> of <*> to <*>:<*> to <*>
+[17]
+org.apache.hadoop.mapreduce.task.reduce.Fetcher: for url=13562/mapOutput?job=job_1445062781478_0016&reduce=0&map=<*> sent hash and received reply
+[18]
+org.apache.hadoop.mapreduce.task.reduce.MergeManagerImpl: <*>: Shuffling to disk since <*> is greater than maxSingleShuffleLimit (32663142)
+[19]
+org.apache.hadoop.mapreduce.task.reduce.Fetcher: <*> about to shuffle output of map <*> decomp: <*> len: <*> to DISK
+[20]
+<*> org.apache.hadoop.ipc.Client: Retrying connect to server: <*>:<*> Already tried <*> time(s); maxRetries=<*>
+[23]
+Reader #1 for port <*> org.apache.hadoop.ipc.Server: Starting Socket Reader #1 for port <*>
+[24]
+org.apache.hadoop.http.HttpServer2: Added filter AM_PROXY_FILTER (class=org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter) to context <*>
+[32]
+org.apache.hadoop.http.HttpServer2: adding path spec: <*>
+[33]
+org.apache.hadoop.mapred.MapTask: Spilling map output
+[41]
+org.apache.hadoop.mapred.MapTask: bufstart = <*> bufend = <*> bufvoid = <*>
+[42]
+org.apache.hadoop.mapred.MapTask: kvstart = <*> kvend = <*> length = <*>
+[43]
+org.apache.hadoop.mapred.MapTask: (EQUATOR) <*> kvi <*>
+[44]
+org.apache.hadoop.mapred.MapTask: Finished spill <*>
+[45]
+org.apache.hadoop.mapred.MapTask: (RESET) equator <*> kv <*> kvi <*>
+[46]
+at java.lang.reflect.Method.invoke(Method.java:606)
+[48]
+at org.apache.hadoop.io.retry.RetryInvocationHandler.invokeMethod(RetryInvocationHandler.java:187)
+[49]
+at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:102)
+[50]
+at <*> <*>
+[51]
+at org.apache.hadoop.hdfs.DFSClient.renewLease(DFSClient.java:879)
+[52]
+at org.apache.hadoop.hdfs.LeaseRenewer.renew(LeaseRenewer.java:417)
+[53]
+at org.apache.hadoop.hdfs.LeaseRenewer.run(LeaseRenewer.java:442)
+[54]
+at <*>:<*>
+[55]
+route to host: no further information
+[56]
+Server handler <*> on <*> org.apache.hadoop.mapred.TaskAttemptListenerImpl: Done acknowledgement from <*>
+[57]
+event handler] <*>: <*> <*> <*> <*> <*> <*> <*>
+[58]
+<*> org.apache.hadoop.mapreduce.v2.app.launcher.ContainerLauncherImpl: Processing the event EventType: <*> for container <*> taskAttempt <*>
+[59]
+<*> org.apache.hadoop.mapreduce.v2.app.launcher.ContainerLauncherImpl: <*> <*>
+[60]
+<*> org.apache.hadoop.yarn.client.api.impl.ContainerManagementProtocolProxy: Opening proxy : <*>:<*>
+[61]
+event handler] org.apache.hadoop.mapreduce.v2.app.job.impl.TaskImpl: Task succeeded with attempt <*>
+[62]
+event handler] org.apache.hadoop.mapreduce.v2.app.job.impl.JobImpl: Num completed Tasks: <*>
+[63]
+Allocator] org.apache.hadoop.mapreduce.v2.app.rm.RMContainerAllocator: <*> Scheduling: PendingReds:<*> ScheduledMaps:<*> ScheduledReds:<*> AssignedMaps:<*> AssignedReds:<*> CompletedMaps:<*> CompletedReds:<*> ContAlloc:<*> ContRel:<*> HostLocal:<*> RackLocal:<*>
+[64]
+event handler] org.apache.hadoop.mapreduce.v2.app.job.impl.TaskImpl: Recovering task <*> from prior app attempt, status was SUCCEEDED
+[65]
+event handler] org.apache.hadoop.yarn.util.RackResolver: Resolved <*> to /default-rack
+[66]
+event handler] org.apache.hadoop.mapreduce.v2.app.job.impl.TaskAttemptImpl: TaskAttempt: <*> using containerId: <*> on NM: <*>:<*>
+[67]
+Allocator] org.apache.hadoop.mapreduce.v2.app.rm.RMContainerAllocator: <*> <*> <*> <*>
+[68]
+set up IO streams
+[72]
+... <*> more
+[73]
+Caused by: java.nio.channels.UnresolvedAddressException
+[74]
+org.apache.hadoop.ipc.Client: Address change detected. Old: msra-sa-41/10.190.173.170:<*> New: msra-sa-41:<*>
+[75]
+org.apache.hadoop.hdfs.LeaseRenewer: Failed to renew lease for <*> for <*> seconds.  Will retry shortly ...
+[76]
+Host from  MININT-FNANLI5/127.0.0.1 to msra-sa-41:<*> failed on socket timeout exception: java.net.NoRouteToHostException: No route to host: no further information; For more details see:  http://wiki.apache.org/hadoop/NoRouteToHost
+[77]
+org.apache.hadoop.mapred.YarnChild: mapreduce.cluster.local.dir for child: <*>
+[79]
+org.apache.hadoop.conf.Configuration.deprecation: session.id is deprecated. Instead, use dfs.metrics.session-id
+[80]
+org.apache.hadoop.yarn.util.ProcfsBasedProcessTree: ProcfsBasedProcessTree currently is supported only on Linux.
+[81]
+org.apache.hadoop.mapred.Task:  Using ResourceCalculatorProcessTree : <*>
+[82]
+Allocator] org.apache.hadoop.mapreduce.v2.app.rm.RMContainerRequestor: getResources() for <*>: ask=<*> release= <*> newContainers=<*> finishedContainers=<*> resourcelimit=<memory:<*>, vCores:<*> knownNMs=<*>
+[101]
+Allocator] org.apache.hadoop.mapreduce.v2.app.rm.RMContainerAllocator: Assigned container <*> to <*>
+[102]

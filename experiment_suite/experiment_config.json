@@ -1,0 +1,260 @@
+{
+  "schema_version": 2,
+  "source_workbook": "日志压缩合并.xlsx",
+  "wsl_distribution": "Ubuntu",
+  "defaults": {
+    "stage_timeout_seconds": 21600,
+    "query_repetitions": 5,
+    "query_warmups": 1,
+    "sensitivity_dataset": "Apache",
+    "scale_dataset": "Windows",
+    "block_lines": 100000,
+    "block_bytes": 67108864,
+    "segment_flush_size": 16777216,
+    "threads": 4,
+    "max_input_bytes": 104857600,
+    "sample_chunks": 16,
+    "sample_seed": 20260707
+  },
+  "datasets": [
+    {"name": "HDFS", "file": "datasets/HDFS/HDFS_full.log", "format": "text", "group": "Text/半结构化"},
+    {"name": "Hadoop", "glob": "datasets/Hadoop/**/*.log", "format": "text", "group": "Text/半结构化"},
+    {"name": "Spark", "glob": "datasets/Spark/**/*.log", "format": "text", "group": "Text/半结构化"},
+    {"name": "Zookeeper", "file": "datasets/Zookeeper/Zookeeper_full.log", "format": "text", "group": "Text/半结构化"},
+    {"name": "OpenStack", "file": "datasets/OpenStack/OpenStack_full.log", "format": "text", "group": "Text/半结构化"},
+    {"name": "BGL", "file": "datasets/BGL/BGL_full.log", "format": "text", "group": "Text/半结构化"},
+    {"name": "HPC", "file": "datasets/HPC/HPC_full.log", "format": "text", "group": "Text/半结构化"},
+    {"name": "Thunderbird", "file": "datasets/Thunderbird/Thunderbird_full.log", "format": "text", "group": "Text/半结构化"},
+    {"name": "Windows", "file": "datasets/Windows.log", "format": "text", "group": "Text/半结构化"},
+    {"name": "Linux", "file": "datasets/Linux/Linux_full.log", "format": "text", "group": "Text/半结构化"},
+    {"name": "Mac", "file": "datasets/Mac/Mac_full.log", "format": "text", "group": "Text/半结构化"},
+    {"name": "Android_v1", "file": "datasets/Android/Android_full.log", "format": "text", "group": "Text/半结构化", "cli_name": "Android"},
+    {"name": "HealthApp", "file": "datasets/HealthApp/HealthApp_full.log", "format": "text", "group": "Text/半结构化"},
+    {"name": "Apache", "file": "datasets/Apache/Apache_full.log", "format": "text", "group": "Text/半结构化"},
+    {"name": "OpenSSH", "file": "datasets/OpenSSH/OpenSSH_full.log", "format": "text", "group": "Text/半结构化"},
+    {"name": "Proxifier", "file": "datasets/Proxifier/Proxifier_full.log", "format": "text", "group": "Text/半结构化"},
+    {"name": "spark-event-logs", "glob": "datasets/spark-event-logs/app-*", "format": "json", "group": "JSON"},
+    {"name": "elasticsearch", "file": "datasets/elasticsearch/elasticsearch.log", "format": "json", "group": "JSON"},
+    {"name": "cockroachdb", "file": "datasets/cockroachdb/cockroach.node1.log", "format": "json", "group": "JSON"},
+    {"name": "oceanbase", "glob": "datasets/oceanbase/*.log*", "format": "text", "group": "Text/半结构化"}
+  ],
+  "methods": [
+    {
+      "name": "LogArchive",
+      "adapter": "logarchive",
+      "mode": "batch",
+      "query_capable": false,
+      "runtime_dir": "/home/abebts130613/log_archive_v0_run_20260629",
+      "defaults": {"jhistory": 10, "buckets": 16, "strategy": "est"},
+      "parameter_sweeps": []
+    },
+    {
+      "name": "logzip",
+      "adapter": "unavailable",
+      "mode": "batch",
+      "query_capable": false,
+      "reason": "当前工作区没有可安全接收任意输入/输出路径的独立 logzip CLI；不伪造结果。"
+    },
+    {
+      "name": "LogReducer",
+      "adapter": "unavailable",
+      "mode": "batch",
+      "query_capable": false,
+      "reason": "源码入口强依赖原始目录布局和内置配置，未发现可隔离输出的通用 CLI。"
+    },
+    {
+      "name": "LogBlock",
+      "adapter": "logblock",
+      "mode": "batch",
+      "query_capable": false,
+      "runtime_dir": "/home/abebts130613/logblock_run_20260630",
+      "python": "/home/abebts130613/logblock_run_20260630/.venv/bin/python",
+      "defaults": {"dataset": "Apache", "backend": "xz"},
+      "parameter_sweeps": [],
+      "note": "当前独立入口只定义了 Apache 格式，其他数据集记录为不支持。LogBlock 公开包没有完整逆变换。"
+    },
+    {
+      "name": "ELISE",
+      "adapter": "elise",
+      "mode": "batch",
+      "query_capable": false,
+      "runtime_dir": "/home/abebts130613/elise_2021_run_20260629",
+      "python": "/home/abebts130613/elise_2021_run_20260629/.venv/bin/python",
+      "defaults": {
+        "training_bytes": 100000,
+        "timesteps": 24,
+        "hidden_size": 24,
+        "batch_size": 256,
+        "epochs": 1,
+        "streams": 64,
+        "seed": 42
+      },
+      "parameter_sweeps": []
+    },
+    {
+      "name": "LogShrink",
+      "adapter": "unavailable",
+      "mode": "batch",
+      "query_capable": false,
+      "reason": "源码入口使用内置数据集配置，未发现可安全隔离输出的通用 CLI。"
+    },
+    {
+      "name": "Denum",
+      "adapter": "denum",
+      "mode": "batch",
+      "query_capable": false,
+      "runtime_dir": "/home/abebts130613/denum_run_20260706",
+      "defaults": {"block_lines": 100000, "mode": 1},
+      "parameter_sweeps": ["block_lines"]
+    },
+    {
+      "name": "PBC-L",
+      "adapter": "pbc",
+      "mode": "batch",
+      "query_capable": false,
+      "runtime_dir": "/home/abebts130613/pbc_lz4_run_20260627",
+      "defaults": {
+        "compress_method": "pbc_lz4",
+        "pattern_size": 20,
+        "train_data_number": 500,
+        "train_threads": 16
+      },
+      "parameter_sweeps": [],
+      "note": "使用前面补过的 PBC-L/LZ4 运行目录；若该二进制不暴露 pbc_lz4，会记录失败而不中断。"
+    },
+    {
+      "name": "PBC-Z",
+      "adapter": "pbc",
+      "mode": "batch",
+      "query_capable": false,
+      "runtime_dir": "/home/abebts130613/pbc_run_20260626",
+      "defaults": {
+        "compress_method": "pbc_zstd",
+        "pattern_size": 20,
+        "train_data_number": 500,
+        "train_threads": 16
+      },
+      "parameter_sweeps": []
+    },
+    {
+      "name": "Cowic",
+      "adapter": "cowic",
+      "mode": "batch",
+      "query_capable": false,
+      "runtime_dir": "/home/abebts130613/cowic_run_20260630",
+      "defaults": {"sample_ratio": 0.01},
+      "parameter_sweeps": []
+    },
+    {
+      "name": "CLP-Text",
+      "adapter": "clp",
+      "mode": "batch",
+      "query_capable": true,
+      "runtime_dir": "/home/abebts130613/clp_run_20260629",
+      "defaults": {"compression_level": 3, "block_bytes": 67108864},
+      "parameter_sweeps": ["block_bytes"]
+    },
+    {
+      "name": "LogGrep",
+      "adapter": "loggrep",
+      "mode": "batch",
+      "query_capable": true,
+      "runtime_dir": "/home/abebts130613/LogGrep_run_20260630",
+      "defaults": {"block_bytes": 67108864},
+      "parameter_sweeps": ["block_bytes"]
+    },
+    {
+      "name": "LogCrisp",
+      "adapter": "logcrisp",
+      "mode": "batch",
+      "query_capable": false,
+      "runtime_dir": "/home/abebts130613/logcrisp_run_20260630",
+      "defaults": {"sample_ratio": 0.01},
+      "parameter_sweeps": [],
+      "note": "公开代码没有论文中的聚合/查询引擎，因此只测训练、压缩和内部单元解压。"
+    },
+    {
+      "name": "μSlope（CLP-JSON）",
+      "adapter": "unavailable",
+      "mode": "batch",
+      "query_capable": true,
+      "reason": "工作区没有 μSlope 独立源码；CLP-JSON 已在 CLP 项目中单独跑通过，当前统一 runner 不把它伪装成 μSlope。"
+    },
+    {
+      "name": "PBC",
+      "adapter": "pbc",
+      "mode": "batch",
+      "query_capable": false,
+      "runtime_dir": "/home/abebts130613/pbc_run_20260626",
+      "defaults": {
+        "compress_method": "pbc_only",
+        "pattern_size": 20,
+        "train_data_number": 500,
+        "train_threads": 16
+      },
+      "parameter_sweeps": []
+    },
+    {
+      "name": "PBC-F",
+      "adapter": "pbc",
+      "mode": "batch",
+      "query_capable": false,
+      "runtime_dir": "/home/abebts130613/pbc_run_20260626",
+      "defaults": {
+        "compress_method": "pbc_fsst",
+        "pattern_size": 20,
+        "train_data_number": 500,
+        "train_threads": 16
+      },
+      "parameter_sweeps": []
+    },
+    {
+      "name": "LogLite-b",
+      "adapter": "unavailable",
+      "mode": "streaming",
+      "query_capable": false,
+      "reason": "当前工作区没有已跑通的 LogLite-b 通用入口。"
+    },
+    {
+      "name": "LogLite-BZ",
+      "adapter": "unavailable",
+      "mode": "streaming",
+      "query_capable": false,
+      "reason": "当前工作区没有已跑通的 LogLite-BZ 通用入口。"
+    },
+    {
+      "name": "LogLite-BL",
+      "adapter": "unavailable",
+      "mode": "streaming",
+      "query_capable": false,
+      "reason": "当前工作区没有已跑通的 LogLite-BL 通用入口。"
+    },
+    {
+      "name": "CLP-logging Library",
+      "adapter": "unavailable",
+      "mode": "streaming",
+      "query_capable": true,
+      "reason": "官方公开仓库没有单独的 CLP-logging Library 可复现实验入口；只记录不可用，不把 CLP-Text 或 CLP-JSON 结果代替它。"
+    }
+  ],
+  "sensitivity": {
+    "block_lines": [10000, 50000, 100000],
+    "block_bytes": [16777216, 67108864, 104857600],
+    "segment_flush_size": [1048576, 4194304, 16777216, 67108864],
+    "raw_size_bytes": [104857600],
+    "excluded": [
+      "模板/相似度阈值、字典规模、训练比例、schema、window、backend 等方法私有参数固定为当前稳定值或原论文/仓库默认值。",
+      "disable-step、移除模块、替换模块属于消融实验，不进入本轮统一主实验。"
+    ]
+  },
+  "queries": [
+    {"id": "Q1", "kind": "keyword", "loggrep": "ERROR", "clp": "*ERROR*"},
+    {"id": "Q2", "kind": "boolean_text", "loggrep": "Exception or WARN"},
+    {"id": "Q3", "kind": "time_range"},
+    {"id": "Q4", "kind": "field_predicate"},
+    {"id": "Q5", "kind": "template_or_id"},
+    {"id": "Q6", "kind": "aggregation"},
+    {"id": "Q7", "kind": "no_match", "loggrep": "__CODEX_INTENTIONAL_NO_MATCH_7f93a1__", "clp": "*__CODEX_INTENTIONAL_NO_MATCH_7f93a1__*"},
+    {"id": "Q8", "kind": "multi_predicate"}
+  ]
+}

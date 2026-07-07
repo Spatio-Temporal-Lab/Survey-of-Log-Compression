@@ -1,0 +1,31 @@
+[0]
+Received block blk_<*> of size <*> from <*>
+[1]
+Receiving block blk_<*> src: <*>:<*> dest: <*>:<*>
+[2]
+PacketResponder <*> for block blk_<*> terminating
+[3]
+BLOCK* NameSystem.addStoredBlock: blockMap updated: <*>:<*> is added to blk_<*> size <*>
+[4]
+BLOCK* NameSystem.allocateBlock: <*>_temporary/_task_<*>_<*>_<*>_<*>_<*> blk_<*>
+[5]
+Verification succeeded for blk_<*>
+[6]
+<*>:<*> Served block blk_<*> to <*>
+[7]
+<*>:<*>:Got exception while serving blk_<*> to <*>:
+[8]
+Received block blk_<*> src: <*>:<*> dest: <*>:<*> of size <*>
+[9]
+BLOCK* NameSystem.delete: blk_<*> is added to invalidSet of <*>:<*>
+[10]
+Deleting block blk_<*> file <*>_<*>
+[11]
+BLOCK* ask <*>:<*> to replicate blk_<*> to datanode(s) <*>:<*>
+[12]
+<*>:<*>:Transmitted block blk_<*> to <*>:<*>
+[13]
+<*>:<*> Starting thread to transfer block blk_<*> to <*>:<*>
+[14]
+writeBlock blk_<*> received exception java.io.IOException: Could not read from stream
+[15]

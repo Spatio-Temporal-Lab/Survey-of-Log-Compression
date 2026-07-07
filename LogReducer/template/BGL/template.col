@@ -1,0 +1,101 @@
+[0]
+<*> <*>:<*> RAS KERNEL <*> <*> <*>
+[1]
+<*> <*>:<*> RAS KERNEL INFO <*> <*> <*> <*> <*>
+[2]
+<*> <*>:<*> RAS APP FATAL ciod: Error loading <*>: invalid or missing program image, No such file or directory
+[3]
+<*> <*>:<*> RAS KERNEL <*> <*> <*> <*> <*>
+[4]
+<*> <*>:<*> RAS KERNEL FATAL <*> address: <*>
+[5]
+<*> <*>:<*> RAS KERNEL FATAL <*> <*> <*>
+[6]
+<*> <*>:<*> RAS KERNEL FATAL program interrupt: fp cr update.............0
+[7]
+<*> <*>:<*> RAS KERNEL FATAL <*> <*> <*> <*> <*> <*>
+[8]
+<*> <*>:<*> RAS KERNEL FATAL problem state (0=sup,<*>=usr).......0
+[9]
+<*> R27-M0-NC-C:<*> RAS KERNEL FATAL general purpose registers:
+[10]
+<*> <*>:<*> RAS KERNEL FATAL <*>:<*> <*>:1feaa7b0 <*>:<*> <*>:<*>
+[11]
+<*> R27-M0-NE-C:<*> RAS KERNEL FATAL rts panic! - stopping execution
+[12]
+<*> <*>:<*> RAS KERNEL INFO <*> ddr errors(s) detected and corrected on rank <*>, symbol <*>, bit <*>
+[14]
+<*> <*>:<*> RAS KERNEL INFO CE sym <*>, at <*>, mask <*>
+[15]
+<*> <*>:<*> RAS KERNEL INFO total of <*> ddr error(s) detected and corrected
+[16]
+<*> <*>:<*> RAS KERNEL INFO program interrupt: privileged instruction...0
+[17]
+<*> <*>:<*> RAS KERNEL INFO <*> torus receiver <*> input pipe error(s) (dcr <*> detected and corrected
+[18]
+<*> R05-M0-NE-C:J09-U11 RAS KERNEL FATAL Target=ido://FF:F2:9F:<*>:EC:<*>:<*>:0D:<*>:E9:<*>:BE/JTAG/0 Message=Invalid JtagId = ffffffff
+[19]
+<*> <*>:<*> RAS APP FATAL ciod: Error loading <*>: invalid or missing program image, Exec format error
+[20]
+<*> <*>:<*> RAS KERNEL INFO ciod: Y coordinate <*> exceeds physical dimension <*> at line <*> of node map file /home/pakin1/sweep3d-2.2b/results/random3-8x32x32x2.map
+[21]
+<*> <*>:<*> RAS KERNEL FATAL rts: kernel terminated for reason 1001rts: bad message header: invalid cpu, type=<*>, cpu=<*>, index=<*>, total=<*>
+[22]
+<*> <*>:<*> RAS KERNEL FATAL <*>
+[23]
+<*> R06-M1-N6-C:J15-U01 RAS KERNEL INFO <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*>
+[26]
+<*> <*>:<*> RAS KERNEL INFO <*> <*> <*> <*> <*> <*> <*> <*> <*>
+[27]
+<*> <*> NULL DISCOVERY SEVERE Can not get assembly information for node card
+[28]
+<*> <*> NULL DISCOVERY ERROR Node card status: no ALERTs are active. Clock Mode is Low. Clock Select is Midplane. Phy JTAG Reset is asserted. ASIC JTAG Reset is asserted. Temperature Mask is not active. No temperature error. Temperature Limit Error Latch is clear. PGOOD IS NOT ASSERTED. PGOOD ERROR LATCH IS ACTIVE. MPGOOD IS NOT OK. MPGOOD ERROR LATCH IS ACTIVE. The 2.5 volt rail is OK. The 1.5 volt rail is OK.
+[29]
+<*> <*> NULL DISCOVERY WARNING Node card is not fully functional
+[30]
+<*> <*> NULL DISCOVERY INFO Node card VPD check: <*> node in processor card slot <*> do not match. VPD ecid <*>, found <*>
+[31]
+<*> UNKNOWN_LOCATION NULL DISCOVERY INFO New ido chip inserted into the database: FF:F2:9F:<*>:<*>:<*>:<*>:0D:<*>:<*>:<*>:<*> ip=<*> v=<*> t=<*>
+[32]
+<*> UNKNOWN_LOCATION NULL DISCOVERY INFO Ido chip status changed: FF:F2:9F:<*>:<*>:<*>:<*>:0D:<*>:<*>:<*>:<*> ip=<*> v=<*> t=<*> status=M Tue Aug <*> <*>:<*>:<*> PDT <*>
+[33]
+<*> <*>:<*> RAS KERNEL FATAL rts: kernel terminated for reason <*>
+[34]
+<*> <*>:<*> RAS KERNEL INFO ciod: generated <*> core files for program <*>
+[35]
+<*> <*>:<*> RAS KERNEL INFO
+[36]
+<*> <*>:<*> RAS KERNEL FATAL Lustre mount FAILED : <*> : point /p/gb1
+[37]
+<*> NULL RAS MMCS ERROR idoproxydb hit ASSERT condition: ASSERT expression=<*> Source file=idotransportmgr.cpp Source line=<*> Function=int IdoTransportMgr::SendPacket(IdoUdpMgr*, BglCtlPavTrace*)
+[38]
+<*> <*>:<*> RAS KERNEL INFO <*> tree receiver <*> in re-synch state event(s) (dcr <*> detected
+[39]
+<*> <*>:<*> RAS APP FATAL ciod: LOGIN <*> failed: No such file or directory
+[40]
+<*> <*>:<*> RAS APP FATAL ciod: Error loading <*>: invalid or missing program image, Permission denied
+[41]
+<*> R63-M1-N6-C:<*> RAS KERNEL FATAL Error receiving packet on tree network, expecting type <*> instead of type <*> (softheader=0064588e 8aff0003 <*> 00000000) PSR0=<*> PSR1=<*> PRXF=<*> PIXF=<*>
+[42]
+<*> R26-M0-N0-I:J18-U11 RAS KERNEL INFO MACHINE CHECK DCR read timeout (mc=e08x iar 0x00000000 lr 0xc00045a4)
+[43]
+<*> <*>:<*> RAS APP FATAL ciod: Error reading message prefix on CioStream socket to <*>:<*>, Connection reset by peer
+[44]
+<*> <*>:<*> RAS KERNEL INFO ciod: Received signal <*>, code=<*>, errno=<*>, address=<*>
+[45]
+<*> <*>:<*> RAS KERNEL INFO <*> microseconds spent in the rbs signal handler during <*> calls. <*> microseconds was the maximum time for a single instance of a correctable ddr.
+[46]
+<*> <*>:<*> RAS KERNEL INFO <*> total interrupts. <*> critical input interrupts. <*> microseconds total spent on critical input interrupts, <*> microseconds max time in a critical input interrupt.
+[47]
+<*> <*>:<*> RAS KERNEL INFO total of <*> ddr error(s) detected and corrected over <*> seconds
+[48]
+<*> <*>:<*> RAS KERNEL INFO Kernel detected <*> integer alignment exceptions <*> iar <*>, dear <*> <*> iar <*>, dear <*> <*> iar <*>, dear <*> <*> iar <*>, dear <*> <*> iar <*>, dear <*> <*> iar <*>, dear <*> <*> iar <*>, dear <*> <*> iar <*>, dear <*>
+[49]
+<*> <*>:<*> RAS KERNEL INFO <*> ddr error(s) detected and corrected on rank <*>, symbol <*> over <*> seconds
+[51]
+<*> <*> NULL HARDWARE WARNING PrepareForService shutting down <*> <*>, <*>, mLp(FF:F2:9F:<*>:<*>:<*>:<*>:0D:<*>:<*>:<*>:<*>, <*>, <*> as part of Service Action <*>
+[56]
+<*> <*>:<*> RAS KERNEL INFO <*> L3 EDRAM error(s) (dcr 0x0157) detected and corrected over <*> seconds
+[57]
+<*> R06-M1-N6-C:J15-U01 RAS KERNEL INFO <*> torus receiver <*> input pipe error(s) (dcr <*> detected and corrected over <*> seconds
+[58]

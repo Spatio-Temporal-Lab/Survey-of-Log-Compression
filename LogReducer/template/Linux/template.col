@@ -1,0 +1,63 @@
+[0]
+<*>: connection from <*> <*> at <*> <*>  <*> <*>:<*>:<*> <*>
+[1]
+<*>: session opened for user <*> by (uid=<*>
+[2]
+<*>: session closed for user <*>
+[3]
+<*>: authentication failure; logname= uid=<*> euid=<*> tty=NODEVssh ruser= rhost=<*>  user=<*>
+[4]
+<*>: connection from <*> <*> at <*> <*> <*> <*>:<*>:<*> <*>
+[5]
+<*>: ANONYMOUS FTP LOGIN FROM <*>,  (anonymous)
+[6]
+cups: cupsd <*> succeeded
+[7]
+syslogd 1.4.1: restart.
+[8]
+logrotate: ALERT exited abnormally with [1]
+[9]
+<*>: creating device node <*>
+[10]
+<*>: removing device node <*>
+[11]
+ntpd[2317]: kernel time sync <*> <*>
+[13]
+dd: 1+0 records <*>
+[16]
+kernel: Kernel <*> <*> <*>
+[21]
+syslog: klogd <*> succeeded
+[22]
+kernel:  BIOS-e820: <*> - <*> <*>
+[28]
+kernel: NET: Registered protocol family <*>
+[30]
+<*>: <*> more authentication failure; logname= uid=<*> euid=<*> tty=NODEVssh ruser= rhost=<*>  user=test
+[47]
+kernel: Out of Memory: Killed process <*> <*>
+[48]
+kernel:  <*> <*>
+[49]
+kernel:  <*> <*> <*>
+[54]
+<*>: check pass; user unknown
+[55]
+<*>: authentication failure; logname= uid=<*> euid=<*> tty=NODEVssh ruser= rhost=<*>
+[56]
+kernel: SELinux: initialized (dev , type <*>, uses genfs_contexts
+[61]
+kernel: SELinux: initialized (dev <*>, type <*>, uses xattr
+[62]
+kernel: SELinux: initialized (dev , type <*>, not configured for labeling
+[63]
+kernel: SELinux: initialized (dev , type <*>, uses <*> SIDs
+[64]
+kernel: <*>:<*>: syscall=<*> exit=<*> a0=<*> a1=<*> a2=<*> a3=<*> items=<*> pid=<*> loginuid=-1 uid=<*> gid=<*> euid=<*> suid=<*> fsuid=<*> egid=<*> sgid=<*> fsgid=<*>
+[66]
+kernel: <*>:<*>: item=<*> name=<*> inode=<*> dev=<*>:<*>
+[67]
+kernel: audit(1138296118.152:<*>: avc:  denied  { <*> } for  pid=<*> exe=/usr/sbin/kudzu <*>=<*> dev= ino=<*> scontext=system_u:system_r:kernel_t tcontext=system_u:object_r:sysctl_dev_t tclass=<*>
+[76]
+<*>: User unknown timed out after <*> seconds at Mon Feb  <*> <*>:<*>:<*> <*>
+[78]

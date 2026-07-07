@@ -1,0 +1,315 @@
+[0]
+read (log_cache.cpp:101) [12614][T1_LogSharedQue][T1][Y0-0000000000000000-0-0] [lt=<*> [PALF STAT HOT CACHE HIT RATE](palf_id=<*>, read_size=<*>, hit_cnt=<*>, read_cnt=<*>, hit rate=1.000000000000000000e+00)
+[1]
+gc_stale_ls_task_ (ob_ls_mgr.cpp:573) [12642][T1_LSArchiveMgr][T1][YB427F000001-00063C68B76B0684-0-0] [lt=<*> gc stale ls task succ
+[2]
+wash (ob_kvcache_hazard_domain.h:326) <*> [lt=<*> allocator wash time (wash_time_us=<*>, freed_blocks_num=<*>, memory_efficiency=<*>
+[3]
+replace_map (ob_kv_storecache.cpp:694) <*> [lt=<*> replace map num details(ret=<*>, replace_node_count=<*>, map_once_replace_num_=<*>, map_replace_skip_count_=<*>
+[5]
+compute_tenant_wash_size (ob_kvcache_store.cpp:1464) <*> [lt=<*> Wash compute wash size(is_wash_valid=<*>, sys_total_wash_size=<*>, global_cache_size=<*>, tenant_max_wash_size=<*>, tenant_min_wash_size=<*>, tenant_ids_=[500, <*>, <*>, 1])
+[7]
+update_cluster_version (ob_tenant_weak_read_cluster_service.cpp:690) [12641][T1_TenantWeakRe][T1][Y0-0000000000000000-0-0] [lt=<*> [WRS] [TENANT_WEAK_READ_SERVICE] [CLUSTER_SERVICE] update version(tenant_id=<*>, current_version={val:<*>, v:0}, min_version={val:<*>, v:0}, max_version={val:<*>, v:0}, in_service=true, leader_epoch=<*>
+[8]
+run (ob_sql_processor.cpp:46) <*> [lt=<*>=-4009] response rpc result fail(ret=-4009, tmp_ret=-4009)
+[9]
+sm_conn_build_handshake (obsm_conn_callback.cpp:117) <*> [lt=<*> new mysql sessid created(conn.sessid_=<*>, support_ssl=false)
+[10]
+process (ob_worker_processor.cpp:163) <*> [lt=<*>=-4009] process request fail(ret=-4009)
+[11]
+get_network_speed_from_sysfs (ob_server.cpp:3192) <*> [lt=<*>=-4000] cannot get Ethernet speed, use default(tmp_ret=<*>, devname="lo")
+[13]
+runTimerTask (ob_checkpoint_service.cpp:<*> <*> [lt=<*> succeed to <*>=<*>, ls_cnt=1)
+[14]
+clean_garbage_node (ob_kvcache_map.cpp:706) <*> [lt=<*> Cache wash clean map node details(ret=<*>, clean_node_count=<*>, clean_time=<*>, clean_start_pos=<*>, clean_num=31457)
+[15]
+check_all_readonly_tx_clean_up (ob_ls_tx_service.cpp:356) [12649][T1_TxLoopWorker][T1][Y0-0000000000000000-0-0] [lt=<*> wait_all_readonly_tx_cleaned_up cleaned up success(ls_id={id:1})
+[17]
+process_refresh_task (ob_server_schema_updater.cpp:335) <*> [lt=<*> [REFRESH_SCHEMA] local schema info is newer, no need to refresh schema(ret=<*>, ret="OB_SUCCESS", local_schema_info={schema_version:-1, tenant_id:<*>, new_sequence_id:{seq_id:<*>, sys_leader_epoch:<*>, enable_new_seq_id:true}}, schema_info={schema_version:-1, tenant_id:<*>, new_sequence_id:{seq_id:<*>, sys_leader_epoch:<*>, enable_new_seq_id:true}})
+[18]
+batch_rpc_easy_timer_cb (ob_net_easy.cpp:639) <*> [lt=<*> [BATCH_RPC EASY STAT](log_str=conn count=0/0, request done=0/0, request doing=0/0)
+[19]
+scheduler_ls_ha_handler_ (ob_storage_ha_service.cpp:195) [12648][T1_HAService][T1][Y0-0000000000000000-0-0] [lt=<*> start do ls ha handler(ls_id_array_=[{id:1}])
+[20]
+wash (ob_kvcache_store.cpp:529) <*> [lt=<*> Wash time detail, (compute_wash_size_time=<*>, refresh_score_time=<*>, wash_time=<*>, reclaim_time=<*>, reclaimed_size=0)
+[21]
+print_statistics (ob_tmp_file_thread_job.cpp:124) [12626][T1_TFSwap][T1][Y0-0000000000000000-0-0] [lt=<*> tmp file flush statistics(flush_task_cnt=<*>, avg_flush_data_len=<*>, max_flush_data_len=-1, min_flush_data_len=-1, f1_cnt=<*>, f2_cnt=<*>, f3_cnt=<*>, f4_cnt=<*>, f5_cnt=0)
+[24]
+print_status (ob_io_struct.cpp:2837) [12498][IO_TUNING0][T0][Y0-0000000000000000-0-0] [lt=<*> [IO STATUS CHANNEL] device_id=<*>, req_in_channel, async_total=<*>, sync_total=<*>, async_cnt=, sync_cnt= <*>
+[26]
+runTimerTask (ob_eliminate_task.cpp:225) <*> [lt=<*> sql audit evict task end(request_manager_->get_tenant_id()=<*>, evict_high_mem_level=<*>, evict_high_size_level=<*>, evict_batch_count=<*>, elapse_time=<*>, size_used=<*>, mem_used=<*>
+[27]
+mvcc_write (ob_mvcc_row.cpp:1131) <*> [lt=<*>=-5024] mvcc write failed(ret=-5024, node=this=<*> trans_version={val:<*>, v:0} scn={val:<*>, v:0} tx_id={txid:<*> prev=(nil) next=(nil) modify_count=<*> acc_checksum=<*> version=<*> type=<*> flag=<*> snapshot_barrier=<*> snapshot_barrier_flag=<*>  mtd={dml_flag:<*>, buf_len:60} seq_no={branch:<*>, seq:4} write_epoch=<*>, ctx={this:0x70a3a0dc87f0, ls_id:{id:1}, ls:0x70a3bd926150, branch:<*>, timeout:<*>, tablet_id:{id:444}, table_iter:0x70a3a0dc7160, table_version:<*>, mvcc_acc_ctx:{type:<*>, is_inited:true, abs_lock_timeout_ts:<*>, tx_lock_timeout_us:-1, snapshot:{version:{val:<*>, v:0}, tx_id:{txid:<*>, scn:{branch:<*>, seq:2}}, tx_table_guards:{tx_table_guard:{tx_table:0x70a3bd931b10, epoch:<*>, mini_cache_:[0:{}, <*>:{}, <*>:{}, <*>:{}]}, src_tx_table_guard:{tx_table:null, epoch:-1, mini_cache_:[0:{}, <*>:{}, <*>:{}, <*>:{}]}, src_ls_handle:{ls_map_:null, ls_:null, mod_:-1}}, tx_id:{txid:<*>, tx_desc:{this:<*>, tx_id:{txid:<*>, state:<*>, addr:"127.0.0.1:2882", tenant_id:<*>, session_id:<*>, assoc_session_id:<*>, client_sid:<*>, xid:NULL, xa_mode:"", xa_start_addr:"0.0.0.0:0", access_mode:<*>, tx_consistency_type:<*>, isolation:<*>, snapshot_version:{val:<*>, v:3}, snapshot_scn:<*>, active_scn:<*>, op_sn:<*>, alloc_ts:<*>, active_ts:<*>, commit_ts:-1, finish_ts:-1, timeout_us:<*>, lock_timeout_us:-1, expire_ts:<*>, coord_id:{id:-1}, parts:[], exec_info_reap_ts:<*>, commit_version:{val:<*>, v:3}, commit_times:<*>, commit_cb:null, cluster_id:<*>, cluster_version:<*>, seq_base:<*>, flags_.SHADOW:false, flags_.INTERRUPTED:false, flags_.BLOCK:false, flags_.REPLICA:false, conflict_txs:[], abort_cause:<*>, commit_expire_ts:<*>, commit_task_.is_registered():false, modified_tables:[], last_rc_snapshot_version:{val:<*>, v:0}, ref:2}, tx_ctx:0x70a3adfe3250, mem_ctx:0x70a3adfe4810, tx_scn:{branch:<*>, seq:4}, write_flag:{is_table_api:<*>, is_table_lock:<*>, is_mds:<*>, is_dml_batch_opt:<*>, is_insert_up:<*>, is_write_only_index:<*>, is_check_row_locked:<*>, is_lob_aux:<*>, is_skip_flush_redo:<*>, is_update_uk:<*>, is_update_pk_dop:<*>, immediate_row_check:<*>, is_delete_insert:<*>, is_plain_ins_gts_opt:0}, handle_start_time:-1, is_standby_read:false, is_delete_insert:false, major_snapshot:<*>, mds_filter:{read_info:null, truncate_part_filter:null}, lock_wait_start_ts:0}, tablet_stat:{ls_id:<*>, tablet_id:<*>, query_cnt:<*>, merge_cnt:<*>, scan_logical_row_cnt:<*>, scan_physical_row_cnt:<*>, scan_micro_block_cnt:<*>, pushdown_micro_block_cnt:<*>, exist_row_total_table_cnt:<*>, exist_row_read_table_cnt:<*>, insert_row_cnt:<*>, update_row_cnt:<*>, delete_row_cnt:0}, is_read_store_ctx:false, update_full_column:false})
+[28]
+string_length_check (ob_datum_cast.cpp:14649) <*> [lt=<*>=0] string accuracy check failed(cast_ret=-5167, ret=<*>, warning=-5167, is_oracle=false, meta={type:"CHAR", collation:"utf8mb4_general_ci", coercibility:"INVALID"})
+[29]
+stat (utility.h:1219) <*> [lt=<*> [PALF STAT <*> <*> TIME](cur_stat_count=<*>, stat_interval=<*>, avg (count/cost)=<*>, this=<*>, extra_info=<*>:1")
+[30]
+rpc_easy_timer_cb (ob_net_easy.cpp:601) <*> [lt=<*> [RPC EASY STAT](log_str=conn count=0/0, request done=0/0, request doing=0/0)
+[31]
+get_min_unreplayed_log_info (ob_replay_status.cpp:1020) <*> [lt=<*> get_min_unreplayed_log_info in skip state(lsn={lsn:411101453}, scn={val:<*>, v:0}, this={ls_id_:{id:1}, is_enabled_:true, is_submit_blocked_:false, role_:<*>, err_info_:{lsn_:{lsn:18446744073709551615}, scn_:{val:<*>, v:0}, log_type_:<*>, is_submit_err_:false, err_ts_:<*>, err_ret_:0}, ref_cnt_:<*>, post_barrier_lsn_:{lsn:18446744073709551615}, pending_task_count_:<*>, submit_log_task_:{ObReplayServiceSubmitTask:{type_:<*>, enqueue_ts_:<*>, err_info_:{has_fatal_error_:false, fail_ts_:<*>, fail_cost_:<*>, ret_code_:0}}, next_to_submit_lsn_:{lsn:411101453}, next_to_submit_scn_:{val:<*>, v:0}, base_lsn_:{lsn:0}, base_scn_:{val:<*>, v:0}, iterator_:{iterator_impl:{buf_:null, next_round_pread_size:<*>, curr_read_pos:<*>, curr_read_buf_start_pos:<*>, curr_read_buf_end_pos:<*>, log_storage_:{start_lsn:{lsn:411101453}, end_lsn:{lsn:411101453}, read_buf:{buf_len_:<*>, buf_:null}, block_size:<*>, log_storage_:0x70a3bd9a3bf0, log_storage_:{log_tail:{lsn:<*>, readable_log_tail:{lsn:<*>, log_block_header:{magic:<*>, version:<*>, min_lsn:{lsn:<*>, min_scn:{val:<*>, v:0}, curr_block_id:<*>, palf_id:1}, block_mgr:{log_dir:"/home/abe/oceanbase-ce/store/clog/tenant_1/1/log", dir_fd:<*>, min_block_id:<*>, max_block_id:<*>, curr_writable_block_id:<*>, logical_block_size_:<*>, curr_block_writable_size_:<*>, block_header_serialize_buf_:0x70a3bd9a48b8, flashback_version:0}, storage_type:"DISK_STORAGE"}, curr_entry_is_raw_write:false, curr_entry_size:<*>, prev_entry_scn:{val:<*>, v:3}, curr_entry:{LogEntryHeader:{magic:<*>, version:<*>, log_size:-1, scn_:{val:<*>, v:3}, data_checksum:<*>, flag:0}}, init_mode_version:<*>, accumulate_checksum:-1, curr_entry_is_padding:<*>, padding_entry_size:<*>, padding_entry_scn:{val:<*>, v:3}}, io_ctx:{user:"REPLAY", palf_id:<*>, iterator_info:{allow_filling_cache:false, hot_cache_stat:{hit_cnt:<*>, miss_cnt:<*>, cache_read_size:<*>, hit_ratio:"0.000000000000000000e+00"}, cold_cache_stat:{hit_cnt:<*>, miss_cnt:<*>, cache_read_size:<*>, hit_ratio:"0.000000000000000000e+00"}, read_io_cnt:<*>, read_io_size:<*>, read_disk_cost_ts:<*>, start_lsn:{lsn:0}}}}}})
+[32]
+get_server_tenant_configs (ob_unit_getter.cpp:265) <*> [lt=<*> get_server_tenant_configs(unit_infos=[{unit:unit_id:<*>, resource_pool_id:<*>, unit_group_id:<*>, zone:"zone1", server:"127.0.0.1:2882", migrate_from_server:"0.0.0.0:0", is_manual_migrate:false, status:<*>, replica_type:<*>, config:{unit_config_id:<*>, name:"sys_unit_config", resource:{min_cpu:<*>, max_cpu:<*>, memory_size:"1GB", log_disk_size:"2GB", data_disk_size:<*>, min_iops:<*>, max_iops:<*>, iops_weight:<*>, max_net_bandwidth:INT64_MAX, net_bandwidth_weight:<*>, }}, pool:{resource_pool_id:<*>, name:"sys_pool", unit_count:<*>, unit_config_id:<*>, zone_list:["zone1"], tenant_id:<*>, replica_type:0}}])
+[33]
+submit_log (palf_handle_impl.cpp:446) <*> [lt=<*> [PALF STAT APPEND DATA SIZE](this={palf_id:<*>, self:"127.0.0.1:2882", has_set_deleted:false}, append size=<*>
+[34]
+print_io_status (ob_io_manager.cpp:2757) [12498][IO_TUNING0][T0][Y0-0000000000000000-0-0] [lt=<*> [IO STATUS TENANT](tenant_id=<*>, ref_cnt=<*>, io_config={group_configs_cnt:<*>, unit_config_:{min_iops:<*>, max_iops:<*>, weight:<*>, max_net_bandwidth:<*>, net_bandwidth_weight:<*>, param_config_:{memory_limit:<*>, callback_thread_count:<*>, enable_io_tracer:false, object_storage_io_timeout_ms:20000}, group_configs:[group_id = <*>:{mode:<*>, deleted:false, cleared:false, min_percent:<*>, max_percent:<*>, weight_percent:100}, group_id = <*>:{mode:<*>, deleted:false, cleared:false, min_percent:<*>, max_percent:<*>, weight_percent:100}, group_id = <*>:{mode:<*>, deleted:false, cleared:false, min_percent:<*>, max_percent:<*>, weight_percent:100}]}, hold_mem=<*>, [FAILED]: fail_ips=<*>, fail_ops=<*>, fail_iops=<*>, fail_ibw=<*>, fail_obw=<*>, [SUCC]: ips=<*>, ops=<*>, iops=<*>, ibw=<*>, obw=<*>, iops_limit=<*>, ibw_limit=<*>, obw_limit=9223372036854775807)
+[35]
+run_loop_ (ob_bg_thread_monitor.cpp:326) [12785][BGThreadMonitor][T0][Y0-0000000000000000-0-0] [lt=<*> current monitor number(seq_=-1)
+[36]
+gc_check_ls_status_ (ob_garbage_collector.cpp:1776) [12624][T1_GCCollector][T1][Y0-0000000000000000-0-0] [lt=<*> gc_candidates push_back success(ret=<*>, candidate={ls_id_:{id:1}, ls_status_:<*>, gc_reason_:0})
+[37]
+print_server_status (ob_io_manager.cpp:424) [12498][IO_TUNING0][T0][Y0-0000000000000000-0-0] [lt=<*> [IO STATUS SERVER] net_in=<*>, net_out=<*>, bucket_in=0kB/s, bucket_out=0kB/s, failed_bucket_in=0kB/s, failed_bucket_out=0kB/s, limit=1280000kB/s
+[38]
+try_resize (ob_server_log_block_mgr.cpp:782) <*> [lt=<*> try_resize success(ret=<*>, log_disk_size=<*>, total_log_disk_size=<*>, this={dir::"/home/abe/oceanbase-ce/store/clog/log_pool", dir_fd:<*>, meta_fd:<*>, log_pool_meta:{curr_total_size:<*>, next_total_size:<*>, status:0}, min_block_id:<*>, max_block_id:<*>, min_log_disk_size_for_all_tenants_:<*>, is_inited:true})
+[40]
+try_advance_committed_lsn_ (log_sliding_window.cpp:1758) [12611][T1_LogIOCb0][T1][Y0-0000000000000000-0-0] [lt=<*> [PALF STAT COMMITTED LOG SIZE](palf_id=<*>, self="127.0.0.1:2882", committed size=<*>
+[41]
+get_log_disk_info_in_config (ob_server_utils.cpp:88) <*> [lt=<*> get_log_disk_info_in_config(suggested_data_disk_size=<*>, suggested_clog_disk_size=<*>, suggested_data_disk_percentage=<*>, suggested_clog_disk_percentage=<*>, log_disk_size=<*>, log_disk_percentage=<*>, total_log_disk_size=299803410432)
+[43]
+common_free (ob_lib_cache_object_manager.cpp:139) <*> [lt=<*>=0] set logical del time(cache_obj->get_logical_del_time()=<*>, cache_obj->added_lc()=false, cache_obj->get_object_id()=<*>, cache_obj->get_tenant_id()=<*>, lbt()="0xa92f088 0x19c99aee 0xa308ae6 0xa2f4477 0xa2e6803 0xa2dfd58 0xa2cdbec 0x133fa4a9 0x25b11cf2 0x70a3dd69caa4 0x70a3dd729c3c")
+[44]
+process_request (ob_th_worker.cpp:242) <*> [lt=<*>=-4009] process request fail(ret=-4009)
+[45]
+dump_dag_status (ob_tenant_dag_scheduler.cpp:2903) [12592][T1_DagScheduler][T1][Y0-0000000000000000-0-0] [lt=<*> dump_dag_status(priority=<*>, limits=<*>, running_task=<*>, adaptive_task_limit=<*>, ready_dag_count=<*>, waiting_dag_count=<*>, rank_dag_count=0)
+[46]
+get_disk_usage (palf_env_impl.cpp:902) <*> [lt=<*> get_disk_usage(ret=<*>, capacity(MB):=<*>, used(MB):=<*>
+[47]
+(obmp_connect.cpp:575) <*> [lt=<*> no tenant name set, use default tenant name(tenant_name=sys)
+[48]
+print_sender_status (ob_io_manager.cpp:1432) [12498][IO_TUNING0][T0][Y0-0000000000000000-0-0] [lt=<*> [IO STATUS SENDER](io_status=req_in_sender, total=<*>, total_local_read=<*>, total_local_write=<*>, total_remote_read=<*>, total_remote_write=<*>, cnt=<*> <*> , local_read=<*> <*> , local_write=<*> <*> , remote_read=<*> <*> , remote_write=<*> <*> )
+[49]
+move_to_sqlstat_cache (ob_sql_stat_record.cpp:366) <*> [lt=<*>=0] the key is not valid which at plan cache mgr(ret=<*>, ret="OB_SUCCESS")
+[50]
+print_io_function_status (ob_io_manager.cpp:2827) [12498][IO_TUNING0][T0][Y0-0000000000000000-0-0] [lt=<*> [IO STATUS FUNCTION](tenant_id=<*>, io_status=function_name:OTHER_GROUPS, mode:LOCAL READ, avg_size:<*>, avg_iops:<*>, avg_bw:<*>, [delay/us]: prepare:<*>, schedule:<*>, submit:<*>, device:<*>, total:<*>
+[51]
+handle_heartbeat (ob_service.cpp:3885) <*> [lt=<*> handle_heartbeat(ret=<*>, ret="OB_SUCCESS", hb_request={server:"127.0.0.1:2882", server_id:<*>, rs_addr:"127.0.0.1:2882", rs_server_status:<*>, epoch_id:<*>, hb_response={zone:"zone1", server:"127.0.0.1:2882", sql_port:<*>, build_version:"4.3.5.3_103000092025080818-e8da5f0afb288ed0add0613740c6ccf2a3c6830b(Aug  <*> <*> <*>:<*>:31)", start_service_time:<*>, server_health_status:{data_disk_status_:<*>, data_disk_status:"NORMAL"}}, time_cost=<*>
+[52]
+sliding_cb (log_sliding_window.cpp:2278) [12611][T1_LogIOCb0][T1][Y0-0000000000000000-0-0] [lt=<*> [PALF STAT LOG TASK TIME](palf_id=<*>, self="127.0.0.1:2882", total_slide_log_cnt=<*>, avg_log_gen_to_freeze_time=<*>, avg_log_gen_to_submit_time=<*>, avg_log_submit_to_flush_time=<*>, avg_log_submit_to_slide_time=<*>
+[53]
+process_one (ob_worker_processor.cpp:82) <*> [lt=<*>=-4009] process request fail(ret=-4009)
+[54]
+rollback (ob_memtable_context.cpp:856) <*> [lt=<*> memtable handle rollback to successfuly(from_seq_no={branch:<*>, seq:<*>, to_seq_no={branch:<*>, seq:<*>, remove_cnt=<*>, elapsed=<*>, this={ObIMvccCtx={alloc_type=<*> ctx_descriptor=<*> min_table_version=<*> max_table_version=<*> trans_version={val:<*>, v:0} commit_version={val:<*>, v:0} lock_wait_start_ts=<*> replay_compact_version={val:<*>, v:0}} end_code=<*> tx_status=<*> is_readonly=false ref=<*> trans_id={txid:<*> ls_id=<*> row_callback[alloc:<*>, free:<*>, unsubmit:0] redo[fill:<*>,sync_succ:<*>, sync_fail:0] main_list_len=<*> pending_log_size=<*> callback_list:{cnt=<*> stat:[tx_end=<*>, rollback_to=<*>, fast_commit=<*>, remove_memtable=<*>, ext_info_log=0] detail:[(log_epoch,length,logged,synced,appended,removed,unlog_removed,branch_removed)|0:(-1,<*>,<*>,<*>,<*>,<*>,<*>,0)|]}})
+[56]
+disconnect (obmp_packet_sender.cpp:865) <*> [lt=<*>=0] server close connection(sessid=<*>, proxy_sessid=<*>, stack="0xa92f088 0x1321e8d2 0x131ead3b 0x12c7b491 0xa2e1575 0xa2cdbec 0x133fa4a9 0x25b11cf2 0x70a3dd69caa4 0x70a3dd729c3c")
+[57]
+get_freeze_info_larger_or_equal_than (ob_freeze_info_proxy.cpp:158) <*> [lt=<*> finish load_freeze_info(ret=<*>, ret="OB_SUCCESS", tenant_id=<*>, sql=SELECT * FROM __all_freeze_info WHERE frozen_scn >= <*> ORDER BY frozen_scn)
+[59]
+refresh_gts (ob_gts_source.cpp:509) [12463][TsMgr][T0][Y0-0000000000000000-0-0] [lt=<*> refresh gts(ret=<*>, ret="OB_SUCCESS", tenant_id=<*>, need_refresh=false, gts_local_cache={srr:[mts=<*>, gts:<*>, latest_srr:[mts=<*>
+[60]
+(group.c:768) <*> [lt=<*> PNIO server:<*>:<*>, write_queue=0/0, write=<*>, read=<*>, doing=<*>, done=<*>, write_time=<*>, read_time=<*>, process_time=<*>
+[61]
+log_frozen_memstore_info_if_need_ (ob_tenant_freezer.cpp:1786) [12583][T1_Occam][T1][YB427F000001-00063C68BBAB0684-0-0] [lt=<*> [TenantFreezer] tenant have inactive memstores(ctx.freezable_active_memstore_used_=<*>, ctx.total_memstore_used_=<*>, ctx.total_memstore_hold_=<*>, memstore_freeze_trigger_limit_=<*>, tenant_id=1)
+[62]
+for_each_ls_in_tenant (mds_tenant_service.cpp:225) <*> [lt=<*> for each ls(succ_num=<*>, ret=<*>, ret="OB_SUCCESS")
+[63]
+on_disconnect (obsm_conn_callback.cpp:268) <*> [lt=<*> kill and revert session(conn.sessid_=<*>, proxy_sessid=<*>, ret=0)
+[65]
+runTimerTask (ob_tablet_gc_service.cpp:181) [12601][T1_TimerWK0_][T1][Y0-0000000000000000-0-0] [lt=<*> [tabletchange] task check ls(ls->get_ls_id()={id:1}, tablet_persist_trigger=0)
+[66]
+(utility.h:681) <*> [lt=<*>=0] read /sys/class/net/lo/speed failed, errno <*>
+[67]
+dispatch_req (ob_srv_deliver.cpp:276) <*> [lt=<*> succeed to dispatch to tenant mysql queue(tenant_id=1)
+[68]
+update_decay_factor_ (ob_throttle_unit.ipp:<*> <*> [lt=<*> [Throttle] Update Throttle Unit Config(is_adaptive_update=<*>, N=<*>, this=<*>, enable_adaptive_limit_=<*>, Unit Name=<*>, Config Specify Resource Limit(MB)=<*>, Resource Limit(MB)=<*>, Throttle Trigger(MB)=<*>, Throttle Percentage=<*>, Max Duration(us)=<*>, Decay Factor=<*>
+[69]
+handle_sock_event (ob_sql_nio.cpp:1008) <*> [lt=<*>=0] socket closed, it maybe disconnected by the client or by observer actively(mask=<*>, *s={this:<*>, session_id:<*>, trace_id:<*>, sql_handling_stage:<*>, sql_initiative_shutdown:<*>, reader:{fd:<*>, err:<*>, last_decode_time:<*>, pending_write_task:{buf:null, sz:0}, need_epoll_trigger_write:false, consume_size:<*>, pending_flag:<*>, may_handling_flag:true, handler_close_flag:false})
+[70]
+prepare_alloc_queue (ob_dl_queue.cpp:92) <*> [lt=<*> Construct Queue Num(construct_num=<*>, get_push_idx()=<*>, get_cur_idx()=<*>, get_pop_idx()=<*>
+[71]
+print_status (ob_io_struct.cpp:2837) [12498][IO_TUNING0][T0][Y0-0000000000000000-0-0] [lt=<*> [IO STATUS CHANNEL] device_id=<*>, req_in_channel, async_total=<*>, sync_total=<*>, async_cnt= <*> <*> <*> <*> <*> <*> <*> <*>, sync_cnt= <*>
+[72]
+gc_tables_in_queue (ob_tenant_meta_mem_mgr.cpp:613) <*> [lt=<*> gc tables in queue: recycle <*> table(ret=<*>, tablet_buffer_pool_={typeid(T).name():"N9oceanbase7storage15ObMetaObjBufferINS0_8ObTabletELl3784EEE", sizeof(T):<*>, used_obj_cnt:<*>, free_obj_hold_cnt:<*>, allocator used:<*>, allocator total:6593280}, large_tablet_buffer_pool_={typeid(T).name():"N9oceanbase7storage15ObMetaObjBufferINS0_8ObTabletELl65448EEE", sizeof(T):<*>, used_obj_cnt:<*>, free_obj_hold_cnt:<*>, allocator used:<*>, allocator total:26236400}, full_tablet_creator_={tiny_allocator_.used():<*>, tiny_allocator_.total():<*>, full allocator used:<*>, full allocator total:275840}, tablets_mem=<*>, tablets_mem_limit=<*>, ddl_kv_pool_={typeid(T).name():"N9oceanbase7storage7ObDDLKVE", sizeof(T):<*>, used_obj_cnt:<*>, free_obj_hold_cnt:<*>, allocator used:<*>, allocator total:65280}, memtable_pool_={typeid(T).name():"N9oceanbase8memtable10ObMemtableE", sizeof(T):<*>, used_obj_cnt:<*>, free_obj_hold_cnt:<*>, allocator used:<*>, allocator total:391680}, pending_cnt=<*>, wait_gc_count=<*>, tablet count=1787)
+[73]
+replace_fragment_node (ob_kvcache_map.cpp:763) <*> [lt=<*> Cache replace map node details(ret=<*>, replace_node_count=<*>, replace_time=<*>, replace_start_pos=<*>, replace_num=15728)
+[74]
+get_max_applied_scn (ob_log_apply_service.cpp:740) [12649][T1_TxLoopWorker][T1][Y0-0000000000000000-0-0] [lt=<*> get_max_applied_scn(scn={val:<*>, v:0}, this={ls_id_:{id:1}, role_:<*>, proposal_id_:<*>, palf_committed_end_lsn_:{lsn:<*>, palf_committed_end_scn_:{val:<*>, v:0}, last_check_scn_:{val:<*>, v:0}, max_applied_cb_scn_:{val:<*>, v:0}})
+[75]
+stat (utility.h:1219) <*> [lt=<*> [PALF STAT <*> <*> COST TIME](cur_stat_count=<*>, stat_interval=<*>, avg (count/cost)=<*>, this=<*>, extra_info="palf_id:1")
+[76]
+print_io_status (ob_io_manager.cpp:2734) [12498][IO_TUNING0][T0][Y0-0000000000000000-0-0] [lt=<*> [IO STATUS GROUP SYS](tenant_id=<*>, io_status=sys_group_name:CLOG_WRITE_IO, mode:LOCAL WRITE, cur_req:<*>, hold_mem:<*> [FAILED]: fail_size:<*>, fail_iops:<*>, fail_bw:<*>, [delay/us]:prepare:<*>, schedule:<*>, submit:<*>, rt:<*>, total:<*>, [SUCC]: size:<*>, iops:<*>, norm_iops:<*>, bw:<*>, [delay/us]:prepare:<*>, schedule:<*>, submit:<*>, rt:<*>, total:<*>
+[77]
+check_cgroup_root_dir (ob_cgroup_ctrl.cpp:212) [12554][MultiTenant][T0][Y0-0000000000000000-0-0] [lt=<*>=-4027] dir not exist(OBSERVER_ROOT_CGROUP_DIR="cgroup", ret=-4027)
+[78]
+handle_next_submit_log_ (log_sliding_window.cpp:1080) <*> [lt=<*> [PALF STAT GROUP LOG INFO](palf_id=<*>, self="127.0.0.1:2882", role="LEADER", total_group_log_cnt=<*>, avg_log_batch_cnt=<*>, total_group_log_size=<*>, avg_group_log_size=<*>
+[79]
+print_usage (ob_tenant_ctx_allocator.cpp:247) [12385][MemoryDump][T0][Y0-0000000000000000-0-0] [lt=<*>
+[80]
+stat (utility.h:1219) <*> [lt=<*> [APPLY STAT CB <*> <*> TIME](cur_stat_count=<*>, stat_interval=<*>, avg (count/cost)=<*>, this=<*>, extra_info="")
+[81]
+init_system_variables (ob_basic_session_info.cpp:1185) <*> [lt=<*> load default system <*>=<*>
+[82]
+print_statistics (ob_tmp_file_write_buffer_pool.cpp:1595) [12626][T1_TFSwap][T1][Y0-0000000000000000-0-0] [lt=<*> tmp file write buffer pool statistics(dirty_page_percentage=<*>, max_page_num=<*>, fat_actual_size=<*>, dirty_page_num=<*>, total_write_back_num=<*>, meta_page_num=<*>, dirty_meta_page_num=<*>, write_back_meta_num=<*>, data_page_num=<*>, dirty_data_page_num=<*>, write_back_data_num=<*>, data_page_watermark=<*>, meta_page_watermark=0)
+[85]
+response (obmp_base.cpp:61) <*> [lt=<*>=-4009] failed to flush_buffer(ret=-4009)
+[86]
+try_recycle_blocks (palf_env_impl.cpp:799) [12602][T1_TimerWK1_PalfGC][T1][Y0-0000000000000000-0-0] [lt=<*> LOG_DISK_OPTION(disk_options_wrapper_={disk_opts_for_stopping_writing:{log_disk_size(MB):<*>, log_disk_utilization_threshold(%):<*>, log_disk_utilization_limit_threshold(%):<*>, log_disk_throttling_percentage(%):<*>, log_disk_throttling_maximum_duration(s):<*>, log_writer_parallelism:3}, disk_opts_for_recycling_blocks:{log_disk_size(MB):<*>, log_disk_utilization_threshold(%):<*>, log_disk_utilization_limit_threshold(%):<*>, log_disk_throttling_percentage(%):<*>, log_disk_throttling_maximum_duration(s):<*>, log_writer_parallelism:3}, status:<*>, cur_unrecyclable_log_disk_size(MB):<*>, sequence:2})
+[87]
+print_io_status (ob_io_manager.cpp:2769) [12498][IO_TUNING0][T0][Y0-0000000000000000-0-0] [lt=<*> [IO STATUS CALLBACK](tenant_id=<*>, io_status=runner[0]: tid=<*>, queue_count=0)
+[88]
+runTimerTask (ob_log_replay_service.cpp:174) [12602][T1_TimerWK1_ReplayProcessSt][T1][Y0-0000000000000000-0-0] [lt=<*> dump tenant replay process(tenant_id=<*>, unsubmitted_log_size(MB)=<*>, unreplayed_log_size(MB)=<*>, estimate_time(second)=<*>, submitted_log_size(MB)=<*>, replayed_log_size(MB)=<*>, last_submitted_log_size(MB)=<*>, last_replayed_log_size(MB)=<*>, round_cost_time(second)=<*>, pending_replay_log_size(MB)=0)
+[90]
+runTimerTask (ob_checkpoint_service.cpp:<*> <*> [lt=<*> ====== <*> timer task ======
+[92]
+refresh_resource_function_mapping_rule (ob_resource_mapping_rule_manager.cpp:239) <*> [lt=<*> refresh resource mapping rule(tenant_id=<*>, plan=, rules=[])
+[93]
+update_memory_conf (ob_plan_cache.cpp:2016) <*> [lt=<*> update plan cache memory config(ob_plan_cache_percentage=<*>, ob_plan_cache_evict_high_percentage=<*>, ob_plan_cache_evict_low_percentage=<*>, tenant_id=1)
+[94]
+retrieve_table_schema (ob_schema_retrieve_utils.ipp:387) <*> [lt=<*> retrieve table schema succeed(*table_schema={simple_table_schema:{tenant_id:<*>, database_id:<*>, tablegroup_id:<*>, table_id:<*>, association_table_id:<*>, in_offline_ddl_white_list:false, table_name:<*>, session_id:<*>, index_type:<*>, table_type:<*>, table_mode:{table_mode_flag:<*>, pk_mode:<*>, table_state_flag:<*>, view_created_method_flag:<*>, pk_exists:<*>, auto_increment_mode:<*>, rowid_mode:<*>, view_column_filled_flag:<*>, mv_container_table_flag:<*>, mv_available_flag:<*>, table_referenced_by_mv_flag:<*>, mv_enable_query_rewrite_flag:<*>, mv_on_query_computation_flag:<*>, ddl_table_ignore_sync_cdc_flag:<*>, table_organization_mode:0}, tablespace_id:<*>, data_table_id:<*>, name_casemode:-1, schema_version:<*>, part_level:<*>, part_option:{part_func_type:<*>, part_func_expr:"", part_num:<*>, auto_part:false, auto_part_size:0}, sub_part_option:{part_func_type:<*>, part_func_expr:"", part_num:<*>, auto_part:false, auto_part_size:0}, partition_num:<*>, def_subpartition_num:<*>, partition_array:null, partition_array_capacity:<*>, def_subpartition_array:null, hidden_partition_array:null, index_status:<*>, duplicate_scope:<*>, encryption:"", encrypt_key:"", master_key_id:<*>, sub_part_template_flags:<*>, get_tablet_id():{id:<*>, max_dependency_version:-1, object_status:<*>, is_force_view:false, truncate_version:-1, duplicate_read_consistency:<*>, storage_cache_policy_type:<*>, with_dynamic_partition_policy:false}, max_used_column_id:<*>, sess_active_time:<*>, rowkey_column_num:<*>, index_column_num:<*>, rowkey_split_pos:<*>, block_size:<*>, is_use_bloomfilter:false, progressive_merge_num:<*>, tablet_size:<*>, pctfree:<*>, load_type:<*>, index_using_type:<*>, def_type:<*>, charset_type:<*>, collation_type:<*>, index_status:<*>, partition_status:<*>, code_version:<*>, comment:"", pk_comment:"", create_host:"", tablegroup_name:"", compressor_type:<*>, row_store_type:<*>, store_format:<*>, expire_info:"", view_schema:{view_definition:"", check_option:"none", is_updatable:"false", is_materialized:"false", character_set_client:<*>, collation_connection:"invalid_type"}, autoinc_column_id:<*>, auto_increment:<*>, read_only:false, simple_index_infos:[], base_table_ids:[], rowkey_info:{columns:null, capacity:0}, partition_key_info:{columns:null, capacity:0}, column_cnt:<*>, table_dop:<*>, constraints:null, column_array:null, aux_vp_tid_array:[], index_info:{columns:null, capacity:0}, define_user_id:<*>, aux_lob_meta_tid:<*>, aux_lob_piece_tid:<*>, name_generated_type:<*>, lob_inrow_threshold:<*>, is_column_store_supported:true, max_used_column_group_id:<*>, column_group_cnt:<*>, column_group_array:null, mlog_tid:<*>, auto_increment_cache_size:<*>, local_session_vars:{}, index_params:"", exec_env:"", storage_cache_policy:"{"GLOBAL":"AUTO"}", merge_engine_type:<*>, semistruct_encoding_type:{mode:<*>, reserved:0}, dynamic_partition_policy:""}, is_deleted=false)
+[96]
+(ob_rl_mgr.cpp:708) [12414][rl_mgr0][T0][Y0-0000000000000000-0-0] [lt=<*> swc wakeup.(stat_period_=<*>, ready=false)
+[97]
+submit_log_ (ob_id_service.cpp:149) <*> [lt=<*> submit log success(service_type_=<*>, last_id=<*>, limited_id=<*>
+[98]
+handle_pending_destroy_list (ob_sql_nio.cpp:<*> <*> [lt=<*> <*> <*> <*>, do destroy(*s={this:<*>, session_id:<*>, trace_id:Y0-0000000000000000-0-0, sql_handling_stage:<*>, sql_initiative_shutdown:<*>, reader:{fd:<*>, err:<*>, last_decode_time:<*>, pending_write_task:{buf:null, sz:0}, need_epoll_trigger_write:false, consume_size:<*>, pending_flag:<*>, may_handling_flag:<*>, handler_close_flag:false})
+[99]
+stat (utility.h:1236) [12612][T1_IOWorker][T1][Y0-0000000000000000-0-0] [lt=<*> [PALF STAT IO TASK IN QUEUE TIME](cur_stat_count=<*>, stat_interval=<*>, avg (count/cost)=<*>, this=0x70a3cf7f6be0, extra_info="")
+[100]
+get_table_schema (ob_schema_service_sql_impl.cpp:6538) <*> [lt=<*> get not core table schema succeed(schema_status={tenant_id:<*>, snapshot_timestamp:-1, readable_schema_version:-1}, table_id=<*>, table_schema->get_table_name_str()=<*>
+[101]
+adaptive_update_limit (ob_share_throttle_define.cpp:113) <*> [lt=<*> adaptive update(Tenant ID=<*>, Config Specify Resource Limit(MB)=<*>, TxShare Current Memory Limit(MB)=<*>, Holding Memory(MB)=<*>, Tenant Remain Memory(MB)=<*>, Usable Remain Memory(MB)=<*>, Last Update Limit Timestamp=<*>, Is Updated=true)
+[102]
+print_io_status (ob_io_manager.cpp:2640) [12498][IO_TUNING0][T0][Y0-0000000000000000-0-0] [lt=<*> [IO STATUS GROUP](tenant_id=<*>, io_status=group_id:<*>, group_name:OTHER_GROUPS, mode:LOCAL READ, cur_req:<*>, hold_mem:<*> [FAILED]:fail_size:<*>, fail_iops:<*>, fail_bw:<*>, [delay/us]:prepare:<*>, schedule:<*>, submit:<*>, rt:<*>, total:<*>, [SUCC]:size:<*>, iops:<*>, norm_iops:<*>, bw:<*>, limit:<*>, [delay/us]:prepare:<*>, schedule:<*>, submit:<*>, rt:<*>, total:<*>
+[103]
+init (obsm_conn_callback.cpp:137) <*> [lt=<*> sm conn init succ(conn.sessid_=<*>, sess.client_addr_="127.0.0.1:<*>
+[106]
+run (obmp_disconnect.cpp:86) <*> [lt=<*> mark session id unused(sessid=<*>
+[108]
+stat (utility.h:1219) <*> [lt=<*> [PALF STAT PUSH LOG TO FOLLOWERS RPC POST COST TIME](cur_stat_count=<*>, stat_interval=<*>, avg (count/cost)=<*>, this=0x70a3bd99d470, extra_info="")
+[109]
+generate_mod_stat_task (memory_dump.cpp:213) [12385][MemoryDump][T0][Y0-0000000000000000-0-0] [lt=<*> task info(*task={type_:<*>, dump_all_:false, p_context_:null, slot_idx_:<*>, dump_tenant_ctx_:false, tenant_id_:<*>, ctx_id_:<*>, p_chunk_:null})
+[110]
+(eloop.c:145) <*> [lt=<*> PNIO [ratelimit] time: <*>, bytes: <*>, bw: <*> MB/s, add_ts: <*>, add_bytes: <*>
+[111]
+refresh_primary_cluster_id (ob_alive_server_tracer.cpp:395) <*> [lt=<*> refresh primary cluster finish(ret=<*>, primary_cluster_id_=-1)
+[112]
+(ob_tc_stat.cpp:35) [12501][][T0][Y0-0000000000000000-0-0] [lt=<*> QSched: |cfg: root:<*>,x,<*> net_in:<*>,1249M,<*> net_out:<*>,1249M,<*> disk:<*>,x,<*> t500m0:<*>,x,<*> t500m0gd:<*>,x,<*> t500m1:<*>,x,<*> t500m1gd:<*>,x,<*> t500m2:<*>,x,<*> t500m2gd:<*>,x,<*> t1m0:<*>,x,<*> t1m0gd:<*>,x,<*> t1m1:<*>,x,<*> t1m1gd:<*>,x,<*> t1m2:<*>,x,x t1m2gd:<*>,x,<*> t1m0g0:<*>,x,<*> ips:x ibw:x t1m1g0:<*>,x,<*> t1m2g0:<*>,x,x|stat: root:<*>:<*> |q0: |q1:
+[113]
+get_srs_cnt (ob_srs_importer.cpp:70) <*> [lt=<*> old srs rows(srs_cnt=1)
+[114]
+do_work_ (ob_tmp_file_thread_wrapper.cpp:305) [12626][T1_TFSwap][T1][Y0-0000000000000000-0-0] [lt=<*> ObTmpFileFlushTG information(this={is_inited_:true, mode_:<*>, last_flush_timestamp_:<*>, flush_io_finished_ret_:<*>, flush_io_finished_round_:<*>, flushing_block_num_:<*>, is_fast_flush_meta_:false, fast_flush_meta_task_cnt_:<*>, wait_list_size_:<*>, retry_list_size_:<*>, finished_list_size_:<*>, normal_loop_cnt_:<*>, normal_idle_loop_cnt_:<*>, fast_loop_cnt_:<*>, fast_idle_loop_cnt_:<*>, flush_mgr_:{is_inited_:true, flush_ctx_:{is_inited_:true, fail_too_many_:false, expect_flush_size_:<*>, actual_flush_size_:<*>, flush_seq_ctx_:{create_flush_task_cnt_:<*>, prepare_finished_cnt_:<*>, flush_sequence_:0}, state_:<*>, iter_:{is_inited_:false, cur_caching_list_idx_:<*>, cur_caching_list_is_meta_:false, cur_iter_dir_idx_:-1, cur_iter_file_idx_:-1, cached_file_num_:<*>, cached_dir_num_:0}, file_ctx_hash_.size():<*>, flush_failed_array_.size():0}}})
+[115]
+print_statistics (ob_tmp_file_thread_job.cpp:178) [12626][T1_TFSwap][T1][Y0-0000000000000000-0-0] [lt=<*> tmp file swap statistics(swap_task_cnt=<*>, avg_swap_response_time=<*>, max_swap_response_time=-1, min_swap_response_time=-1)
+[116]
+run1 (ob_tx_loop_worker.cpp:<*> [12649][T1_TxLoopWorker][T1][Y0-0000000000000000-0-0] [lt=<*> try <*> <*> <*>
+[118]
+get_number (ob_id_service.cpp:384) <*> [lt=<*> get number(ret=<*>, service_type_=<*>, range=<*>, base_id=<*>, start_id=<*>, end_id=<*>
+[119]
+(utility.cpp:575) <*> [lt=<*>=-4000] load file /sys/class/net/lo/speed failed, ret -4000
+[120]
+get_rec_scn (ob_tx_ctx_memtable.cpp:182) [12604][T1_TimerWK3_TxCkpt][T1][Y0-0000000000000000-0-0] [lt=<*> tx ctx memtable get rec scn(this={ObITable:{this:0x70a3bd9e2080, key:{tablet_id:{id:49401}, column_group_idx:<*>, slice_range:{start_slice_idx:<*>, end_slice_idx:0}, table_type:"TX_CTX_MEMTABLE", scn_range:{start_scn:{val:<*>, v:0}, end_scn:{val:<*>, v:0}}}, ref_cnt:<*>, upper_trans_version:-4007, timestamp:0}, this:0x70a3bd9e2080, snapshot_version:{val:<*>, v:0}, ls_id:{id:1}, is_frozen:false, max_end_scn:{val:<*>, v:0}}, rec_scn={val:<*>, v:0})
+[125]
+inner_get_next_row (ob_all_virtual_sys_event.cpp:102) <*> [lt=<*>=-4008] execute fail(ret=-4008)
+[129]
+operator() (ob_ts_mgr.h:180) [12463][TsMgr][T0][Y0-0000000000000000-0-0] [lt=<*> refresh gts functor(ret=<*>, ret="OB_SUCCESS", gts_tenant_info={v:1})
+[130]
+runTimerTask (ob_checkpoint_service.cpp:289) <*> [lt=<*> ====== check clog disk timer task ======
+[131]
+persist_version_if_need_ (ob_tenant_weak_read_cluster_service.cpp:331) [12641][T1_TenantWeakRe][T1][Y0-0000000000000000-0-0] [lt=<*> [WRS] [TENANT_WEAK_READ_SERVICE] [CLUSTER_SERVICE] persist CLUSTER version range succ(tenant_id=<*>, new_min_version={val:<*>, v:0}, new_max_version={val:<*>, v:0}, last_min_version={val:<*>, v:0}, last_max_version={val:<*>, v:0}, total_time_us=<*>, delta_us=<*>
+[132]
+sm_conn_unlock_tenant (obsm_conn_callback.cpp:155) <*> [lt=<*> unlock session of tenant(conn.sessid_=<*>, proxy_sessid=<*>, conn.tenant_id_=1)
+[136]
+runTimerTask (ob_server.cpp:3735) <*> [lt=<*>=-4000] ObRefreshNetworkSpeedTask reload bandwidth throttle limit failed(ret=-4000, ret="OB_ERROR")
+[139]
+extract_user_tenant (obmp_connect.cpp:62) <*> [lt=<*> username and tenantname(user_name=ocp_monitor, tenant_name=)
+[140]
+(group.c:653) <*> [lt=<*> PNIO set ratelimit as <*> bytes/s, grp_id=<*>
+[141]
+runTimerTask (ob_plan_cache.cpp:<*> <*> [lt=<*> schedule next cache evict task(evict_interval=5000000)
+[142]
+get_rec_scn (ob_ls_tx_service.cpp:630) <*> [lt=<*> [CHECKPOINT] ObLSTxService::get_rec_scn(common_checkpoint_type="MDS_TABLE_TYPE", common_checkpoints_[min_rec_scn_common_checkpoint_type_index]={this:0x70a3bd927150, is_inited:true, freezing_scn:{val:<*>, v:0}, ls:{running_state:{state:1}, ls_meta:{tenant_id:<*>, ls_id:{id:1}, ls_persistent_state:{state:1}, clog_checkpoint_scn:{val:<*>, v:0}, clog_base_lsn:{lsn:335523840}, rebuild_seq:<*>, migration_status:<*>, gc_state_:<*>, offline_scn_:{val:<*>, v:3}, restore_status:{status:0}, replayable_point:{val:<*>, v:3}, tablet_change_checkpoint_scn:{val:<*>, v:0}, all_id_meta:{id_meta:[{limited_id:<*>, latest_log_ts:{val:<*>, v:0}}, {limited_id:<*>, latest_log_ts:{val:<*>, v:0}}, {limited_id:<*>, latest_log_ts:{val:<*>, v:0}}]}, transfer_scn:{val:<*>, v:0}, rebuild_info:{status:{status:0}, type:{type:0}, tablet_id_array:{id_array:[]}, src:[type = 0], [address = ]}, transfer_meta_info:{src_ls:{id:0}, src_scn:{val:<*>, v:0}, trans_status:<*>, tablet_id_array:{id_array:[]}, data_version:1(0, <*>, 1)}, store_format:{store_type:<*>, store_type_str:"NORMAL"}}, switch_epoch:<*>, log_handler:{role:<*>, proposal_id:<*>, palf_env_:0x70a3cf7f8030, is_in_stop_state_:false, is_inited_:true, id_:1}, restore_handler:{is_inited:true, is_in_stop_state:false, id:<*>, proposal_id:<*>, role:<*>, parent:null, context:{issue_task_num:<*>, issue_version:-1, last_fetch_ts:-1, max_submit_lsn:{lsn:18446744073709551615}, max_fetch_lsn:{lsn:18446744073709551615}, max_fetch_scn:{val:<*>, v:3}, error_context:{ret_code:<*>, trace_id:Y0-0000000000000000-0-0, error_type:<*>, err_lsn:{lsn:18446744073709551615}}, task_count:0}, restore_context:{seek_done:false, lsn:{lsn:18446744073709551615}}}, is_inited:true, tablet_gc_handler:{tablet_persist_trigger:<*>, is_inited:true}, startup_transfer_info:{ls_id:{id:0}, transfer_start_scn:{val:<*>, v:3}}, need_delay_resource_recycle:false}}, min_rec_scn={val:<*>, v:0}, ls_id_={id:1})
+[146]
+calc_max_buffer (ob_dtl_fc_server.cpp:147) <*> [lt=<*> trace tenant dfc parameters(max_parallel_cnt_=<*>, max_blocked_buffer_size_=<*>, max_buffer_size_=19660800)
+[147]
+runTimerTask (ob_checkpoint_service.cpp:179) [12601][T1_TimerWK0_TxCkpt][T1][Y0-0000000000000000-0-0] [lt=<*> [CHECKPOINT] advance palf base lsn successfully(checkpoint_lsn={lsn:335523840}, ls->get_ls_id()={id:1})
+[149]
+string_length_check (ob_datum_cast.cpp:14636) <*> [lt=<*>=0] char type length is too long(max_accuracy_len=<*>, trunc_len_char=11)
+[150]
+inner_cache_evict (ob_ps_cache.cpp:746) <*> [lt=<*> ps cache evict(tenant_id=<*>, stmt_id_map_.size()=<*>, stmt_info_map_.size()=<*>, op.get_used_size()=<*>, get_mem_high()=<*>, expired_stmt_ids.count()=<*>, closed_stmt_ids.count()=38)
+[152]
+run1 (ob_dynamic_thread_pool.cpp:618) [12344][qth_mgr][T0][Y0-0000000000000000-0-0] [lt=<*> [thread pool stat](pool_stat={pool:<*>, last_check_time:<*>, last_idle_time:<*>, last_thread_count:1}, *pool={name:IO_SYNC_CH, this:<*>, min_thread_cnt:<*>, max_thread_cnt:<*>, running_thread_cnt:<*>, threads_idle_time:<*>, tenant_id:500}, qsize=-1, current_idle_time=<*>
+[155]
+run (obmp_disconnect.cpp:79) <*> [lt=<*> free session successfully(sessid=<*>
+[157]
+async_write_data (ob_sql_sock_session.cpp:162) <*> [lt=<*>=-4009] sock has error(ret=-4009)
+[158]
+rpc_call (ob_rpc_proxy.ipp:462) <*> [lt=<*>=-4006] Rpc proxy not inited(ret=-4006)
+[159]
+do_accept_one (ob_sql_nio.cpp:1090) <*> [lt=<*> accept one succ(*s={this:<*>, session_id:<*>, trace_id:Y0-0000000000000000-0-0, sql_handling_stage:-1, sql_initiative_shutdown:false, reader:{fd:<*>, err:<*>, last_decode_time:<*>, pending_write_task:{buf:null, sz:0}, need_epoll_trigger_write:false, consume_size:<*>, pending_flag:<*>, may_handling_flag:true, handler_close_flag:false})
+[162]
+runTimerTask (ob_block_manager.cpp:1649) <*> [lt=<*> skip inspect bad block(last_check_time=<*>, last_macro_idx=-1)
+[165]
+update_min_start_scn_info (ob_tx_table.cpp:1062) [12649][T1_TxLoopWorker][T1][Y0-0000000000000000-0-0] [lt=<*> finish update min start scn(max_decided_scn={val:<*>, v:0}, ctx_min_start_scn_info_={min_start_scn_in_ctx_:{val:<*>, v:0}, keep_alive_scn_:{val:<*>, v:0}, update_ts_:<*>
+[166]
+stat (utility.h:1219) [12611][T1_LogIOCb0][T1][Y0-0000000000000000-0-0] [lt=<*> [PALF STAT FS CB EXCUTE COST TIME](cur_stat_count=<*>, stat_interval=<*>, avg (count/cost)=<*>, this=0x70a3bd99d6a0, extra_info="palf_id:1")
+[167]
+mysql_easy_timer_cb (ob_net_easy.cpp:674) [12483][MysqlUnix][T0][Y0-0000000000000000-0-0] [lt=57] [MYSQL EASY STAT](log_str=conn count=0/0, request done=0/0, request doing=0/0)
+[170]
+(ob_hashtable.h:1120) <*> [lt=<*>=-4201] hashtable not init
+[173]
+periodically_check_tenant (ob_tenant_node_balancer.cpp:522) <*> [lt=<*> refresh resource manager plan(plan_mgr=background_quota:<*>, tenant_plan_map:{1->{value:""}}, rule_mgr=user_rule_map:{} function_rule_map:{} group_id_name_map:{} group_name_id_map:{}, col_rule_mgr={{v:1}->tenant_id:<*>, version: <*>, rule_id_map:{} group_id_map:{} })
+[174]
+scheduler (ob_dbms_sched_job_master.cpp:207) <*> [lt=<*> success to scheduler single dbms sched job(ret=<*>, tmp_ret=0)
+[176]
+try_reload_schema (ob_server_schema_updater.cpp:482) <*> [lt=<*> schedule fetch new schema task(ret=<*>, ret="OB_SUCCESS", schema_info={schema_version:-1, tenant_id:<*>, new_sequence_id:{seq_id:<*>, sys_leader_epoch:<*>, enable_new_seq_id:true}})
+[182]
+inner_get_next_row (ob_information_query_response_time.cpp:100) <*> [lt=<*>=-4008] fail to execute(ret=-4008)
+[183]
+runTimerTask (ob_empty_shell_task.cpp:103) <*> [lt=<*> [emptytablet] succeed to change tablet to empty shell(ret=<*>, ret="OB_SUCCESS", ls_cnt=<*>, times=<*>
+[192]
+alloc (ob_trans_factory.cpp:131) <*> [lt=<*> ObTransCtx statistics(active_coord_ctx_count=<*>, active_part_ctx_count=<*>, total_release_part_ctx_count=<*>
+[193]
+alloc (ob_ts_response_handler.cpp:108) [12463][TsMgr][T1][Y0-0000000000000000-0-0] [lt=<*> ts response task statistics(alloc_count=<*>, free_count=<*>
+[198]
+process (obmp_connect.cpp:515) <*> [lt=<*> MySQL LOGIN(direct_client_ip="127.0.0.1", client_ip=<*>, tenant_name=sys, tenant_id=<*>, user_name=ocp_monitor, host_name=%, sessid=<*>, proxy_sessid=<*>, client_sessid=<*>, from_proxy=false, from_java_client=false, from_oci_client=false, from_jdbc_client=false, capability=<*>, proxy_capability=<*>, use_ssl=false, c/s protocol="OB_MYSQL_CS_TYPE", autocommit=true, proc_ret=<*>, ret=<*>, conn->client_type_=<*>, conn->client_version_=0)
+[204]
+find_job (ob_rs_job_table_operator.cpp:337) <*> [lt=<*>=-4008] empty result set(ret=-4008)
+[215]
+do_work (ob_standby_schema_refresh_trigger.cpp:68) <*> [lt=<*> [STANDBY_SCHEMA_REFRESH_TRIGGER] finish one round(ret=<*>, ret="OB_SUCCESS")
+[222]
+try_ls_disaster_recovery (ob_disaster_recovery_worker.cpp:2064) <*> [lt=<*> skip persist dr_task(only_for_display=false, task_count=0)
+[225]
+send_heartbeat_ (ob_heartbeat_service.cpp:262) <*> [lt=<*> send_heartbeat_ has finished one round(ret=<*>, ret="OB_SUCCESS")
+[227]
+tenant_group_balance (ob_server_balancer.cpp:115) <*> [lt=<*> start to do tenant group unit balance
+[228]
+generate_zone_server_disk_statistic (ob_server_balancer.cpp:7929) <*> [lt=<*> build zone disk statistic succeed(ret=<*>, zone_disk_statistic_={zone_:"zone1", server_disk_statistic_array_:[{server_:"127.0.0.1:2882", disk_in_use_:<*>, disk_total_:<*>, wild_server_:false}], over_disk_waterlevel_:false})
+[229]
+do_work (ob_common_ls_service.cpp:128) <*> [lt=<*> [COMMON_LS_SERVICE] finish one round(ret=<*>, ret="OB_SUCCESS", tmp_ret=<*>, tmp_ret="OB_SUCCESS", idle_time_us=1000000)
+[231]
+divide_complete_server_loads_for_balance (ob_server_balancer.cpp:4541) <*> [lt=<*> divide complete server loads for balance(ret=<*>, ret="OB_SUCCESS", server_loads=[{server_:"127.0.0.1:2882", load_sum_:{load_sum_:{unit_config_id:<*>, name:"", resource:{min_cpu:<*>, max_cpu:<*>, memory_size:"1GB", log_disk_size:"2GB", data_disk_size:<*>, min_iops:<*>, max_iops:<*>, iops_weight:<*>, max_net_bandwidth:"-1.86264515e-09GB", net_bandwidth_weight:<*>, }}}, resource_info_:{cpu_capacity:<*>, cpu_assigned:<*>, cpu_assigned_max:<*>, mem_capacity:"5GB", mem_assigned:"1GB", mem_in_use:0GB, log_disk_capacity:14GB, log_disk_assigned:2GB, log_disk_in_use:<*>, data_disk_capacity:8GB, data_disk_assigned:0GB, data_disk_in_use:<*>, inter_ttg_load_value_:"1.648576355725661913e-01"}], available_servers=["127.0.0.1:2882"], wild_server_loads=[], over_server_loads=[], under_server_loads=[{server_:"127.0.0.1:2882", load_sum_:{load_sum_:{unit_config_id:<*>, name:"", resource:{min_cpu:<*>, max_cpu:<*>, memory_size:"1GB", log_disk_size:"2GB", data_disk_size:<*>, min_iops:<*>, max_iops:<*>, iops_weight:<*>, max_net_bandwidth:"-1.86264515e-09GB", net_bandwidth_weight:<*>, }}}, resource_info_:{cpu_capacity:<*>, cpu_assigned:<*>, cpu_assigned_max:<*>, mem_capacity:"5GB", mem_assigned:"1GB", mem_in_use:0GB, log_disk_capacity:14GB, log_disk_assigned:2GB, log_disk_in_use:<*>, data_disk_capacity:8GB, data_disk_assigned:0GB, data_disk_in_use:<*>, inter_ttg_load_value_:"1.648576355725661913e-01"}])
+[232]
+try_cancel_unit_migration (ob_disaster_recovery_worker.cpp:5337) <*> [lt=<*> finish try cancel migrate unit(ret=<*>, ret="OB_SUCCESS", acc_dr_task=0)
+[233]
+check (ob_migrate_unit_finish_checker.cpp:70) <*> [lt=<*> start check unit migrate finish
+[234]
+try_remove_permanent_offline_replicas (ob_disaster_recovery_worker.cpp:3672) <*> [lt=<*> finish try remove permanent offline replica(ret=<*>, ret="OB_SUCCESS", tenant_id=<*>, ls_id={id:1}, acc_dr_task=0)
+[235]
+generate_available_servers (ob_server_balancer.cpp:1262) <*> [lt=<*> generate available servers finish(ret=<*>, zone=zone1, available_servers=["127.0.0.1:2882"])
+[236]
+distribute_for_server_status_change (ob_server_balancer.cpp:404) <*> [lt=<*> finish distribute for server status change(ret=0)
+[237]
+make_available_servers_balance (ob_server_balancer.cpp:5287) <*> [lt=<*> finish zone servers balance(ret=<*>, ret="OB_SUCCESS", disk_waterlevel=8.000000000000000444e-01, balance_task_count=<*>, balance_reason="load_balance", all_available_servers_disk_over=false, zone_over_disk_waterlevel=false, standalone_units.count()=<*>, not_grant_units.count()=0)
+[239]
+distribute_for_server_status_change (ob_server_balancer.cpp:353) <*> [lt=<*> start distribute for server status change
+[241]
+calc_global_balance_resource_weights (ob_server_balancer.cpp:5634) <*> [lt=<*> finish calc global balance resource weights(ret=<*>, ret="OB_SUCCESS", zone=zone1, cpu_weights=2.845528455679554591e-01, mem_weights=4.173441734996680696e-01, log_disk_weights=2.981029809323764157e-01, data_disk_weights=0.000000000000000000e+00, available_servers=["127.0.0.1:2882"])
+[242]
+build_locality_stat_map (ob_disaster_recovery_worker.cpp:363) <*> [lt=<*> ls zone locality map info(zone=zone1, zone_replica_desc={replica_desc_array:[cnt:<*>, {replica_type_:<*>, memstore_percent_:<*>, replica_num_:1}], is_readonly_all_server:false, is_columnstore_all_server:false, readonly_memstore_percent:100})
+[243]
+manage_heartbeat_ (ob_heartbeat_service.cpp:394) <*> [lt=<*> manage_heartbeat_ has finished one round(ret=<*>, ret="OB_SUCCESS")
+[245]
+do_non_tenantgroup_unit_balance_task (ob_server_balancer.cpp:5342) <*> [lt=<*> finish do non-tenantgroup unit balance task(ret=<*>, ret="OB_SUCCESS", zone=zone1, upper_lmt=1.731005173511944994e-01, wild_server_loads.count()=<*>, over_server_loads.count()=<*>, under_server_loads.count()=<*>, standalone_units=[], not_grant_units=[], available_servers=["127.0.0.1:2882"])
+[247]
+check_all_available_servers_over_disk_waterlevel (ob_server_balancer.cpp:8126) <*> [lt=<*> check all available servers over disk waterlevel(zone=zone1, all_available_servers_over_disk_waterlevel=false, zone_server_over_disk_waterlevel=false, server_disk_statistic_array=[{server_:"127.0.0.1:2882", disk_in_use_:<*>, disk_total_:<*>, wild_server_:false}])
+[248]
+scheduler (ob_dbms_job_master.cpp:318) [12438][DBMS_JOB_MASTER][T0][YB427F000001-00063C68B7CB0685-0-0] [lt=<*> dbms job master wait timeout, no entry(ret=-4018)
+[251]
+try_migrate_to_unit (ob_disaster_recovery_worker.cpp:5525) <*> [lt=<*> finish try migrate to unit(ret=<*>, ret="OB_SUCCESS", acc_dr_task=0)
+[253]
+try_tenant_disaster_recovery_ (ob_disaster_recovery_service.cpp:190) <*> [lt=<*> try check dr tasks over(ret=<*>, ret="OB_SUCCESS", cost=<*>, tenant_id=<*>, acc_dr_task=0)
+[258]
+<*> <*>:<*>:<*> <*> {"trace_id":<*>,"name":<*>,"id":<*>,"start_ts":<*>,"end_ts":<*>,"parent_id":<*>,"is_follow":false}
+[270]
+<*> <*>:<*>:<*> <*> {"trace_id":<*>,"name":"end_transaction","id":<*>,"start_ts":<*>,"end_ts":<*>,"parent_id":<*>,"is_follow":false,"tags":[{"trans_id":<*>
+[273]

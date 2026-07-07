@@ -1,0 +1,29 @@
+[0]
+dfs.FSNamesystem: BLOCK* NameSystem.allocateBlock: <*> <*>
+[1]
+dfs.DataNode$DataXceiver: Receiving block <*> src: <*>:<*> dest: <*>:<*>
+[2]
+dfs.DataNode$PacketResponder: Received block <*> of size <*> from <*>
+[3]
+dfs.DataNode$PacketResponder: PacketResponder <*> for block <*> terminating
+[4]
+dfs.FSNamesystem: BLOCK* NameSystem.addStoredBlock: blockMap updated: <*>:<*> is added to <*> size <*>
+[5]
+dfs.DataBlockScanner: Verification succeeded for <*>
+[6]
+dfs.DataNode$DataXceiver: <*>:<*>:Got exception while serving <*> to <*>:
+[7]
+dfs.DataNode$DataXceiver: <*>:<*> Served block <*> to <*>
+[8]
+dfs.FSNamesystem: BLOCK* NameSystem.delete: <*> is added to invalidSet of <*>:<*>
+[9]
+dfs.FSDataset: Deleting block <*> file <*>
+[10]
+dfs.DataNode$DataXceiver: writeBlock <*> received exception java.io.IOException: Could not read from stream
+[11]
+dfs.DataNode$DataXceiver: Received block <*> src: <*>:<*> dest: <*>:<*> of size <*>
+[12]
+dfs.DataNode$DataTransfer: <*>:<*>:Transmitted block <*> to <*>:<*>
+[13]
+dfs.FSDataset: Unexpected error trying to delete block <*> BlockInfo not found in volumeMap.
+[14]

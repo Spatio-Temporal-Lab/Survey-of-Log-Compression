@@ -1,0 +1,1 @@
+"""Utility helpers for LogShrink python_compression package."""

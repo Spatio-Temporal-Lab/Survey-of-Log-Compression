@@ -1,0 +1,15 @@
+*.sh text eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.csv text eol=lf
+*.ps1 text eol=crlf
+
+datasets/** -text
+*.log -text
+*.hdf5 -text
+*.pickle -text
+*.png -text
+*.jpg -text
+*.jpeg -text
+*.pdf -text
