@@ -16,6 +16,10 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
+$utf8NoBom = New-Object System.Text.UTF8Encoding $false
+[Console]::OutputEncoding = $utf8NoBom
+$OutputEncoding = $utf8NoBom
+
 $suite = Split-Path -Parent $MyInvocation.MyCommand.Path
 $repo = Split-Path -Parent $suite
 $config = Get-Content -Raw -Encoding UTF8 (Join-Path $suite "experiment_config.json") | ConvertFrom-Json
@@ -28,6 +32,11 @@ if (-not $linuxRepo) {
 }
 
 $runner = "${linuxRepo}/experiment_suite/run_experiments.py"
+& wsl.exe -d $distro -- test -f $runner
+if ($LASTEXITCODE -ne 0) {
+    throw "WSL cannot find the experiment runner at '$runner'. If this path contains mojibake such as 璁烘枃, reopen PowerShell and rerun this UTF-8 fixed script."
+}
+
 $arguments = @("-d", $distro, "-u", "root", "--", "python3", $runner, "--root", $linuxRepo, "--experiments", $Experiments)
 if ($Methods) { $arguments += @("--methods", $Methods) }
 if ($Datasets) { $arguments += @("--datasets", $Datasets) }
