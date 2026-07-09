@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "source_workbook": "日志压缩合并.xlsx",
   "wsl_distribution": "Ubuntu",
   "defaults": {
@@ -14,7 +14,8 @@
     "threads": 4,
     "max_input_bytes": 104857600,
     "sample_chunks": 16,
-    "sample_seed": 20260707
+    "sample_seed": 20260707,
+    "default_excluded_datasets": ["oceanbase"]
   },
   "datasets": [
     {"name": "HDFS", "file": "datasets/HDFS/HDFS_full.log", "format": "text", "group": "Text/半结构化"},
@@ -46,7 +47,8 @@
       "query_capable": false,
       "runtime_dir": "/home/abebts130613/log_archive_v0_run_20260629",
       "defaults": {"jhistory": 10, "buckets": 16, "strategy": "est"},
-      "parameter_sweeps": []
+      "parameter_sweeps": [],
+      "note": "Inputs containing embedded NUL bytes are skipped because this text pipeline does not preserve them."
     },
     {
       "name": "logzip",
@@ -105,7 +107,8 @@
       "query_capable": false,
       "runtime_dir": "/home/abebts130613/denum_run_20260706",
       "defaults": {"block_lines": 100000, "mode": 1},
-      "parameter_sweeps": ["block_lines"]
+      "parameter_sweeps": ["block_lines"],
+      "unsupported_datasets": ["oceanbase"]
     },
     {
       "name": "PBC-L",
@@ -117,10 +120,11 @@
         "compress_method": "pbc_lz4",
         "pattern_size": 20,
         "train_data_number": 500,
-        "train_threads": 16
+        "train_threads": 16,
+        "max_record_size": 1048576
       },
       "parameter_sweeps": [],
-      "note": "使用前面补过的 PBC-L/LZ4 运行目录；若该二进制不暴露 pbc_lz4，会记录失败而不中断。"
+      "note": "PBC file API skips inputs with any single record larger than 1MiB."
     },
     {
       "name": "PBC-Z",
@@ -132,7 +136,8 @@
         "compress_method": "pbc_zstd",
         "pattern_size": 20,
         "train_data_number": 500,
-        "train_threads": 16
+        "train_threads": 16,
+        "max_record_size": 1048576
       },
       "parameter_sweeps": []
     },
@@ -143,7 +148,9 @@
       "query_capable": false,
       "runtime_dir": "/home/abebts130613/cowic_run_20260630",
       "defaults": {"sample_ratio": 0.01},
-      "parameter_sweeps": []
+      "parameter_sweeps": [],
+      "unsupported_datasets": ["HPC", "Mac", "oceanbase"],
+      "note": "HPC escape sequences and Mac UTF-8 records were not restored byte/record-equivalently by the public CLI."
     },
     {
       "name": "CLP-Text",
@@ -190,7 +197,8 @@
         "compress_method": "pbc_only",
         "pattern_size": 20,
         "train_data_number": 500,
-        "train_threads": 16
+        "train_threads": 16,
+        "max_record_size": 1048576
       },
       "parameter_sweeps": []
     },
@@ -204,7 +212,8 @@
         "compress_method": "pbc_fsst",
         "pattern_size": 20,
         "train_data_number": 500,
-        "train_threads": 16
+        "train_threads": 16,
+        "max_record_size": 1048576
       },
       "parameter_sweeps": []
     },
@@ -234,7 +243,7 @@
       "adapter": "unavailable",
       "mode": "streaming",
       "query_capable": true,
-      "reason": "官方公开仓库没有单独的 CLP-logging Library 可复现实验入口；只记录不可用，不把 CLP-Text 或 CLP-JSON 结果代替它。"
+      "reason": "官方公开仓库没有单独的 CLP-logging Library 可复现实验入口；只记录不可用，不用 CLP-Text/CLP-JSON 冒充它。"
     }
   ],
   "sensitivity": {
@@ -258,4 +267,3 @@
     {"id": "Q8", "kind": "multi_predicate"}
   ]
 }
-

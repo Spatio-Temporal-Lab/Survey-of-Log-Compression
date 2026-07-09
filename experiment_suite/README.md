@@ -13,10 +13,12 @@
 默认会通过 WSL Ubuntu 执行，结果写到：
 
 ```text
-D:\DOWNLOAD\论文\experiment_results\run-YYYYMMDD-HHMMSS\
+D:\DOWNLOAD\论文\experiment_results\run-YYYYMMDD-HHMMSS-ffffff\
 ```
 
 默认输入上限是 `100MiB`。如果原始数据集超过这个大小，runner 会用固定 seed 做随机整行块采样，保证实际输入不超过 100MiB；小数据集直接使用原文件。
+
+默认计划会跳过 `oceanbase`，同时过滤掉公开代码不可用的方法和已知不支持的数据/查询组合，让常规批量运行尽量只包含可执行、可比较的 case。若需要保留完整矩阵用于审计，可以加 `-IncludeUnavailable` 和 `-IncludeUnsupported`。
 
 ## 建议先跑
 
@@ -38,7 +40,7 @@ D:\DOWNLOAD\论文\experiment_results\run-YYYYMMDD-HHMMSS\
 .\experiment_suite\run_all_experiments.ps1 `
   -Experiments "main,sensitivity,query" `
   -Methods "Denum,PBC,PBC-F,LogGrep,CLP-Text" `
-  -Datasets "Apache,Windows,oceanbase"
+  -Datasets "Apache,Windows,BGL"
 ```
 
 把采样上限改成 50MiB：
@@ -57,7 +59,7 @@ D:\DOWNLOAD\论文\experiment_results\run-YYYYMMDD-HHMMSS\
 
 ```powershell
 .\experiment_suite\run_all_experiments.ps1 `
-  -Resume "D:\DOWNLOAD\论文\experiment_results\run-YYYYMMDD-HHMMSS"
+  -Resume "D:\DOWNLOAD\论文\experiment_results\run-YYYYMMDD-HHMMSS-ffffff"
 ```
 
 运行中想停，可以在对应 `run-*` 目录下新建空文件 `STOP`。runner 会在当前 case 结束后停止；已经写入 `results.csv` 的 case 恢复时不会重跑。

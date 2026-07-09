@@ -8,6 +8,8 @@ param(
     [switch]$DryRun,
     [switch]$SmokeTest,
     [switch]$AllowWarmCache,
+    [switch]$IncludeUnavailable,
+    [switch]$IncludeUnsupported,
     [int]$MaxInputMiB = 100,
     [int]$SampleChunks = 16,
     [int]$SampleSeed = 20260707,
@@ -45,6 +47,8 @@ if ($NoBuild) { $arguments += "--no-build" }
 if ($DryRun) { $arguments += "--dry-run" }
 if ($SmokeTest) { $arguments += "--smoke-test" }
 if ($AllowWarmCache) { $arguments += "--allow-warm-cache" }
+if ($IncludeUnavailable) { $arguments += "--include-unavailable" }
+if ($IncludeUnsupported) { $arguments += "--include-unsupported" }
 if ($MaxInputMiB -ge 0) { $arguments += @("--max-input-bytes", "$($MaxInputMiB * 1024 * 1024)") }
 if ($SampleChunks -gt 0) { $arguments += @("--sample-chunks", "$SampleChunks") }
 if ($SampleSeed -gt 0) { $arguments += @("--sample-seed", "$SampleSeed") }

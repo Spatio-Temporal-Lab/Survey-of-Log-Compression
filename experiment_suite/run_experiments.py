@@ -176,7 +176,7 @@ class ExperimentRunner:
         )
         self.sample_chunks = int(args.sample_chunks or self.defaults.get("sample_chunks", 16))
         self.sample_seed = int(args.sample_seed if args.sample_seed is not None else self.defaults.get("sample_seed", 20260707))
-        stamp = datetime.now().strftime("%Y%m%d-%H%M%S")
+        stamp = datetime.now().strftime("%Y%m%d-%H%M%S-%f")
         self.run_dir = (
             Path(args.resume).resolve()
             if args.resume
@@ -194,6 +194,7 @@ class ExperimentRunner:
         self.completed: set[str] = set()
         self.build_attempted: dict[str, tuple[bool, str]] = {}
         self.input_meta: dict[Path, tuple[int, int]] = {}
+        self.max_line_lengths: dict[Path, int] = {}
         self.sample_sources_size: dict[Path, int] = {}
         self.interrupted = False
 
@@ -260,12 +261,16 @@ class ExperimentRunner:
         selected_methods = (
             {x.strip() for x in self.args.methods.split(",") if x.strip()}
             if self.args.methods
-            else set(self.methods)
+            else {
+                name
+                for name, method in self.methods.items()
+                if self.args.include_unavailable or method.get("adapter") != "unavailable"
+            }
         )
         selected_datasets = (
             {x.strip() for x in self.args.datasets.split(",") if x.strip()}
             if self.args.datasets
-            else set(self.datasets)
+            else set(self.datasets) - set(self.defaults.get("default_excluded_datasets", []))
         )
         unknown_methods = selected_methods - set(self.methods)
         unknown_datasets = selected_datasets - set(self.datasets)
@@ -273,6 +278,12 @@ class ExperimentRunner:
             raise ValueError(f"未知方法: {sorted(unknown_methods)}")
         if unknown_datasets:
             raise ValueError(f"未知数据集: {sorted(unknown_datasets)}")
+        if not self.args.include_unsupported:
+            selected_datasets = {
+                dataset
+                for dataset in selected_datasets
+                if dataset not in self.defaults.get("default_excluded_datasets", [])
+            }
 
         if self.args.smoke_test:
             selected_experiments = {"main"}
@@ -288,7 +299,9 @@ class ExperimentRunner:
                     continue
                 for dataset in self.datasets:
                     if dataset in selected_datasets:
-                        cases.append({"experiment": "main", "method": method, "dataset": dataset})
+                        case = {"experiment": "main", "method": method, "dataset": dataset}
+                        if self.args.include_unsupported or self.static_case_supported(case):
+                            cases.append(case)
 
         if "sensitivity" in selected_experiments:
             sensitivity_dataset = self.defaults["sensitivity_dataset"]
@@ -299,26 +312,26 @@ class ExperimentRunner:
                 if sensitivity_dataset in selected_datasets:
                     for parameter in method.get("parameter_sweeps", []):
                         for value in self.config["sensitivity"][parameter]:
-                            cases.append(
-                                {
-                                    "experiment": "sensitivity",
-                                    "method": method_name,
-                                    "dataset": sensitivity_dataset,
-                                    "parameter": parameter,
-                                    "parameter_value": value,
-                                }
-                            )
-                if scale_dataset in selected_datasets:
-                    for value in self.config["sensitivity"]["raw_size_bytes"]:
-                        cases.append(
-                            {
+                            case = {
                                 "experiment": "sensitivity",
                                 "method": method_name,
-                                "dataset": scale_dataset,
-                                "parameter": "raw_size_bytes",
+                                "dataset": sensitivity_dataset,
+                                "parameter": parameter,
                                 "parameter_value": value,
                             }
-                        )
+                            if self.args.include_unsupported or self.static_case_supported(case):
+                                cases.append(case)
+                if scale_dataset in selected_datasets:
+                    for value in self.config["sensitivity"]["raw_size_bytes"]:
+                        case = {
+                            "experiment": "sensitivity",
+                            "method": method_name,
+                            "dataset": scale_dataset,
+                            "parameter": "raw_size_bytes",
+                            "parameter_value": value,
+                        }
+                        if self.args.include_unsupported or self.static_case_supported(case):
+                            cases.append(case)
 
         if "query" in selected_experiments:
             for method_name, method in self.methods.items():
@@ -328,18 +341,44 @@ class ExperimentRunner:
                     if dataset not in selected_datasets:
                         continue
                     for query in self.config["queries"]:
-                        cases.append(
-                            {
-                                "experiment": "query",
-                                "method": method_name,
-                                "dataset": dataset,
-                                "query_id": query["id"],
-                            }
-                        )
+                        case = {
+                            "experiment": "query",
+                            "method": method_name,
+                            "dataset": dataset,
+                            "query_id": query["id"],
+                        }
+                        if self.args.include_unsupported or self.static_case_supported(case):
+                            cases.append(case)
 
         for case in cases:
             case["case_id"] = self.make_case_id(case)
         return cases
+
+    def static_case_supported(self, case: dict[str, Any]) -> bool:
+        method = self.methods[case["method"]]
+        if method.get("adapter") == "unavailable":
+            return False
+        dataset = case["dataset"]
+        if dataset in method.get("unsupported_datasets", []):
+            return False
+        dataset_group = self.datasets[dataset].get("group", "")
+        if "input_groups" in method:
+            allowed = set(method["input_groups"])
+        elif method["adapter"] in {"logarchive", "logblock", "elise", "denum", "cowic", "clp", "loggrep", "logcrisp"}:
+            allowed = {"Text/半结构化"}
+        else:
+            allowed = set()
+        if allowed and dataset_group not in allowed:
+            return False
+        if method["adapter"] == "logblock" and dataset != "Apache":
+            return False
+        if case["experiment"] == "query":
+            query = next(item for item in self.config["queries"] if item["id"] == case["query_id"])
+            if method["adapter"] == "clp" and "clp" not in query:
+                return False
+            if method["adapter"] == "loggrep" and "loggrep" not in query:
+                return False
+        return True
 
     def prepare_run(self, cases: list[dict[str, Any]]) -> None:
         self.run_dir.mkdir(parents=True, exist_ok=True)
@@ -550,6 +589,24 @@ class ExperimentRunner:
             )
             self.input_meta[resolved] = (size, int(proc.stdout.split()[0]))
         return self.input_meta[resolved]
+
+    def max_line_length(self, path: Path) -> int:
+        resolved = path.resolve()
+        if resolved not in self.max_line_lengths:
+            maximum = 0
+            with path.open("rb") as stream:
+                for line in stream:
+                    maximum = max(maximum, len(line.rstrip(b"\n\r")))
+            self.max_line_lengths[resolved] = maximum
+        return self.max_line_lengths[resolved]
+
+    @staticmethod
+    def file_contains_nul(path: Path) -> bool:
+        with path.open("rb") as stream:
+            while block := stream.read(8 * 1024 * 1024):
+                if b"\0" in block:
+                    return True
+        return False
 
     def stage_dir(self, case: dict[str, Any]) -> Path:
         directory = self.work_root / case["case_id"]
@@ -808,6 +865,8 @@ class ExperimentRunner:
 
     def ensure_format_supported(self, case: dict[str, Any], method: dict[str, Any]) -> None:
         dataset_group = self.datasets[case["dataset"]].get("group", "")
+        if case["dataset"] in method.get("unsupported_datasets", []):
+            raise Unsupported(f"{method['name']} does not support dataset {case['dataset']} under the validated runner policy")
         if "input_groups" in method:
             allowed = set(method["input_groups"])
         elif method["adapter"] in {"logarchive", "logblock", "elise", "denum", "cowic", "clp", "loggrep", "logcrisp"}:
@@ -1016,6 +1075,8 @@ class ExperimentRunner:
     def run_logarchive(
         self, case: dict[str, Any], method: dict[str, Any], input_file: Path, work: Path
     ) -> dict[str, Any]:
+        if self.file_contains_nul(input_file):
+            raise Unsupported("LogArchive text pipeline does not preserve embedded NUL bytes; skip this binary-like log input")
         binary = self.method_root(method) / "bin/Archiver"
         archive = work / "archive.bin"
         restored = work / "restored.log"
@@ -1046,6 +1107,13 @@ class ExperimentRunner:
         archive = work / "archive.pbc"
         restored = work / "restored.log"
         defaults = method["defaults"]
+        max_record_size = int(defaults.get("max_record_size", 1048576))
+        observed_max = self.max_line_length(input_file)
+        if observed_max > max_record_size:
+            raise Unsupported(
+                f"PBC file API max record size is {max_record_size} bytes, "
+                f"but {case['dataset']} contains a {observed_max}-byte record"
+            )
         train_cmd = (
             f"{q(binary)} --train-pattern -i {q(input_file)} -p {q(pattern)} "
             f"--compress-method {q(defaults['compress_method'])} "
@@ -1507,6 +1575,8 @@ def create_parser() -> argparse.ArgumentParser:
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--smoke-test", action="store_true")
     parser.add_argument("--allow-warm-cache", action="store_true")
+    parser.add_argument("--include-unavailable", action="store_true", help="Plan methods that are known to have no runnable adapter")
+    parser.add_argument("--include-unsupported", action="store_true", help="Plan format/query combinations that will be recorded as unsupported")
     parser.add_argument("--max-input-bytes", type=int, default=None, help="Cap each effective input file; 0 disables sampling")
     parser.add_argument("--sample-chunks", type=int, default=0, help="Number of random whole-line chunks per sampled dataset")
     parser.add_argument("--sample-seed", type=int, default=None, help="Base seed for reproducible random sampling")
