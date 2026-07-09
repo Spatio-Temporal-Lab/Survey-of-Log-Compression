@@ -18,7 +18,7 @@ D:\DOWNLOAD\论文\experiment_results\run-YYYYMMDD-HHMMSS-ffffff\
 
 默认输入上限是 `100MiB`。如果原始数据集超过这个大小，runner 会用固定 seed 做随机整行块采样，保证实际输入不超过 100MiB；小数据集直接使用原文件。
 
-默认计划会跳过 `oceanbase`，同时过滤掉公开代码不可用的方法和已知不支持的数据/查询组合，让常规批量运行尽量只包含可执行、可比较的 case。若需要保留完整矩阵用于审计，可以加 `-IncludeUnavailable` 和 `-IncludeUnsupported`。
+基础性能实验默认按 `设计-6实验结果统计` 的全矩阵计划，即 20 个数据集 × 20 个方法。公开代码不可用、数据格式不兼容或数据集缺失的格子不会从计划里删除，而是写入 `SKIPPED_UNAVAILABLE`、`SKIPPED_UNSUPPORTED` 或 `SKIPPED_MISSING_DATASET`，便于后续回填表格时保留完整矩阵。
 
 ## 建议先跑
 

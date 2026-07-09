@@ -14,8 +14,7 @@
     "threads": 4,
     "max_input_bytes": 104857600,
     "sample_chunks": 16,
-    "sample_seed": 20260707,
-    "default_excluded_datasets": ["oceanbase"]
+    "sample_seed": 20260707
   },
   "datasets": [
     {"name": "HDFS", "file": "datasets/HDFS/HDFS_full.log", "format": "text", "group": "Text/半结构化"},

@@ -261,16 +261,12 @@ class ExperimentRunner:
         selected_methods = (
             {x.strip() for x in self.args.methods.split(",") if x.strip()}
             if self.args.methods
-            else {
-                name
-                for name, method in self.methods.items()
-                if self.args.include_unavailable or method.get("adapter") != "unavailable"
-            }
+            else set(self.methods)
         )
         selected_datasets = (
             {x.strip() for x in self.args.datasets.split(",") if x.strip()}
             if self.args.datasets
-            else set(self.datasets) - set(self.defaults.get("default_excluded_datasets", []))
+            else set(self.datasets)
         )
         unknown_methods = selected_methods - set(self.methods)
         unknown_datasets = selected_datasets - set(self.datasets)
@@ -278,13 +274,6 @@ class ExperimentRunner:
             raise ValueError(f"未知方法: {sorted(unknown_methods)}")
         if unknown_datasets:
             raise ValueError(f"未知数据集: {sorted(unknown_datasets)}")
-        if not self.args.include_unsupported:
-            selected_datasets = {
-                dataset
-                for dataset in selected_datasets
-                if dataset not in self.defaults.get("default_excluded_datasets", [])
-            }
-
         if self.args.smoke_test:
             selected_experiments = {"main"}
             selected_datasets = {"Apache"}
@@ -300,8 +289,7 @@ class ExperimentRunner:
                 for dataset in self.datasets:
                     if dataset in selected_datasets:
                         case = {"experiment": "main", "method": method, "dataset": dataset}
-                        if self.args.include_unsupported or self.static_case_supported(case):
-                            cases.append(case)
+                        cases.append(case)
 
         if "sensitivity" in selected_experiments:
             sensitivity_dataset = self.defaults["sensitivity_dataset"]
