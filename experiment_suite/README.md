@@ -80,9 +80,9 @@ D:\DOWNLOAD\论文\experiment_results\run-YYYYMMDD-HHMMSS-ffffff\
 - `FAILED_CORRECTNESS`：解压输出与输入不一致。
 - `FAILED`：执行失败。
 - `TIMEOUT`：阶段超时。
-- `SKIPPED_UNAVAILABLE`：源码、依赖或公开入口不可用。
+- `SKIPPED_UNAVAILABLE`：源码或运行依赖不可用，例如 WSL 中缺少必要二进制/ Python 包。
 - `SKIPPED_MISSING_DATASET`：数据集文件缺失。
-- `SKIPPED_UNSUPPORTED`：算法不支持该数据格式、查询语义或参数组合。
+- `SKIPPED_UNSUPPORTED`：算法源码存在，但不支持该数据格式、查询语义或参数组合，或缺少论文/源码要求的额外模板输入。
 
 ## 重要口径
 
@@ -91,5 +91,9 @@ D:\DOWNLOAD\论文\experiment_results\run-YYYYMMDD-HHMMSS-ffffff\
 - Text/半结构化方法默认不跑 JSON 数据集；格式不匹配写入 `SKIPPED_UNSUPPORTED`。
 - LogBlock 公开代码没有完整逆变换，因此只能记录预处理产物压缩/解包，不把它标成完整无损压缩器。
 - LogCrisp 公开代码没有论文中的聚合查询引擎，因此只测训练、压缩和内部单元解压。
-- CLP-logging Library 官方公开仓库没有独立可复现实验入口，runner 会记录不可用，不用 CLP-Text/CLP-JSON 冒充它。
+- logzip 源码已纳入计划，但公开入口依赖数据集对应的 parsed templates；没有模板的通用数据集 case 记为 `SKIPPED_UNSUPPORTED`。
+- LogReducer 使用本地源码的 `training.py`、`LogReducer.py` 和 `LogRestore.py`，中间目录放到 WSL ASCII 路径，避免中文路径导致脚本失败。
+- LogShrink 使用公开 Python 脚本入口；当前环境如果缺 `scipy` 会记为 `SKIPPED_UNAVAILABLE`。
+- LogLite-b 和 LogLite-BL 已接入源码命令行；LogLite-BZ 需要 WSL 里安装 `zstd`。
+- CLP-logging Library 使用之前跑通的 Python 环境 `~/clp_loglib_py_run_20260629`，通过文件到 logging handler 的桥接脚本测试流式写入 CLP IR；它不是 CLP-Text/CLP-JSON 的离线压缩口径。
 - PBC-F 使用 `pbc_fsst_file` helper 执行真实 `PBC_FSST` 文件压缩/解压；普通 `pbc -c/-d` 不作为 PBC-F 口径。

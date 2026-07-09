@@ -51,17 +51,23 @@
     },
     {
       "name": "logzip",
-      "adapter": "unavailable",
+      "adapter": "logzip",
       "mode": "batch",
       "query_capable": false,
-      "reason": "当前工作区没有可安全接收任意输入/输出路径的独立 logzip CLI；不伪造结果。"
+      "python": "python3",
+      "parameter_sweeps": [],
+      "note": "Source exists, but the public logzip API requires dataset-specific parsed templates; cases without templates are marked unsupported."
     },
     {
       "name": "LogReducer",
-      "adapter": "unavailable",
+      "adapter": "logreducer",
       "mode": "batch",
       "query_capable": false,
-      "reason": "源码入口强依赖原始目录布局和内置配置，未发现可隔离输出的通用 CLI。"
+      "python": "python3",
+      "pythonpath": "venv/lib/python3.12/site-packages",
+      "defaults": {"header_length": 5},
+      "parameter_sweeps": [],
+      "note": "Runs training.py, LogReducer.py, and LogRestore.py with isolated work directories; compressed size includes templates."
     },
     {
       "name": "LogBlock",
@@ -94,10 +100,16 @@
     },
     {
       "name": "LogShrink",
-      "adapter": "unavailable",
+      "adapter": "logshrink",
       "mode": "batch",
       "query_capable": false,
-      "reason": "源码入口使用内置数据集配置，未发现可安全隔离输出的通用 CLI。"
+      "python": "python3",
+      "pythonpath": "../LogReducer/venv/lib/python3.12/site-packages",
+      "defaults": {"kernel": "lzma", "window": 50, "threshold": 10, "sampling_candidates": 16, "threads": 1, "header_length": 5},
+      "header_lengths": {"Android": 6, "Apache": 6, "BGL": 9, "Hadoop": 5, "HDFS": 5, "HealthApp": 3, "HPC": 6, "Linux": 5, "Mac": 5, "OpenSSH": 5, "OpenStack": 7, "Proxifier": 4, "Spark": 4, "Thunderbird": 9, "Windows": 4, "Zookeeper": 6},
+      "supported_datasets": ["Android", "Apache", "BGL", "Hadoop", "HDFS", "HealthApp", "HPC", "Linux", "Mac", "OpenSSH", "OpenStack", "Proxifier", "Spark", "Thunderbird", "Windows", "Zookeeper"],
+      "parameter_sweeps": [],
+      "note": "Uses the public python_compression/run.py entry with isolated symlinked inputs; JSON and non-LogHub formats are unsupported."
     },
     {
       "name": "Denum",
@@ -218,31 +230,40 @@
     },
     {
       "name": "LogLite-b",
-      "adapter": "unavailable",
+      "adapter": "loglite",
       "mode": "streaming",
       "query_capable": false,
-      "reason": "当前工作区没有已跑通的 LogLite-b 通用入口。"
+      "defaults": {"variant": "b"},
+      "build": "cd LogLite/LogLite-b && g++ -Ofast -march=native -fdiagnostics-color=always -g ./src/compress/*.cc ./src/common/*.cc ./src/tools/*.cc -I ./src -o ./src/tools/xorc-cli -mavx512f && cd ../LogLite-B && g++ -Ofast -march=native -fdiagnostics-color=always -g ./src/compress/*.cc ./src/common/*.cc ./src/tools/*.cc -I ./src -o ./src/tools/xorc-cli -mavx512f",
+      "parameter_sweeps": []
     },
     {
       "name": "LogLite-BZ",
-      "adapter": "unavailable",
+      "adapter": "loglite",
       "mode": "streaming",
       "query_capable": false,
-      "reason": "当前工作区没有已跑通的 LogLite-BZ 通用入口。"
+      "defaults": {"variant": "BZ"},
+      "build": "cd LogLite/LogLite-b && g++ -Ofast -march=native -fdiagnostics-color=always -g ./src/compress/*.cc ./src/common/*.cc ./src/tools/*.cc -I ./src -o ./src/tools/xorc-cli -mavx512f && cd ../LogLite-B && g++ -Ofast -march=native -fdiagnostics-color=always -g ./src/compress/*.cc ./src/common/*.cc ./src/tools/*.cc -I ./src -o ./src/tools/xorc-cli -mavx512f",
+      "parameter_sweeps": []
     },
     {
       "name": "LogLite-BL",
-      "adapter": "unavailable",
+      "adapter": "loglite",
       "mode": "streaming",
       "query_capable": false,
-      "reason": "当前工作区没有已跑通的 LogLite-BL 通用入口。"
+      "defaults": {"variant": "BL"},
+      "build": "cd LogLite/LogLite-b && g++ -Ofast -march=native -fdiagnostics-color=always -g ./src/compress/*.cc ./src/common/*.cc ./src/tools/*.cc -I ./src -o ./src/tools/xorc-cli -mavx512f && cd ../LogLite-B && g++ -Ofast -march=native -fdiagnostics-color=always -g ./src/compress/*.cc ./src/common/*.cc ./src/tools/*.cc -I ./src -o ./src/tools/xorc-cli -mavx512f",
+      "parameter_sweeps": []
     },
     {
       "name": "CLP-logging Library",
-      "adapter": "unavailable",
+      "adapter": "clp_loglib",
       "mode": "streaming",
       "query_capable": true,
-      "reason": "官方公开仓库没有单独的 CLP-logging Library 可复现实验入口；只记录不可用，不用 CLP-Text/CLP-JSON 冒充它。"
+      "runtime_dir": "/home/abebts130613/clp_loglib_py_run_20260629",
+      "python": "/home/abebts130613/clp_loglib_py_run_20260629/.venv/bin/python",
+      "parameter_sweeps": [],
+      "note": "Evaluated through a file-to-logging-handler bridge; this is streaming ingestion into CLP IR, not byte-equivalent offline decompression."
     }
   ],
   "sensitivity": {

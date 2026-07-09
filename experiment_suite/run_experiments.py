@@ -352,7 +352,21 @@ class ExperimentRunner:
         dataset_group = self.datasets[dataset].get("group", "")
         if "input_groups" in method:
             allowed = set(method["input_groups"])
-        elif method["adapter"] in {"logarchive", "logblock", "elise", "denum", "cowic", "clp", "loggrep", "logcrisp"}:
+        elif method["adapter"] in {
+            "logarchive",
+            "logzip",
+            "logreducer",
+            "logblock",
+            "elise",
+            "logshrink",
+            "denum",
+            "cowic",
+            "clp",
+            "clp_loglib",
+            "loggrep",
+            "logcrisp",
+            "loglite",
+        }:
             allowed = {"Text/半结构化"}
         else:
             allowed = set()
@@ -601,6 +615,13 @@ class ExperimentRunner:
         directory.mkdir(parents=True, exist_ok=True)
         return directory
 
+    def ascii_stage_dir(self, case: dict[str, Any]) -> Path:
+        directory = Path("/tmp/log-compression-runner") / f"{case['case_id']}-{os.getpid()}"
+        if directory.exists():
+            shutil.rmtree(directory)
+        directory.mkdir(parents=True, exist_ok=True)
+        return directory
+
     def parse_peak_rss(self, path: Path) -> int | None:
         if not path.exists():
             return None
@@ -687,14 +708,48 @@ class ExperimentRunner:
             "delog": "Delog",
             "cowic": "cowic",
             "logarchive": "log_archive_v0",
+            "logzip": "logzip",
+            "logreducer": "LogReducer",
+            "logshrink": "LogShrink",
+            "loglite": "LogLite",
             "pbc": "pbc",
             "clp": "clp",
+            "clp_loglib": "clp_loglib_py_run_20260629",
             "loggrep": "LogGrep",
             "logcrisp": "logcrisp-vendored-code",
             "elise": "ELISE-2021",
             "logblock": "suppmaterial-21-kundi-logblock",
         }
         return self.root / fallback_dirs[method["adapter"]]
+
+    def method_python(self, method: dict[str, Any], method_dir: Path) -> str:
+        configured = method.get("python", "python3")
+        path = Path(configured)
+        if path.is_absolute() or configured == "python3":
+            return configured
+        resolved = method_dir / path
+        if resolved.exists():
+            return str(resolved)
+        return configured
+
+    def method_pythonpath(self, method: dict[str, Any], method_dir: Path, extra: list[Path] | None = None) -> str:
+        configured = method.get("pythonpath", [])
+        if isinstance(configured, str):
+            configured = [configured]
+        paths: list[str] = []
+        for item in configured:
+            path = Path(item)
+            paths.append(str(path if path.is_absolute() else method_dir / path))
+        paths.extend(str(path) for path in (extra or []))
+        return ":".join(paths)
+
+    @staticmethod
+    def env_prefix(pythonpath: str) -> str:
+        return f"PYTHONPATH={q(pythonpath)} " if pythonpath else ""
+
+    def python_command(self, method: dict[str, Any], method_dir: Path) -> str:
+        python = self.method_python(method, method_dir)
+        return q(python)
 
     def binary_paths(self, method: dict[str, Any]) -> list[Path]:
         adapter = method["adapter"]
@@ -704,6 +759,14 @@ class ExperimentRunner:
             "delog": [base / "Delog_compress", base / "decompress"],
             "cowic": [base / "bin/compressor_cmd_tool"],
             "logarchive": [base / "bin/Archiver"],
+            "logreducer": [
+                base / "THULR",
+                base / "Elastic",
+                base / "Entropy",
+                base / "Iddiff",
+                base / "Numdiff",
+            ],
+            "loglite": [base / "LogLite-b/src/tools/xorc-cli", base / "LogLite-B/src/tools/xorc-cli"],
             "pbc": [base / "bin/pbc"],
             "clp": [base / "build/core/clp", base / "build/core/clg"],
             "loggrep": [
@@ -728,9 +791,20 @@ class ExperimentRunner:
             return
         if not binaries:
             if adapter == "elise":
-                self.require_python_modules(["numpy"], method.get("python", sys.executable))
+                method_dir = self.method_root(method)
+                self.require_python_modules(["numpy"], self.method_python(method, method_dir), self.method_pythonpath(method, method_dir))
             elif adapter == "logblock":
-                self.require_python_modules(["pandas"], method.get("python", sys.executable))
+                method_dir = self.method_root(method)
+                self.require_python_modules(["pandas"], self.method_python(method, method_dir), self.method_pythonpath(method, method_dir))
+            elif adapter == "logzip":
+                return
+            elif adapter == "logshrink":
+                method_dir = self.method_root(method)
+                self.require_python_modules(["pandas", "numpy", "scipy"], self.method_python(method, method_dir), self.method_pythonpath(method, method_dir))
+            elif adapter == "clp_loglib":
+                method_dir = self.method_root(method)
+                python = self.method_python(method, method_dir)
+                self.require_python_modules(["clp_logging"], python, self.method_pythonpath(method, method_dir))
             return
         cache_key = method["name"]
         if cache_key in self.build_attempted:
@@ -761,9 +835,17 @@ class ExperimentRunner:
         self.build_attempted[cache_key] = (True, "")
 
     @staticmethod
-    def require_python_modules(modules: list[str], python: str) -> None:
+    def require_python_modules(modules: list[str], python: str, pythonpath: str = "") -> None:
         command = [python, "-c", "import " + ",".join(modules)]
-        proc = subprocess.run(command, text=True, capture_output=True)
+        env = os.environ.copy()
+        if pythonpath:
+            env["PYTHONPATH"] = pythonpath + (":" + env["PYTHONPATH"] if env.get("PYTHONPATH") else "")
+        try:
+            proc = subprocess.run(command, text=True, capture_output=True, env=env)
+        except OSError as exc:
+            if exc.errno != 8:
+                raise
+            proc = subprocess.run(["bash", *command], text=True, capture_output=True, env=env)
         if proc.returncode:
             raise MissingDependency(f"缺少 Python 模块 {modules}: {proc.stderr.strip()}")
 
@@ -857,7 +939,21 @@ class ExperimentRunner:
             raise Unsupported(f"{method['name']} does not support dataset {case['dataset']} under the validated runner policy")
         if "input_groups" in method:
             allowed = set(method["input_groups"])
-        elif method["adapter"] in {"logarchive", "logblock", "elise", "denum", "cowic", "clp", "loggrep", "logcrisp"}:
+        elif method["adapter"] in {
+            "logarchive",
+            "logzip",
+            "logreducer",
+            "logblock",
+            "elise",
+            "logshrink",
+            "denum",
+            "cowic",
+            "clp",
+            "clp_loglib",
+            "loggrep",
+            "logcrisp",
+            "loglite",
+        }:
             allowed = {"Text/半结构化"}
         else:
             allowed = set()
@@ -949,6 +1045,230 @@ class ExperimentRunner:
             default="",
         )
         return metrics
+
+    def run_logzip(
+        self, case: dict[str, Any], method: dict[str, Any], input_file: Path, work: Path
+    ) -> dict[str, Any]:
+        raise Unsupported(
+            "logzip source is present, but its public API requires dataset-specific parsed templates; "
+            "no generic template generator is configured for this runner case"
+        )
+
+    def run_logreducer(
+        self, case: dict[str, Any], method: dict[str, Any], input_file: Path, work: Path
+    ) -> dict[str, Any]:
+        method_dir = self.method_root(method)
+        run_tmp = self.ascii_stage_dir(case)
+        wrapper_dir = run_tmp / "bin"
+        wrapper_dir.mkdir()
+        wrapper = wrapper_dir / "7z-wrapper.py"
+        wrapper.write_text(
+            """#!/usr/bin/env python3
+import glob
+import os
+import sys
+import tarfile
+
+args = sys.argv[1:]
+if not args:
+    raise SystemExit(2)
+if args[0] == "a":
+    output = args[1]
+    inputs = []
+    for item in args[2:]:
+        if item.startswith("-"):
+            continue
+        matches = glob.glob(item)
+        inputs.extend(matches or [item])
+    with tarfile.open(output, "w:xz") as archive:
+        for path in inputs:
+            if os.path.exists(path):
+                archive.add(path, arcname=os.path.basename(path))
+    raise SystemExit(0)
+if args[0] == "x":
+    archive_path = args[1]
+    output_dir = "."
+    for item in args[2:]:
+        if item.startswith("-o"):
+            output_dir = item[2:]
+    os.makedirs(output_dir, exist_ok=True)
+    with tarfile.open(archive_path, "r:*") as archive:
+        archive.extractall(output_dir)
+    raise SystemExit(0)
+raise SystemExit(2)
+""",
+            "utf-8",
+        )
+        wrapper.chmod(0o755)
+        for name in ("7z", "7za"):
+            link = wrapper_dir / name
+            if link.exists():
+                link.unlink()
+            link.symlink_to(wrapper)
+        cli_name = self.datasets[case["dataset"]].get("cli_name", case["dataset"])
+        staged_input = run_tmp / f"{cli_name}.log"
+        staged_input.symlink_to(input_file.resolve())
+        template_dir = run_tmp / "template"
+        archive_dir = run_tmp / "archive"
+        restored = run_tmp / f"{cli_name}.restored.log"
+        template_dir.mkdir()
+        archive_dir.mkdir()
+        header_length = int(method.get("defaults", {}).get("header_length", 5))
+        python = self.python_command(method, method_dir)
+        env = self.env_prefix(self.method_pythonpath(method, method_dir))
+        env = f"{env}PATH={q(wrapper_dir)}:$PATH "
+        training = self.run_command(
+            case,
+            "train",
+            f"{env}{python} training.py -I {q(staged_input)} -T {q(template_dir)} -L {header_length}",
+            method_dir,
+        )
+        compress = self.run_command(
+            case,
+            "compress",
+            f"{env}{python} LogReducer.py -I {q(staged_input)} -T {q(template_dir)} -O {q(archive_dir)}",
+            method_dir,
+        )
+        decompress = self.run_command(
+            case,
+            "decompress",
+            f"{env}{python} LogRestore.py -I {q(archive_dir)} -T {q(template_dir)} -O {q(restored)}",
+            method_dir,
+        )
+        metrics = self.base_metrics(
+            input_file,
+            method,
+            [archive_dir],
+            compress,
+            decompress,
+            restored,
+            include_paths=[template_dir],
+            notes=f"LogReducer training time {training.elapsed_s:.6f}s; compressed size includes templates.",
+        )
+        metrics["peak_rss_kib"] = max(
+            [x for x in [metrics["peak_rss_kib"] or None, training.peak_rss_kib] if x is not None],
+            default="",
+        )
+        return metrics
+
+    def run_logshrink(
+        self, case: dict[str, Any], method: dict[str, Any], input_file: Path, work: Path
+    ) -> dict[str, Any]:
+        method_dir = self.method_root(method)
+        python_dir = method_dir / "python_compression"
+        cli_name = self.datasets[case["dataset"]].get("cli_name", case["dataset"])
+        if cli_name not in method.get("supported_datasets", []):
+            raise Unsupported(f"LogShrink validated templates/header settings are not configured for {case['dataset']}")
+        run_tmp = self.ascii_stage_dir(case)
+        (run_tmp / "tqdm.py").write_text("def tqdm(iterable=None, *args, **kwargs):\n    return iterable if iterable is not None else []\n", "utf-8")
+        input_dir = run_tmp / "input"
+        dataset_dir = input_dir / cli_name
+        dataset_dir.mkdir(parents=True)
+        linked = input_dir / f"{cli_name}.log"
+        if linked.exists() or linked.is_symlink():
+            linked.unlink()
+        linked.symlink_to(input_file.resolve())
+        archive_root = run_tmp / "archive"
+        restored_root = run_tmp / "restored"
+        header_length = int(method.get("header_lengths", {}).get(cli_name, method["defaults"]["header_length"]))
+        defaults = method["defaults"]
+        python = self.python_command(method, method_dir)
+        env = self.env_prefix(self.method_pythonpath(method, method_dir, [run_tmp]))
+        compress_cmd = (
+            f"{env}{python} run.py -I {q(input_dir)} -ds {q(cli_name)} "
+            f"-E E -C -K {q(defaults['kernel'])} -V -P -wh {int(defaults['window'])} "
+            f"-th {int(defaults['threshold'])} -NC {int(defaults['sampling_candidates'])} "
+            f"-S -TN {int(defaults['threads'])} -L {header_length} -outdir {q(archive_root)}"
+        )
+        compress = self.run_command(case, "compress", compress_cmd, python_dir)
+        archive_dir = archive_root / cli_name
+        template_dir = python_dir / "template" / cli_name
+        decompress_cmd = (
+            f"{env}{python} decompress_run.py -E E -K {q(defaults['kernel'])} "
+            f"-I {q(archive_dir)} -T {q(python_dir / 'template')} -O {q(restored_root)} "
+            f"&& find {q(restored_root / cli_name)} -name '*.col' -type f | sort -V | xargs -r cat > {q(run_tmp / 'restored.log')}"
+        )
+        decompress = self.run_command(case, "decompress", decompress_cmd, python_dir / "decompression")
+        return self.base_metrics(
+            input_file,
+            method,
+            [archive_dir],
+            compress,
+            decompress,
+            run_tmp / "restored.log",
+            include_paths=[template_dir],
+            notes="LogShrink public runner is used with isolated symlinked input; compressed size includes generated templates.",
+        )
+
+    def run_loglite(
+        self, case: dict[str, Any], method: dict[str, Any], input_file: Path, work: Path
+    ) -> dict[str, Any]:
+        method_dir = self.method_root(method)
+        variant = method["defaults"]["variant"]
+        if variant == "b":
+            binary = method_dir / "LogLite-b/src/tools/xorc-cli"
+        else:
+            binary = method_dir / "LogLite-B/src/tools/xorc-cli"
+        if variant == "BZ" and shutil.which("zstd") is None:
+            raise MissingDependency("LogLite-BZ requires the zstd CLI, but it is not installed in WSL")
+        if variant == "BL" and shutil.which("xz") is None:
+            raise MissingDependency("LogLite-BL requires the xz CLI, but it is not installed in WSL")
+        intermediate = work / "archive.lite"
+        archive = work / f"archive.{variant}"
+        restored = work / "restored.log"
+        if variant == "b":
+            compress_cmd = f"{q(binary)} --compress --file-path {q(input_file)} --com-output-path {q(archive)}"
+            decompress_cmd = f"{q(binary)} --decompress --file-path {q(archive)} --decom-output-path {q(restored)}"
+        elif variant == "BZ":
+            compress_cmd = (
+                f"{q(binary)} --compress --file-path {q(input_file)} --com-output-path {q(intermediate)} "
+                f"&& zstd -q -f -3 {q(intermediate)} -o {q(archive)}"
+            )
+            decompress_cmd = (
+                f"zstd -q -d -c {q(archive)} > {q(work / 'archive.dec.lite')} "
+                f"&& {q(binary)} --decompress --file-path {q(work / 'archive.dec.lite')} --decom-output-path {q(restored)}"
+            )
+        elif variant == "BL":
+            compress_cmd = (
+                f"{q(binary)} --compress --file-path {q(input_file)} --com-output-path {q(intermediate)} "
+                f"&& xz --format=lzma -6 -c {q(intermediate)} > {q(archive)}"
+            )
+            decompress_cmd = (
+                f"xz --format=lzma -d -c {q(archive)} > {q(work / 'archive.dec.lite')} "
+                f"&& {q(binary)} --decompress --file-path {q(work / 'archive.dec.lite')} --decom-output-path {q(restored)}"
+            )
+        else:
+            raise Unsupported(f"Unknown LogLite variant {variant}")
+        compress = self.run_command(case, "compress", compress_cmd, work)
+        decompress = self.run_command(case, "decompress", decompress_cmd, work)
+        return self.base_metrics(input_file, method, [archive], compress, decompress, restored)
+
+    def run_clp_loglib(
+        self, case: dict[str, Any], method: dict[str, Any], input_file: Path, work: Path
+    ) -> dict[str, Any]:
+        if case["experiment"] == "query":
+            raise Unsupported("CLP-logging Library query evaluation is not wired to a generic clp-ffi query adapter yet")
+        method_dir = self.method_root(method)
+        python = self.python_command(method, method_dir)
+        pythonpath = self.method_pythonpath(method, method_dir, [method_dir / "src"])
+        env = self.env_prefix(pythonpath)
+        helper = self.suite / "clp_loglib_file_adapter.py"
+        archive = work / "archive.clp.zst"
+        command = (
+            f"{env}{python} {q(helper)} "
+            f"--input {q(input_file)} --output {q(archive)}"
+        )
+        compress = self.run_command(case, "ingest_compress", command, work)
+        return self.base_metrics(
+            input_file,
+            method,
+            [archive],
+            compress,
+            notes=(
+                "CLP-logging Library is evaluated as a streaming logging handler: each existing log line is emitted "
+                "through logger.info(message). It is not a byte-equivalent offline file decompressor."
+            ),
+        )
 
     def run_clp(
         self, case: dict[str, Any], method: dict[str, Any], input_file: Path, work: Path
