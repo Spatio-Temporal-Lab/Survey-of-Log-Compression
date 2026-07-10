@@ -1383,8 +1383,6 @@ raise SystemExit(2)
     def run_logarchive(
         self, case: dict[str, Any], method: dict[str, Any], input_file: Path, work: Path
     ) -> dict[str, Any]:
-        if self.file_contains_nul(input_file):
-            raise Unsupported("LogArchive text pipeline does not preserve embedded NUL bytes; skip this binary-like log input")
         binary = self.method_root(method) / "bin/Archiver"
         archive = work / "archive.bin"
         restored = work / "restored.log"

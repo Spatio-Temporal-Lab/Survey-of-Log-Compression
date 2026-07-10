@@ -47,7 +47,7 @@
       "runtime_dir": "/home/abebts130613/log_archive_v0_run_20260629",
       "defaults": {"jhistory": 10, "buckets": 16, "strategy": "est"},
       "parameter_sweeps": [],
-      "note": "Inputs containing embedded NUL bytes are skipped because this text pipeline does not preserve them."
+      "note": "Runs the public Archiver text pipeline and records correctness mismatches instead of pre-skipping inputs with embedded NUL bytes."
     },
     {
       "name": "logzip",
