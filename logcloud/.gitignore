@@ -1,0 +1,9 @@
+.venv
+target
+Cargo.lock
+*.lava
+*.so
+__pycache__
+output_file.bin
+.vscode
+*.meta

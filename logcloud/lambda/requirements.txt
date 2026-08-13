@@ -1,0 +1,3 @@
+rottnest==1.4.0
+openai
+duckdb
